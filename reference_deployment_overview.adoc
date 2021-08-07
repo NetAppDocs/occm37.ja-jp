@@ -1,0 +1,112 @@
+---
+sidebar: sidebar 
+permalink: reference_deployment_overview.html 
+keywords: installation, installing, install, setting up, set up, setup, deploy, deployment, c2s, commerical cloud services, ic, intelligence community 
+summary: 開始する前に、 Cloud Manager および Cloud Volumes ONTAP を導入するためのオプションについて理解を深めておくことを推奨します。 
+---
+= 導入の概要
+:toc: macro
+:hardbreaks:
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+開始する前に、 Cloud Manager および Cloud Volumes ONTAP を導入するためのオプションについて理解を深めておくことを推奨します。
+
+
+
+== Cloud Manager のインストール
+
+Cloud Volumes ONTAP の導入と管理には、 Cloud Manager ソフトウェアが必要です。Cloud Manager は、次のいずれかの場所に導入できます。
+
+* Amazon Web Services （ AWS ）
+* Microsoft Azure
+* Google Cloud Platform の 1 つです
++
+GCP に Cloud Volumes ONTAP を導入する場合は、 Cloud Manager が Google Cloud Platform に含まれている必要があります。
+
+* IBM クラウド
+* 自分のネットワーク内
+
+
+Cloud Manager の導入方法は、選択する場所によって異なります。
+
+[cols="35,65"]
+|===
+| Cloud Manager の場所 | Cloud Manager の導入方法 
+
+
+| AWS  a| 
+. link:task_getting_started_aws.html["NetApp Cloud Central から Cloud Manager を導入する"] （推奨）
+. link:task_launching_aws_mktp.html["AWS Marketplace から導入"]
+. link:task_installing_linux.html["Linux ホストにソフトウェアをダウンロードしてインストールします"]
+
+
+
+
+| AWS C2S | link:media/c2s.pdf["AWS Intelligence Community Marketplace から Cloud Manager を導入"^] 
+
+
+| Azure の一般提供地域  a| 
+. link:task_getting_started_azure.html["NetApp Cloud Central から Cloud Manager を導入する"] （推奨）
+. link:task_launching_azure_mktp.html["Azure Marketplace から導入"]
+. link:task_installing_linux.html["Linux ホストにソフトウェアをダウンロードしてインストールします"]
+
+
+
+
+| Azure Government | link:task_installing_azure_gov.html["Azure US Government Marketplace から Cloud Manager を導入"] 
+
+
+| Azure ドイツ | link:task_installing_azure_germany.html["Linux ホストにソフトウェアをダウンロードしてインストールします"] 
+
+
+| Google Cloud Platform の 1 つです  a| 
+. link:task_getting_started_gcp.html["NetApp Cloud Central から Cloud Manager を導入する"] （推奨）
+. link:task_installing_linux.html["Linux ホストにソフトウェアをダウンロードしてインストールします"]
+
+
+
+NOTE: GCP Marketplace から Google Cloud で Cloud Manager を導入することはできません
+
+
+
+| IBM クラウド | link:task_installing_linux.html["Linux ホストにソフトウェアをダウンロードしてインストールします"] 
+
+
+| オンプレミスネットワーク | link:task_installing_linux.html["Linux ホストにソフトウェアをダウンロードしてインストールします"] 
+|===
+
+
+== Cloud Manager のセットアップ
+
+Cloud Manager のインストール後に、クラウドプロバイダアカウントの追加、 HTTPS 証明書のインストールなどの追加のセットアップを実行できます。
+
+* link:task_setting_up_cloud_central_accounts.html["Cloud Central アカウントをセットアップします"]
+* link:task_adding_aws_accounts.html["Cloud Manager に AWS アカウントを追加する"]
+* link:task_adding_azure_accounts.html["Cloud Manager への Azure アカウントの追加"]
+* link:task_installing_https_cert.html["HTTPS 証明書のインストール"]
+* link:task_setting_up_kms.html["AWS KMS のセットアップ"]
+
+
+
+
+== Cloud Volumes ONTAP の導入
+
+Cloud Manager を起動して実行したら、クラウドプロバイダで Cloud Volumes ONTAP の導入を開始できます。
+
+link:task_getting_started_aws.html["AWS の概要"]、 および  Cloud Volumes ONTAP を短時間で起動して実行するための手順を説明します。その他のヘルプについては、次を参照してください。
+
+* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_aws_97.html["AWS の Cloud Volumes ONTAP 9.7 でサポートされている構成"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_azure_97.html["Cloud Volumes ONTAP 9.7 で Azure でサポートされる構成"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_gcp_97.html["GCP の Cloud Volumes ONTAP 9.7 でサポートされている構成"^]
+* link:task_planning_your_config.html["構成の計画"]
+* link:task_deploying_otc_aws.html["AWS での Cloud Volumes ONTAP の起動"]
+* link:task_deploying_otc_azure.html["Azure で Cloud Volumes ONTAP を起動します"]
+* link:task_deploying_gcp.html["GCP での Cloud Volumes ONTAP の起動"]
+

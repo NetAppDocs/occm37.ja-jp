@@ -1,0 +1,18 @@
+---
+sidebar: sidebar 
+permalink: concept_keep_up.html 
+keywords: shut down, shutdown, stop, stopping, billing, power on, power off 
+summary: Cloud Manager は常時実行されている必要があります。 
+---
+= Cloud Manager を起動して実行します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager は常時実行されている必要があります。
+
+Cloud Manager は、 Cloud Volumes ONTAP の健全性と課金において重要な要素です。Cloud Manager の電源がオフになっている場合、 Cloud Manager との通信が失われてから 4 日以上が経過すると Cloud Volumes ONTAP システムがシャットダウンします。

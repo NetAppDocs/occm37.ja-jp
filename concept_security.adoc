@@ -1,0 +1,99 @@
+---
+sidebar: sidebar 
+permalink: concept_security.html 
+keywords: security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, aws, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, ransomware, fpolicy, snapshots 
+summary: Cloud Volumes ONTAP は、データ暗号化をサポートし、ウィルスやランサムウェアからの保護を提供します。 
+---
+= セキュリティ
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP は、データ暗号化をサポートし、ウィルスやランサムウェアからの保護を提供します。
+
+
+
+== 保存データの暗号化
+
+Cloud Volumes ONTAP は、次の暗号化テクノロジをサポートしています。
+
+* NetApp Volume Encryption （ Cloud Volumes ONTAP 9.5 以降）
+* AWS Key Management Service の略
+* Azure Storage Service Encryption の略
+* Google Cloud Platform のデフォルトの暗号化
+
+
+NetApp Volume Encryption は、 AWS 、 Azure 、 GCP のネイティブ暗号化機能と組み合わせて使用できます。 GCP 暗号化はハイパーバイザーレベルでデータを暗号化します。
+
+
+
+=== NetApp Volume Encryption の略
+
+NetApp Volume Encryption （ NVE ）は、一度に 1 ボリュームずつ保管データを暗号化するためのソフトウェアベースのテクノロジです。データ、 Snapshot コピー、およびメタデータが暗号化されます。データへのアクセスには、ボリュームごとに 1 つずつ、一意の XTS-AES-256 キーを使用します。
+
+Cloud Volumes ONTAP は、外部キー管理サーバを使用した NetApp Volume Encryption をサポートしています。オンボードキーマネージャはサポートされていません。サポートされているキー管理ツールは、で確認できます http://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"^] 主要マネージャー * ソリューションの下。
+
+CLI または System Manager を使用して、新規または既存のボリュームで NetApp Volume Encryption を有効にできます。Cloud Manager では、 NetApp Volume Encryption がサポートされていません。手順については、を参照してください link:task_encrypting_volumes.html["NetApp ボリューム暗号化によるボリュームの暗号化"]。
+
+
+
+=== AWS Key Management Service の略
+
+AWS で Cloud Volumes ONTAP システムを起動する場合、を使用してデータ暗号化を有効にできます http://docs.aws.amazon.com/kms/latest/developerguide/overview.html["AWS Key Management Service （ KMS ；キー管理サービス）"^]。Cloud Manager は、 Customer Master Key （ CMK ）を使用してデータキーを要求します。
+
+
+TIP: Cloud Volumes ONTAP システムの作成後に AWS のデータ暗号化方式を変更することはできません。
+
+この暗号化オプションを使用する場合は、 AWS KMS が適切に設定されていることを確認する必要があります。詳細については、を参照してください link:task_setting_up_kms.html["AWS KMS のセットアップ"]。
+
+
+
+=== Azure Storage Service Encryption の略
+
+https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/["Azure Storage Service Encryption の略"^] Azure の Cloud Volumes ONTAP データでは、保存データに対してデフォルトで有効になります。セットアップは必要ありません。
+
+
+NOTE: お客様が管理するキーは、 Cloud Volumes ONTAP ではサポートされません。
+
+
+
+=== Google Cloud Platform のデフォルトの暗号化
+
+https://cloud.google.com/security/encryption-at-rest/["Google Cloud Platform の保存データ暗号化機能"^] Cloud Volumes ONTAP ではデフォルトで有効になっています。セットアップは必要ありません。
+
+Google Cloud Storage では常にデータが暗号化されてからディスクに書き込まれますが、 Cloud Manager API を使用して、 _cuser-managed 暗号化キー _ を使用する Cloud Volumes ONTAP システムを作成できます。これらは、 Cloud Key Management Service を使用して GCP で生成および管理するキーです。
+
+を参照してください link:api.html#_creating_systems_in_gcp["API 開発者ガイド"^] "GcpEncryption" パラメータの使用方法の詳細については、を参照してください。
+
+
+
+== ONTAP のウィルススキャン
+
+ONTAP システムの統合アンチウイルス機能を使用すると、データがウイルスやその他の悪意のあるコードによって危険にさらされるのを防ぐことができます。
+
+ONTAP ウィルススキャン（ _vscan ）は、クラス最高のサードパーティ製ウィルス対策ソフトウェアと ONTAP 機能を組み合わせたもので、どのファイルをスキャンするか、いつスキャンするかを柔軟に制御できます。
+
+Vscan でサポートされるベンダー、ソフトウェア、およびバージョンについては、を参照してください http://mysupport.netapp.com/matrix["NetApp Interoperability Matrix を参照してください"^]。
+
+ONTAP システムでウィルス対策機能を設定および管理する方法については、を参照してください http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-acg/home.html["ONTAP 9 ウィルス対策構成ガイド"^]。
+
+
+
+== ランサムウェアからの保護
+
+ランサムウェア攻撃は、ビジネス時間、リソース、評判を低下させる可能性があります。Cloud Manager では、ランサムウェアに対応したネットアップソリューションを実装できます。これにより、可視化、検出、修復のための効果的なツールが提供されます。
+
+* Cloud Manager は、 Snapshot ポリシーで保護されていないボリュームを特定し、それらのボリュームのデフォルトの Snapshot ポリシーをアクティブ化できます。
++
+Snapshot コピーは読み取り専用であり、ランサムウェアによる破損を防止します。単一のファイルコピーまたは完全なディザスタリカバリソリューションのイメージを作成する際の単位を提供することもできます。
+
+* Cloud Manager では、 ONTAP の FPolicy ソリューションを有効にすることで、一般的なランサムウェアのファイル拡張子をブロックすることもできます。
+
+
+image:screenshot_ransomware_protection.gif["作業環境内から利用できる「ランサムウェア対策」ページを示すスクリーンショット画面には、 Snapshot ポリシーが適用されていないボリュームの数と、ランサムウェアのファイル拡張子をブロックする機能が表示されます。"]
+
+link:task_protecting_ransomware.html["ネットアップのランサムウェア向けソリューションの実装方法をご確認ください"]。

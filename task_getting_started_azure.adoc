@@ -1,0 +1,68 @@
+---
+pagenav: false 
+sidebar: sidebar 
+permalink: task_getting_started_azure.html 
+keywords: microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, custom role, role, json, permissions, virtual machine, video, connectivity, internet, outbound, endpoint, connection, networks, vpn, replicating, policy, iam, setupasservice, sign up, cloud manager, cloud volumes ontap, cloud ontap, subscription, create 
+summary: Cloud Volumes ONTAP in Azure を使用するには、簡単な手順をいくつか実行します。 
+---
+= Azure での Cloud Volumes ONTAP の導入
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP の利用を開始するには、 Azure をセットアップし、 NetApp Cloud Central から Cloud Manager ソフトウェアを導入します。Cloud Manager の導入手順については、を参照してください link:task_installing_azure_gov.html["Azure US Government リージョン"] およびインチ 。
+
+
+
+=== ネットワークをセットアップします
+
+[role="quick-margin-para"]
+Cloud Manager と Cloud Volumes ONTAP が複数のエンドポイントに接続できるように、ターゲット Vnet からアウトバウンドインターネットアクセスを有効にします。
+
+[role="quick-margin-para"]
+この手順は重要です。 Cloud Manager では、アウトバウンドインターネットアクセスがないと Cloud Volumes ONTAP を導入できないためです。アウトバウンド接続を制限する必要がある場合は、のエンドポイントのリストを参照してください link:reference_networking_cloud_manager.html#outbound-internet-access["クラウドマネージャ"] および 。
+
+
+
+=== 必要な Azure 権限を指定します
+
+[role="quick-margin-para"]
+NetApp Cloud Central から Cloud Manager を導入する場合は、 Cloud Manager 仮想マシンを導入する権限を持つ Azure アカウントを使用する必要があります。
+
+. をダウンロードします https://mysupport.netapp.com/cloudontap/iampolicies["Azure 向けの NetApp Cloud Central ポリシー"^]。
+. 「割り当て可能スコープ」フィールドに Azure サブスクリプション ID を追加して、 JSON ファイルを変更します。
+. JSON ファイルを使用して、 Azure で _Azure SetupAsService_という 名前のカスタムロールを作成します。
++
+例： * AZ ロール定義 create - ロール定義 C ： \Policy_For _Setup_as-a-Service _Azure.json *
+
+. Azure ポータルから、 Cloud Central から Cloud Manager を導入するユーザにカスタムロールを割り当てます。
+
+
+
+
+=== NetApp Cloud Central から Cloud Manager を起動します
+
+[role="quick-margin-para"]
+Cloud Volumes ONTAP の導入と管理には、 Cloud Manager ソフトウェアが必要です。から Cloud Manager インスタンスを起動するには数分かかります https://cloud.netapp.com["Cloud Central にアクセスできます"^]。
+
+
+
+=== Cloud Manager を使用して Cloud Volumes ONTAP を起動します
+
+[role="quick-margin-para"]
+Cloud Manager の準備ができたら、 [ 作成 ] をクリックし、導入するシステムのタイプを選択して、ウィザードの手順を完了します。25 分経過すると、最初の Cloud Volumes ONTAP システムが起動して実行されます。
+
+.関連リンク
+* link:concept_evaluating.html["評価中"]
+* link:reference_networking_cloud_manager.html["Cloud Manager のネットワーク要件"]
+* link:reference_networking_azure.html["Azure の Cloud Volumes ONTAP のネットワーク要件"]
+* link:reference_security_groups_azure.html["Azure のセキュリティグループルール"]
+* link:task_adding_azure_accounts.html["Cloud Manager への Azure アカウントの追加"]
+* link:reference_permissions.html#what-cloud-manager-does-with-azure-permissions["クラウドマネージャーが Azure の権限で行うこと"]
+* link:task_deploying_otc_azure.html["Azure で Cloud Volumes ONTAP を起動します"]
+* link:task_launching_azure_mktp.html["Azure Marketplace からの Cloud Manager の起動"]
+

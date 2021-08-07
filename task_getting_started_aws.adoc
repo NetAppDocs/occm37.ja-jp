@@ -1,0 +1,80 @@
+---
+pagenav: false 
+sidebar: sidebar 
+permalink: task_getting_started_aws.html 
+keywords: amazon web services, aws, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, vpc, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, get started, network, vpn, multi-cloud, tier, tiering, storage tier, data tier, vpc endpoint, endpoint, S3, subscribe, subscribing, marketplace, granting, permissions, policy, iam policy, ec2 console, ami, mediator, connectivity, internet, outbound, endpoint, connection, networks, replicating, ec2 service, policies, attach, iam user, access key, secret key, keys, sign up, cloud manager, cloud volumes ontap, cloud ontap, create 
+summary: Cloud Volumes ONTAP in AWS の使用を開始するには、いくつかの手順を実行します。 
+---
+= AWS で Cloud Volumes ONTAP を使用するための準備
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP の使用を開始するには、 AWS をセットアップし、 NetApp Cloud Central から Cloud Manager ソフトウェアを起動します。AWS で初めて Cloud Volumes ONTAP システムを起動された場合、 30 日間の無償トライアルが利用できます。
+
+
+
+=== ネットワークをセットアップします
+
+. Cloud Manager と Cloud Volumes ONTAP が複数のエンドポイントに接続できるように、ターゲット vPC からのアウトバウンドインターネットアクセスを有効にします。
++
+Cloud Manager ではアウトバウンドのインターネットアクセスなしで Cloud Volumes ONTAP を導入できないため、この手順は重要です。アウトバウンド接続を制限する必要がある場合は、のエンドポイントのリストを参照してください link:reference_networking_cloud_manager.html#outbound-internet-access["クラウドマネージャ"] および 。
+
+. S3 サービスへの vPC エンドポイントをセットアップします。
++
+Cloud Volumes ONTAP から低コストのオブジェクトストレージにコールドデータを階層化する場合は、 VPC エンドポイントが必要です。
+
+
+
+
+
+=== 必要な AWS 権限を指定します
+
+[role="quick-margin-para"]
+NetApp Cloud Central から Cloud Manager を導入する場合は、インスタンスを導入する権限を持つ AWS アカウントを使用する必要があります。
+
+. AWS IAM コンソールに移動し、の内容をコピーして貼り付け、ポリシーを作成します https://mysupport.netapp.com/cloudontap/iampolicies["AWS 向けの NetApp Cloud Central ポリシー"^]。
+. IAM ユーザにポリシーを付加します。
+
+
+
+
+=== AWS Marketplace でサブスクライブ
+
+[role="quick-margin-para"]
+https://aws.amazon.com/marketplace/pp/B07QX2QLXX["AWS Marketplace で Cloud Manager のサブスクリプションを登録します"^] Cloud Volumes ONTAP の無償トライアルの終了後にサービスを中断しないようにするため。作成した Cloud Volumes ONTAP PAYGO システムごと、および有効にしたアドオン機能ごとに、このサブスクリプションから料金が請求されます。
+
+[role="quick-margin-para"]
+独自のライセンスを使用（ BYOL ）して Cloud Volumes ONTAP を起動する場合は、 https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=cloud+volumes+ontap+byol["その後、 AWS Marketplace でそのサービスに登録する必要があります"^]。
+
+
+
+=== NetApp Cloud Central から Cloud Manager を起動します
+
+[role="quick-margin-para"]
+Cloud Volumes ONTAP の導入と管理には、 Cloud Manager ソフトウェアが必要です。から Cloud Manager インスタンスを起動するには数分かかります https://cloud.netapp.com["Cloud Central にアクセスできます"^]。
+
+
+
+=== Cloud Manager を使用して Cloud Volumes ONTAP を起動します
+
+[role="quick-margin-para"]
+Cloud Manager の準備ができたら、 [ 作成 ] をクリックし、起動するシステムのタイプを選択して、ウィザードの手順を完了します。25 分経過すると、最初の Cloud Volumes ONTAP システムが起動して実行されます。
+
+次のビデオでは、これらの手順を説明しています。
+
+video::video_getting_started_aws.mp4[width=848,height=480]
+.関連リンク
+* link:concept_evaluating.html["評価中"]
+* link:reference_networking_cloud_manager.html["Cloud Manager のネットワーク要件"]
+* link:reference_networking_aws.html["Cloud Volumes ONTAP in AWS のネットワーク要件"]
+* link:reference_security_groups.html["AWS のセキュリティグループルール"]
+* link:task_adding_aws_accounts.html["Cloud Manager に AWS アカウントを追加する"]
+* link:reference_permissions.html#what-cloud-manager-does-with-aws-permissions["Cloud Manager が AWS 権限を使用して実行する処理"]
+* link:task_deploying_otc_aws.html["AWS での Cloud Volumes ONTAP の起動"]
+* link:task_launching_aws_mktp.html["AWS Marketplace からの Cloud Manager の起動"]
+

@@ -1,0 +1,100 @@
+---
+pagenav: false 
+sidebar: sidebar 
+permalink: task_connecting_kubernetes.html 
+keywords: kubernetes, persistent volumes, containers, persistent storage, kubeconfig, trident, kubernetes cluster, storage classes, classes, cvo-single, cvo-ha, thick provisioning, trident_trident, connect, disconnect, provision 
+summary: Cloud Manager では、 Kubernetes クラスタへの NetApp Trident の導入を自動化できるため、 ONTAP をコンテナ用の永続的ストレージとして使用できます。これは、 Cloud Volumes ONTAP クラスタとオンプレミスの ONTAP クラスタで機能します。「はじめに」ではいくつかの手順を説明します。 
+---
+= Kubernetes 用の永続的ストレージとしての ONTAP の使用
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager では、の導入を自動化できます https://netapp-trident.readthedocs.io/en/stable-v18.10/introduction.html["NetApp Trident"^] Kubernetes クラスタでは、コンテナ用の永続的ストレージとして ONTAP を使用できます。これは、 Cloud Volumes ONTAP クラスタとオンプレミスの ONTAP クラスタで機能します。
+
+これらの手順を完了する前に、を実行する必要があります link:reference_before.html["Cloud Volumes ONTAP システムを作成します"] または  をクリックします。
+
+を使用して Kubernetes クラスタを導入する場合 https://cloud.netapp.com/kubernetes-service["NetApp Kubernetes Service の略"^]を使用すると、 Cloud Manager は NetApp Cloud Central アカウントからクラスタを自動的に検出できます。その場合は、最初の 2 つの手順をスキップし、手順 3 から始めます。
+
+
+
+=== ネットワーク接続を確認
+
+. Cloud Manager と Kubernetes クラスタの間、および Kubernetes クラスタから ONTAP システムへのネットワーク接続が確立されている必要があります。
+. Cloud Manager のインストール時に、アウトバウンドのインターネット接続で次のエンドポイントにアクセスできる必要があります。
++
+¥ https://packages.cloud.google.com/yum ¥ https://github.com/NetApp/trident/releases/download/
+
++
+Cloud Manager は、作業環境をクラスタに接続すると Kubernetes クラスタに Trident をインストールします。
+
+
+
+
+
+=== Kubernetes 構成ファイルを Cloud Manager にアップロード
+
+[role="quick-margin-para"]
+Kubernetes クラスタごとに、アカウント管理者が YAML 形式の構成ファイル（ kubeconfig ）をアップロードする必要があります。ファイルをアップロードすると、 Cloud Manager はクラスタへの接続を検証し、暗号化された kubeconfig ファイルのコピーを保存します。
+
+[role="quick-margin-para"]
+[* Kubernetes Clusters] > [Discover] > [Upload File] をクリックし、 kubeconfig ファイルを選択します。
+
+[role="quick-margin-para"]
+image:screenshot_kubernetes_setup.gif["[Kubernetes clusters] タブに [Discover] ボタンが表示されたスクリーンショットで、 [Upload File] をクリックして kubeconfig ファイルをアップロードします。"]
+
+
+
+=== 作業環境を Kubernetes クラスタに接続
+
+[role="quick-margin-para"]
+作業環境で Kubernetes アイコンをクリックし、画面の指示に従います。異なるクラスタを異なる ONTAP システムに、複数のクラスタを同じ ONTAP システムに接続できます。
+
+[role="quick-margin-para"]
+ネットアップストレージクラスを Kubernetes クラスタのデフォルトのストレージクラスとして設定することもできます。ユーザが永続ボリュームを作成すると、 Kubernetes クラスタは、接続された ONTAP システムをデフォルトでバックエンドストレージとして使用できます。
+
+[role="quick-margin-para"]
+image:screenshot_kubernetes_connect.gif["および Cloud Volumes ONTAP 作業環境内の Kubernetes アイコンと後続のページを示すスクリーンショット。 Kubernetes クラスタを選択してから、 Connect をクリックします。"]
+
+
+
+=== 永続ボリュームのプロビジョニングを開始します
+
+[role="quick-margin-para"]
+Kubernetes の標準のインターフェイスと構成要素を使用して、永続ボリュームを要求および管理できます。Cloud Manager では、永続的ボリュームのプロビジョニングに使用できる Kubernetes ストレージクラスが 4 つ作成されます。
+
+* * NetApp-file* ：単一ノードの ONTAP システムにパーシステントボリュームをバインドする場合
+* * NetApp-file-san* ： iSCSI パーシステントボリュームをシングルノードの ONTAP システムにバインドする場合
+* * NetApp-fileredundant * ：永続的ボリュームを ONTAP HA ペアにバインドするため
+* * NetApp-file-redundant-san * ： iSCSI 永続的ボリュームを ONTAP HA ペアにバインドする場合
+
+
+[role="quick-margin-para"]
+Cloud Manager は、デフォルトで次のプロビジョニングオプションを使用するように Trident を設定します。
+
+* シンボリューム
+* デフォルトの Snapshot ポリシー
+* アクセス可能な Snapshot ディレクトリ
+
+
+[role="quick-margin-para"]
+https://netapp-trident.readthedocs.io/["Trident で最初のボリュームをプロビジョニングする方法をご確認ください Kubernetes"^]
+
+.Trident ボリュームとは何ですか。
+****
+Cloud Manager は、 Kubernetes クラスタに接続する最初の ONTAP システム上にボリュームを作成します。ボリューム名に「 _trident_trident 」が追加されます。 ONTAP は、このボリュームを使用して Kubernetes クラスタに接続します。これらのボリュームは削除しないでください。
+
+****
+.Kubernetes クラスタを切断または削除するとどうなりますか？
+****
+Cloud Manager を使用すると、個々の ONTAP システムを Kubernetes クラスタから切断できます。システムを切断すると、その ONTAP システムをコンテナ用の永続的ストレージとして使用できなくなります。既存の永続ボリュームは削除されません。
+
+Kubernetes クラスタからすべてのシステムを切断したら、 Kubernetes 構成全体を Cloud Manager から削除することもできます。クラスタを削除しても、 Cloud Manager は Trident をアンインストールしないため、永続的ボリュームは削除されません。
+
+どちらのアクションも API からのみ実行できます。今後のリリースでインターフェイスにアクションを追加する予定です。link:api.html#_kubernetes["API の詳細については、ここをクリックしてください"]。
+
+****

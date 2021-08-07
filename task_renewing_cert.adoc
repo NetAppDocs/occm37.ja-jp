@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: task_renewing_cert.html 
+keywords: https certificate, certificate, renewing 
+summary: Cloud Manager Web コンソールへの安全なアクセスを確保するために、 Cloud Manager HTTPS 証明書は有効期限が切れる前に更新する必要があります。証明書の有効期限が切れる前に証明書を更新しないと、ユーザが HTTPS を使用して Web コンソールにアクセスしたときに警告が表示されます。 
+---
+= Cloud Manager の HTTPS 証明書を更新します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager Web コンソールへの安全なアクセスを確保するために、 Cloud Manager HTTPS 証明書は有効期限が切れる前に更新する必要があります。証明書の有効期限が切れる前に証明書を更新しないと、ユーザが HTTPS を使用して Web コンソールにアクセスしたときに警告が表示されます。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * HTTPS セットアップ * を選択します。
++
+Cloud Manager 証明書の詳細が表示されます。有効期限も表示されます。
+
+. [HTTPS 証明書の更新 ] をクリックし、手順に従って CSR を生成するか、独自の CA 署名証明書をインストールします。
+
+
+Cloud Manager は新しい CA 署名付き証明書を使用して、セキュアな HTTPS アクセスを提供します。

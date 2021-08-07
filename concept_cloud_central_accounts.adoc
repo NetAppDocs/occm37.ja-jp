@@ -1,0 +1,144 @@
+---
+sidebar: sidebar 
+permalink: concept_cloud_central_accounts.html 
+keywords: accounts, workspaces, service connector, users, cloud central, admin, Account Admin, Workspace Admin 
+summary: 各 Cloud Manager システムは、 NetApp Cloud Central アカウントに関連付けられています。Cloud Central アカウントは、 Cloud Manager システムと、ユーザが Cloud Volumes ONTAP を導入するワークスペースのコンテナです。 
+---
+= Cloud Central アカウント
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+各 Cloud Manager システムには、 _NetApp Cloud Central アカウント _ が関連付けられています。Cloud Central アカウントはマルチテナンシーを提供し、分離されたワークスペースでユーザやリソースを整理することができます。
+
+Cloud Central アカウントでは、マルチテナンシーが可能です。
+
+* 単一のクラウドセントラルアカウントには、さまざまなビジネスニーズに対応する複数のクラウドマネージャシステムを含めることができます。
++
+ユーザは Cloud Central アカウントに関連付けられるため、 Cloud Manager システムごとにユーザを設定する必要はありません。
+
+* 各 Cloud Manager システム内では、複数のユーザが、ワークスペースと呼ばれる分離された環境に Cloud Volumes ONTAP システムを導入して管理できます。
++
+これらのワークスペースは、共有されていない限り、他のユーザーには表示されません。
+
+
+
+Cloud Manager を導入する場合は、システムに関連付ける Cloud Central アカウントを選択します。
+
+image:screenshot_account_selection.gif["Cloud Manager のセットアップウィザードのスクリーンショット。 Cloud Manager を作成する Cloud Central アカウントの入力を求められます。"]
+
+アカウント管理者は、ユーザー、ワークスペース、サービスコネクタを管理することで、このアカウントの設定を変更できます。
+
+image:screenshot_account_settings.gif["ユーザー、ワークスペース、サービスコネクタを管理できるアカウント設定ウィジェットを示すスクリーンショット。"]
+
+手順については、を参照してください link:task_setting_up_cloud_central_accounts.html["Cloud Central アカウントをセットアップします"]。
+
+
+NOTE: Cloud Central アカウントサービスに接続するためには、 Cloud Manager から https://cloudmanager.cloud.netapp.com_ にアクセスする必要があります。ファイアウォールでこの URL を開いて、 Cloud Manager がサービスに接続できることを確認します。
+
+
+
+== ユーザ、ワークスペース、およびサービスコネクタ
+
+Cloud Manager の ［ アカウント設定 ］ ウィジェットを使用すると、アカウント管理者は Cloud Central アカウントを管理できます。アカウントを作成したばかりの場合は、最初から作成します。アカウントをすでに設定している場合は、アカウントに関連付けられているユーザ、ワークスペース、サービスコネクタが _ALL_ と表示されます。
+
+ユーザ::
++
+--
+ユーザを関連付けると、ユーザにロールが割り当てられます。
+
+* _Account Admin_ ： Cloud Manager で任意の操作を実行できます。
+* _ ワークスペース管理者 _ ：割り当てられたワークスペースでリソースを作成および管理できます。
+
+
+--
+ワークスペース::
++
+--
+稼働環境はストレージシステムを表します。
+
+* シングルノードクラウドボリューム ONTAP システムまたは HA ペア
+* ネットワーク内のオンプレミス ONTAP クラスタ
+* NetApp プライベートストレージ構成の ONTAP クラスタ
+
+
+--
+サービスコネクタ::
++
+--
+Service Connector は、複数の NetApp クラウドデータサービスで使用できます。たとえば、 Cloud Manager 用の Service Connector がすでにある場合は、 Cloud Tiering Service のセットアップ時にそのコネクタを選択できます。
+
+--
+
+
+
+
+== 例
+
+次の例は、 2 つのワークスペースを使用して、 Cloud Volumes ONTAP システムの分離環境を作成するアカウントを示しています。たとえば、 1 つのワークスペースがステージング環境用で、もう 1 つのワークスペースが本番環境用であるとします。
+
+
+NOTE: Cloud Manager と Cloud Volumes ONTAP システムは、実際には NetApp Cloud Central アカウントには存在しません。クラウドプロバイダで実行されています。これは、各コンポーネント間の関係の概念図です。
+
+image:diagram_cloud_central_accounts_one.png["2 つのワークスペースを含む単一の Cloud Central アカウントを示す図。各ワークスペースは同じサービスコネクタに関連付けられ、それぞれに独自のワークスペース管理者が割り当てられます"]
+
+次に、 2 つの異なる Cloud Central アカウントを使用した、最高レベルのマルチテナンシーの例を示します。たとえば、あるサービスプロバイダーがクラウドセントラルアカウントの Cloud Manager を使用して顧客にサービスを提供し、別のアカウントを使用していずれかのビジネスユニットに災害復旧を提供する場合などです。
+
+Account 2 には、 2 つの個別のサービスコネクタが含まれています。これは、システムが別々の地域にある場合や、別々のクラウドプロバイダにある場合に発生することがあります。
+
+
+NOTE: 繰り返しになりますが、 Cloud Manager と Cloud Volumes ONTAP システムは、実際には NetApp Cloud Central アカウントではなく、クラウドプロバイダで実行されています。これは、各コンポーネント間の関係の概念図です。
+
+image:diagram_cloud_central_accounts_two.png["「 2 つの Cloud Central アカウントを示す図。それぞれに複数のワークスペースと、それに関連付けられた Workspace Admins 。」"]
+
+
+
+== Cloud Central アカウントとの統合に関する FAQ
+
+クラウドマネージャ 3.7 にアップグレードした後、クラウドセントラルアカウントと統合するために、特定のクラウドマネージャシステムを選択する予定です。この FAQ では、このプロセスに関する質問にお答えします。
+
+
+
+=== プロセスにはどのくらいの時間がかかりますか？
+
+わずか数分。
+
+
+
+=== Cloud Manager は使用できませんか。
+
+いいえ。 Cloud Manager システムには引き続きアクセスできます。
+
+
+
+=== Cloud Volumes ONTAP について教えてください。
+
+Cloud Volumes ONTAP システムが停止することはありません。
+
+
+
+=== このプロセスでは何が起こりますか？
+
+ネットアップは、統合プロセスで次のことを行います。
+
+. 新しい Cloud Central アカウントを作成し、 Cloud Manager システムに関連付けます。
+. 既存の各ユーザに新しいロールを割り当てます。
++
+** Cloud Manager 管理者はアカウント管理者になります
+** テナント管理者と作業環境管理者は、ワークスペース管理者になります
+
+
+. 既存のテナントを置き換えるワークスペースを作成します。
+. 作業環境をこれらのワークスペースに配置します。
+. Service Connector をすべてのワークスペースに関連付けます。
+
+
+
+
+=== Cloud Manager システムのインストール先はどこにいても問題ありませんか。
+
+いいえネットアップは、 AWS 、 Azure 、オンプレミスのいずれの環境にあっても、 Cloud Central アカウントとシステムを統合します。

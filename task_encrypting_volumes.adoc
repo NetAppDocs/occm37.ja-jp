@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: task_encrypting_volumes.html 
+keywords: encrypt, encryption, data, volumes, netapp volume encryption, volume encryption, nve, key managers, kmip, key management servers, license, ssl certificates 
+summary: NetApp Volume Encryption は、一度に 1 つのボリュームの保存データを暗号化するソフトウェアベースのテクノロジです。データ、 Snapshot コピー、およびメタデータが暗号化されます。データへのアクセスには、ボリュームごとに 1 つずつ、一意の XTS-AES-256 キーを使用します。 
+---
+= NetApp ボリューム暗号化によるボリュームの暗号化
+:toc: macro
+:hardbreaks:
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+NetApp Volume Encryption （ NVE ）は、一度に 1 ボリュームずつ保管データを暗号化するためのソフトウェアベースのテクノロジです。データ、 Snapshot コピー、およびメタデータが暗号化されます。データへのアクセスには、ボリュームごとに 1 つずつ、一意の XTS-AES-256 キーを使用します。
+
+.このタスクについて
+* Cloud Manager 3.7.1 以降では、ネットアップサポートに登録されている各 Cloud Volumes ONTAP システムに NetApp Volume Encryption ライセンスが自動的にインストールされます。
++
+** link:task_adding_nss_accounts.html["Cloud Manager へのネットアップサポートサイトのアカウントの追加"]
+** link:task_registering.html["従量課金制システムの登録"]
++
+
+NOTE: Cloud Manager は、中国地域のシステムに NVE ライセンスをインストールしません。
+
+
+
+* 現時点で、 Cloud Volumes ONTAP は外部キー管理サーバを使用した NetApp Volume Encryption をサポートしています。オンボードキーマネージャはサポートされていません。
+* ONTAP CLI から NetApp Volume Encryption をセットアップする必要があります。
++
+その後、 CLI または System Manager を使用して、特定のボリュームで暗号化を有効にできます。Cloud Manager のユーザインターフェイスと API では、 NetApp Volume Encryption がサポートされていません。
+
+
+
+link:concept_security.html["サポートされている暗号化テクノロジの詳細を確認してください"]。
+
+.手順
+. でサポートされているキー管理ツールのリストを確認します http://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"^]。
++
+
+TIP: Key Managers * ソリューションを検索します。
+
+. link:task_connecting_to_otc.html["Cloud Volumes ONTAP CLI に接続します"^]。
+. SSL 証明書をインストールして、外部キー管理サーバに接続します。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-DD718B42-038D-4009-84FF-20BBD6530BC2.html["ONTAP 9 ネットアップ暗号化パワーガイド：外部キー管理の設定"^]
+
+. CLI または System Manager を使用して、暗号化された新しいボリュームを作成するか、暗号化されていない既存のボリュームを変換します。
++
+** CLI の使用
++
+*** 新しいボリュームの場合は、 -encrypt パラメータを指定して * volume create * コマンドを使用します。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-A5D3FDEF-CA10-4A54-9E17-DB9E9954082E.html["ONTAP 9 ネットアップ暗号化パワーガイド：新しいボリュームでの暗号化の有効化"^]
+
+*** 既存のボリュームについては、 * volume encryption conversion start * コマンドを使用します。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1468CE48-A0D9-4D45-BF78-A11C26724051.html["ONTAP 9 ネットアップ暗号化パワーガイド： volume encryption conversion start コマンドを使用した既存のボリュームでの暗号化の有効化"^]
+
+
+
+** System Manager の略
++
+*** 新しいボリュームの場合は、 * Storage > Volumes > Create > Create FlexVol * の順にクリックし、 * Encrypted * を選択します。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-950/GUID-3FA865E2-AE14-40A9-BF76-A2D7EB44D387.html["ONTAP 9 System Manager を使用したクラスタ管理： FlexVol ボリュームの作成"^]
+
+*** 既存のボリュームの場合は、ボリュームを選択し、 * 編集 * をクリックして、 * 暗号化 * を選択します。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-950/GUID-906E88E4-8CE9-465F-8AC7-0C089080B2C5.html["ONTAP 9 System Manager を使用したクラスタ管理：ボリュームプロパティの編集"^]
+
+
+
+
+
+

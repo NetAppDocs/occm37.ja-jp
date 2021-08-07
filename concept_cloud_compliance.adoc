@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: concept_cloud_compliance.html 
+keywords: artificial intelligence, ai, compliance, cloud compliance, dsar, personal data, personal information, sensitive, personal sensitive data, gdpr, scans, scanning 
+summary: Cloud Compliance は、 AWS と Azure での Cloud Volumes ONTAP 向けのデータプライバシーとコンプライアンスのサービスです。人工知能（ AI ）ベースのテクノロジを使用したクラウドコンプライアンスは、組織がデータコンテキストを把握し、 Cloud Volumes ONTAP システム全体で機密データを特定するのに役立ちます。 
+---
+= Cloud Compliance の詳細をご確認ください
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Compliance は、 AWS と Azure での Cloud Volumes ONTAP 向けのデータプライバシーとコンプライアンスのサービスです。人工知能（ AI ）ベースのテクノロジを使用したクラウドコンプライアンスは、データコンテキストを把握し、 Cloud Volumes ONTAP システム全体で機密データを特定するのに役立ちます。
+
+Cloud Compliance は現在、限定リリースとして提供されています。
+
+https://cloud.netapp.com/cloud-compliance["Cloud Compliance のユースケースを紹介します"^]。
+
+
+
+== の機能
+
+Cloud Compliance には、コンプライアンスの取り組みに役立つツールがいくつか用意されています。Cloud Compliance を使用すると、次のことができます。
+
+* 個人識別情報（ PII ）の識別
+* GDPR 、 CCPA 、 PCI 、 HIPAA の各プライバシー規制の要件に応じて、さまざまな機密情報の範囲を特定します
+* データサブジェクトアクセス要求への応答（ dsar ）
+
+
+
+
+== コスト
+
+Cloud Compliance は、ネットアップが無償で提供する Cloud Volumes ONTAP 向けのアドオンサービスです。Cloud Compliance をアクティブ化するにはクラウドインスタンスを導入する必要があり、そのインスタンスをクラウドプロバイダが課金します。データがネットワークの外部に流れないため、データの入力または出力に料金は発生しません。
+
+
+
+== Cloud Compliance の仕組み
+
+Cloud Compliance の仕組みは次のとおりです。
+
+. 1 つ以上の Cloud Volumes ONTAP システムでクラウドコンプライアンスを有効にします。
+. Cloud Compliance は、 AI のラーニングプロセスを使用してデータをスキャンします。
+. Cloud Manager では、 [* コンプライアンス ] をクリックし、提供されているダッシュボードおよびレポートツールを使用して、コンプライアンスの取り組みを支援します。
+
+
+
+
+== Cloud Compliance インスタンス
+
+1 つ以上の Cloud Volumes ONTAP システムで Cloud Compliance を有効にすると、 Cloud Manager は要求内の最初の Cloud Volumes ONTAP システムと同じ VPC または VNet に Cloud Compliance インスタンスを導入します。
+
+image:diagram_cloud_compliance_instance.png["クラウドプロバイダで実行されている Cloud Manager インスタンスと Cloud Compliance インスタンスを示す図。"]
+
+インスタンスについては、次の点に注意してください。
+
+* Azure では、 Cloud Compliance は 512 GB ディスクの Standard_D16s_v3 VM で実行されます。
+* AWS では、クラウドコンプライアンスは m5.mcd インスタンスと 500GB io1 ディスクで実行します。
++
+m5.mcd を使用できない地域では、代わりに m4.mcd インスタンスに対して Cloud Compliance を実行します。
+
+* インスタンスの名前は _CloudCompliancy_with で、生成されたハッシュ（ UUID ）を連結しています。例： _CloudCompliion-16bb6564-38ad-40802-9a92-36f5fd2f71c7_
+* Cloud Manager システムごとに導入される Cloud Compliance インスタンスは 1 つだけです。
+* Cloud Compliance ソフトウェアのアップグレードは自動化されているため、心配する必要はありません。
+
+
+
+TIP: Cloud Compliance は Cloud Volumes ONTAP システム上のデータを継続的にスキャンするため、インスタンスは常時実行している必要があります。
+
+
+
+== スキャンの動作
+
+Cloud Compliance を有効にすると、データのスキャンがただちに開始され、個人データや機密データが識別されます。
+
+Cloud Compliance は、 NFS ボリュームと CIFS ボリュームをマウントすることで、他のクライアントと同様に Cloud Volumes ONTAP に接続します。NFS ボリュームには読み取り専用で自動的にアクセスされますが、 CIFS ボリュームをスキャンするためには Active Directory のクレデンシャルを指定する必要があります。
+
+Cloud Compliance は、各ボリュームの非構造化データをスキャンして、さまざまな個人情報を取得します。組織のデータをマッピングし、各ファイルを分類して、データ内のエンティティと定義済みパターンを特定して抽出します。スキャンの結果は、個人情報、機密性の高い個人情報、およびデータカテゴリのインデックスです。
+
+image:diagram_cloud_compliance_scan.png["クラウドプロバイダで実行されている Cloud Manager インスタンスと Cloud Compliance インスタンスを示す図。Cloud Compliance インスタンスは、 NFS ボリュームと CIFS ボリュームに接続してスキャンします。"]
+
+初回スキャン後、 Cloud Compliance は各ボリュームを継続的にスキャンして差分変更を検出し、インスタンスの実行を維持することが重要な理由です。
+
+スキャンのオンとオフは作業環境レベルで切り替えることができますが、ボリュームレベルではできません。 link:task_managing_compliance.html["詳細をご確認ください"]。
+
+
+
+== Cloud Compliance がインデックス化する情報
+
+Cloud Compliance は、非構造化データ（ファイル）を収集してインデックスを作成し、カテゴリを割り当てます。Cloud Compliance インデックスに含まれるデータは次のとおりです。
+
+標準メタデータ:: Cloud Compliance は、ファイルタイプ、サイズ、作成日、変更日など、ファイルに関する標準のメタデータを収集します。
+個人データ:: メールアドレス、識別番号、クレジットカード番号など、個人を特定できる情報。 link:task_controlling_private_data.html#personal-data["個人データの詳細については、こちらをご覧ください"]。
+機密性の高い個人データ:: GDPR やその他のプライバシー規制で定義されている、健康データ、民族的起源、政治的見解などの機密情報の特殊な種類。 link:task_controlling_private_data.html#sensitive-personal-data["機密性の高い個人データの詳細をご覧ください"]。
+カテゴリ:: Cloud Compliance は、スキャンしたデータをさまざまなタイプのカテゴリに分類します。カテゴリは、各ファイルのコンテンツとメタデータの AI 分析に基づくトピックです。 link:task_controlling_private_data.html#categories["カテゴリの詳細については、こちらをご覧ください"]。
+名前エンティティ認識:: Cloud Compliance は、 AI を使用して、ドキュメントから自然な人物の名前を抽出します。 link:task_responding_to_dsar.html["データ主体のアクセスリクエストへの対応について説明します"]。
+
+
+
+
+== ネットワークの概要
+
+Cloud Manager は、プライベート IP アドレスとセキュリティグループを使用して Cloud Compliance インスタンスを導入し、 Cloud Manager からのインバウンド HTTP 接続を有効にします。この接続を使用すると、 Cloud Manager インターフェイスから Cloud Compliance ダッシュボードにアクセスできます。
+
+アウトバウンドルールは完全にオープンです。インスタンスは、 Cloud Manager のプロキシを使用して Cloud Volumes ONTAP システムおよびインターネットに接続します。Cloud Compliance ソフトウェアのアップグレードと使用状況の指標の送信には、インターネットアクセスが必要です。
+
+ネットワーク要件が厳しい場合は、 link:task_getting_started_compliance.html#reviewing-prerequisites["Cloud Compliance が連絡するエンドポイントについて説明します"]。
+
+
+TIP: インデックス付けされたデータが Cloud Compliance インスタンスから離れることはありません。データは仮想ネットワークの外部にはリレーされず、 Cloud Manager には送信されません。
+
+
+
+== コンプライアンス情報へのユーザアクセス
+
+Cloud Manager Admin は、すべての作業環境のコンプライアンス情報を表示できます。
+
+ワークスペース管理者は、アクセス権限を持つシステムのコンプライアンス情報のみを表示できます。ワークスペース管理者が Cloud Manager の作業環境にアクセスできない場合、作業環境のコンプライアンス情報は [ コンプライアンス ] タブに表示されません。
+
+link:reference_user_roles.html["Cloud Manager のロールに関する詳細情報"]。

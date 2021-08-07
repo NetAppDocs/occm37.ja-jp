@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: task_setting_up_cloud_manager.html 
+keywords:  
+summary: Cloud Manager を導入した直後に、 Cloud Volumes ONTAP システムの作成を開始できます。ただし、最初に Cloud Central アカウントを設定してから、クラウドプロバイダアカウントの追加、 HTTPS 証明書のインストールなどの追加のセットアップを実行することができます。 
+---
+= Cloud Manager のセットアップ
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager を導入した直後に、 Cloud Volumes ONTAP システムの作成を開始できます。ただし、最初に Cloud Central アカウントを設定してから、クラウドプロバイダアカウントの追加、 HTTPS 証明書のインストールなどの追加のセットアップを実行することができます。
+
+* link:task_setting_up_cloud_central_accounts.html["Cloud Central アカウントをセットアップします"]
+* link:task_adding_aws_accounts.html["Cloud Manager に AWS アカウントを追加する"]
+* link:task_adding_azure_accounts.html["Cloud Manager への Azure アカウントの追加"]
+* link:task_adding_gcp_accounts.html["Cloud Manager に GCP アカウントを追加する"]
+* link:task_adding_nss_accounts.html["Cloud Manager へのネットアップサポートサイトのアカウントの追加"]
+* link:task_installing_https_cert.html["HTTPS 証明書のインストール"]
+* link:task_setting_up_kms.html["AWS KMS のセットアップ"]
+

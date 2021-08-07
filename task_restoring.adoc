@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: task_restoring.html 
+keywords: cloud manager, restore, restoring, restore cloud manager, back up, backup, backups, back up cloud manager 
+summary: NetApp Cloud Central アカウントを使用すると、 Cloud Manager の構成を簡単にリストアできます。アカウントは Cloud Central で実行されるサービスであるため、アカウントに関連付けたユーザ、ワークスペース、およびサービスコネクタには常にアクセスできます。Cloud Manager システムが誤って削除された場合も同様です。 
+---
+= Cloud Manager をリストアしています
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+。 link:concept_cloud_central_accounts.html["NetApp Cloud Central アカウント"] Cloud Manager の設定を簡単にリストアできます。アカウントは Cloud Central で実行されるサービスであるため、アカウントに関連付けたユーザ、ワークスペース、およびサービスコネクタには常にアクセスできます。Cloud Manager システムが誤って削除された場合も同様です。
+
+
+NOTE: 3.7.1 リリース以降、 Cloud Manager では、バックアップのダウンロードとリストアに使用することはできなくなりました。Cloud Manager をリストアするには、次の手順を実行する必要があります。
+
+.手順
+. 既存の Cloud Central アカウントに新しい Cloud Manager システムを導入します。
++
+link:reference_deployment_overview.html["導入オプション"]
+
+. Cloud Manager にクラウドプロバイダアカウントとネットアップサポートサイトアカウントを追加します。
++
+これにより、クラウドプロバイダで追加の Cloud Volumes ONTAP システムを作成できるようになり、 Cloud Manager を使用できるようになります。
+
++
+この新しい Cloud Manager システムで検出する既存の Cloud Volumes ONTAP システムを AWS キーを使用して導入した場合は、この手順を実行することが重要です。Cloud Volumes ONTAP を適切に検出して管理するには、 Cloud Manager で AWS キーが必要になります。
+
++
+** link:task_adding_aws_accounts.html["Cloud Manager に AWS アカウントを追加する"]
+** link:task_adding_azure_accounts.html["Cloud Manager への Azure アカウントの追加"]
+** link:task_adding_nss_accounts.html["Cloud Manager へのネットアップサポートサイトのアカウントの追加"]
+
+
+. 作業環境を再検出します。 Cloud Volumes ONTAP システム、オンプレミスクラスタ、クラウド構成用の NetApp Private Storage などです。
++
+** link:task_adding_ontap_cloud.html["Cloud Manager に既存の Cloud Volumes ONTAP システムを追加"]
+** link:task_discovering_ontap.html#discovering-ontap-clusters["ONTAP クラスタの検出"]
+
+
+
+
+これで、アカウント、設定、作業環境を使用して Cloud Manager の設定がリストアされます。

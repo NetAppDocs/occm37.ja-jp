@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: task_launching_aws_mktp.html 
+keywords: install, installation, installing, marketplace, aws, launch, launching, ec2 console, iam role 
+summary: NetApp Cloud Central を使用して AWS で Cloud Manager を起動することをお勧めしますが、必要に応じて AWS Marketplace から起動することもできます。 
+---
+= AWS Marketplace からの Cloud Manager の起動
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+を使用して、 AWS で Cloud Manager を起動することを推奨します https://cloud.netapp.com["NetApp Cloud Central"^]必要に応じて、 AWS Marketplace から起動できます。
+
+
+TIP: AWS Marketplace から Cloud Manager を起動しても、 Cloud Manager は NetApp Cloud Central と統合されたままです。 link:concept_cloud_central.html["統合の詳細については、こちらをご覧ください。"]。
+
+以下の手順では、 EC2 コンソールからインスタンスを起動する方法について説明します。このコンソールでは、 IAM ロールを Cloud Manager インスタンスに関連付けることができます。これは、 * ウェブサイトからの起動 * アクションを使用しては実行できません。
+
+.手順
+. EC2 インスタンス用の IAM ポリシーとロールを作成します。
++
+.. 次のサイトから Cloud Manager IAM ポリシーをダウンロードします。
++
+https://mysupport.netapp.com/cloudontap/iampolicies["NetApp Cloud Manager ： AWS 、 Azure 、 GCP ポリシー"^]
+
+.. IAM コンソールから、 Cloud Manager IAM ポリシーからテキストをコピーアンドペーストして、独自のポリシーを作成します。
+.. ロールタイプが Amazon EC2 の IAM ロールを作成し、前の手順で作成したポリシーをロールに付加します。
+
+
+. https://aws.amazon.com/marketplace/pp/B07QX2QLXX["AWS Marketplace でサブスクライブ"^] Cloud Volumes ONTAP の無償トライアルの終了後にサービスを中断しないようにするため。お客様が作成した Cloud Volumes ONTAP 9.6 以降の PAYGO システムと、有効にしたアドオン機能ごとに、このサブスクリプションから料金が請求されます。
+. 次に、に進みます https://aws.amazon.com/marketplace/pp/B018REK8QG["AWS Marketplace の Cloud Manager のページ"^] AMI から Cloud Manager を導入
+. [Marketplace] ページで [* Continue to Subscribe* ] をクリックし、 [* Continue to Configuration* ] をクリックします。
+. デフォルトのオプションを変更し、 [* Continue to Launch] をクリックします。
+. [ アクションの選択 *] で [* EC2 で起動 ] を選択し、 [* 起動 *] をクリックします。
+. プロンプトに従って、インスタンスを設定および導入します。
++
+** * インスタンスタイプを選択 * ：リージョンの可用性に応じて、サポートされているインスタンスタイプ（ t3.medium を推奨）のいずれかを選択します。
++
+link:reference_cloud_mgr_reqs.html["サポートされているインスタンスタイプのリストを確認します"]。
+
+** * Configure Instance * ： VPC とサブネット、手順 1 で作成した IAM ロール、および要件に合ったその他の設定オプションを選択します。
++
+image:screenshot_aws_iam_role.gif["AWS の Configure Instance ページのフィールドを示すスクリーンショット。手順 1 で作成する必要のある IAM ロールが選択されている。"]
+
+** * Add Storage* ：デフォルトのストレージ・オプションをそのまま使用します。
+** * Add Tags* ：必要に応じて、インスタンスのタグを入力します。
+** * セキュリティグループの設定 * ： Cloud Manager インスタンスに必要な接続方法を、 SSH 、 HTTP 、 HTTPS のいずれかで指定します。
+** * 復習 * ：選択内容を確認して、 * 起動 * をクリックします。
++
+AWS は、指定した設定でソフトウェアを起動します。Cloud Manager インスタンスとソフトウェアは、約 5 分で実行されます。
+
+
+
+. Cloud Manager 仮想マシンに接続しているホストから Web ブラウザを開き、次の URL を入力します。
++
+http://_ipaddress_:80[]
+
+. ログインしたら、 Cloud Manager をセットアップします。
++
+.. この Cloud Manager システムに関連付ける Cloud Central アカウントを指定してください。
++
+link:concept_cloud_central_accounts.html["Cloud Central アカウントについて詳しくは、こちらをご覧ください"]。
+
+.. システムの名前を入力します。
++
+image:screenshot_set_up_cloud_manager.gif["Cloud Manager のセットアップ画面のスクリーンショット。 Cloud Central アカウントを選択して、 Cloud Manager システムに名前を付けることができます。"]
+
+
+
+
+
+Cloud Manager のインストールとセットアップが完了しました。

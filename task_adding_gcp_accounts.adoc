@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: task_adding_gcp_accounts.html 
+keywords: permissions, gcp, data tiering, tiering, setup, requirements, account for data tiering, account for tiering, interoperable, interoperability, interoperable storage access keys, access keys 
+summary: Cloud Volumes ONTAP システムでデータ階層化を有効にするには、 Cloud Manager に Google Cloud Platform アカウントを追加する必要があります。データ階層化により、コールドデータを低コストのオブジェクトストレージに自動的に階層化し、プライマリストレージのスペースを再利用してセカンダリストレージを縮小できます。 
+---
+= GCP アカウントのセットアップと Cloud Manager への追加
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+有効にする項目 link:concept_data_tiering.html["データの階層化"] Cloud Volumes ONTAP システムで、ストレージ管理者権限を持つサービスアカウントのストレージアクセスキーを Cloud Manager に提供する必要があります。Cloud Manager は、アクセスキーを使用して Cloud Storage バケットをセットアップおよび管理し、データを階層化します。
+
+
+
+== Google のサービスアカウントとアクセスキーを設定する クラウドストレージ
+
+サービスアカウントを使用すると、 Cloud Manager でデータの階層化に使用する Cloud Storage バケットを認証してアクセスできます。キーは、 Google Cloud Storage がリクエストを発行しているユーザーを認識できるようにするために必要です。
+
+.手順
+. GCP IAM コンソールを開き、を開きます https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role["Storage Admin ロールを持つサービスアカウントを作成します"^]。
++
+image:screenshot_gcp_service_account_role.gif["サービスアカウントの Storage Admin ロールの選択を示す GCP IAM コンソールのスクリーンショット。"]
+
+. に進みます https://console.cloud.google.com/storage/settings["GCP Storage Settings （ GCP ストレージ設定）"^]。
+. プロンプトが表示されたら、プロジェクトを選択します。
+. [*Interoperability *] タブをクリックします。
+. まだ有効にしていない場合は、 * 相互運用アクセスを有効にする * をクリックします。
+. [ サービスアカウントのアクセスキー *] で、 [ サービスアカウントのキーの作成 *] をクリックします。
+. 手順 1 で作成したサービスアカウントを選択します。
++
+image:screenshot_gcp_access_key.gif["新しいアクセスキー用に選択したサービスアカウントを示す GCP ストレージコンソールのスクリーンショット。"]
+
+. [ キーの作成 *] をクリックします。
+. アクセスキーとシークレットをコピーします。
++
+データ階層化用の GCP アカウントを追加する場合は、 Cloud Manager でこの情報を入力する必要があります。
+
+
+
+
+
+== Cloud Manager に GCP アカウントを追加する
+
+サービスアカウントのアクセスキーが作成されたら、そのアクセスキーを Cloud Manager に追加できます。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * クラウドプロバイダとサポートアカウント * を選択します。
++
+image:screenshot_settings_icon.gif["Cloud Manager コンソールの右上にある設定アイコンを示すスクリーンショット。"]
+
+. [Add New Account* ] をクリックし、 [* GCP* ] を選択します。
+. サービスアカウントのアクセスキーとシークレットを入力します。
++
+これらのキーを使用して、 Cloud Manager でデータ階層化用の Cloud Storage バケットを設定できます。
+
+. ポリシーの要件が満たされていることを確認し、 * アカウントの作成 * をクリックします。
+
+
+個々のボリュームを作成、変更、またはレプリケートするときに、それらのボリュームでデータ階層化を有効にできるようになりました。詳細については、を参照してください link:task_tiering.html["使用頻度の低いデータを低コストのオブジェクトストレージに階層化"]。
+
+ただし、事前に、 Cloud Volumes ONTAP が存在するサブネットがプライベート Google アクセス用に構成されていることを確認してください。手順については、を参照してください https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud のドキュメント：「 Configuring Private Google Access"^]。

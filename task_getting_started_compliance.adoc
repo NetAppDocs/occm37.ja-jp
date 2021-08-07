@@ -1,0 +1,218 @@
+---
+sidebar: sidebar 
+permalink: task_getting_started_compliance.html 
+keywords: cloud compliance, get started, enable cloud compliance, cifs credentials, smb credentials, outbound internet, endpoints, cloud compliance internet, web browser connectivity, cloud compliance access, privacy, compliance 
+summary: AWS または Azure の Cloud Volumes ONTAP システムで Cloud Compliance を使用するには、いくつかの手順を実行します。 
+---
+= 『 Getting started with Cloud Compliance for Cloud Volumes ONTAP 』
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+AWS または Azure で Cloud Compliance for Cloud Volumes ONTAP を使用するには、いくつかの手順を実行します。
+
+
+
+== クイックスタート
+
+これらの手順を実行してすぐに作業を開始するか、残りのセクションまでスクロールして詳細を確認してください。
+
+
+
+==== 構成が要件を満たしていることを確認します
+
+* Cloud Compliance インスタンスにアウトバウンドのインターネットアクセスが設定されていることを確認します。
++
+Cloud Manager は、要求に応じて最初の Cloud Volumes ONTAP システムと同じ VPC または VNet にインスタンスを導入します。
+
+* ユーザが、 AWS または Azure に直接接続されているホスト、または Cloud Compliance インスタンスと同じネットワーク内のホストから Cloud Manager のインターフェイスにアクセスできることを確認します（インスタンスにはプライベート IP アドレスが割り当てられます）。
+* Cloud Compliance インスタンスの実行を継続できることを確認します。
+
+
+
+
+==== Cloud Volumes ONTAP でクラウドへのコンプライアンスを有効化
+
+* 新しい作業環境：作業環境の作成時に必ずクラウドへのコンプライアンスを有効にしてください（デフォルトで有効になっています）。
+* 既存の作業環境： * コンプライアンス * をクリックし、必要に応じて作業環境のリストを編集し、 * コンプライアンスダッシュボードを表示 * をクリックします。
+
+
+
+
+==== ボリュームへのアクセスを確認
+
+[role="quick-margin-para"]
+Cloud Compliance が有効になったので、ボリュームにアクセスできることを確認します。
+
+* クラウドコンプライアンスインスタンスには、各 Cloud Volumes ONTAP サブネットへのネットワーク接続が必要です。
+* Cloud Volumes ONTAP のセキュリティグループは、クラウドコンプライアンスインスタンスからのインバウンド接続を許可する必要があります。
+* NFS ボリュームのエクスポートポリシーで、 Cloud Compliance インスタンスからのアクセスを許可する必要があります。
+* CIFS ボリュームをスキャンするには、 Cloud Compliance で Active Directory のクレデンシャルが必要です。
++
+コンプライアンス * > * CIFS スキャンステータス * > * CIFS クレデンシャルの編集 * をクリックし、クレデンシャルを入力します。クレデンシャルは読み取り専用ですが、管理者のクレデンシャルを指定することで、 Cloud Compliance は昇格された権限が必要なデータを確実に読み取ることができます。
+
+
+
+
+
+==== Cloud Manager と Cloud Compliance の間の接続を確認
+
+* Cloud Manager のセキュリティグループは、 Cloud Compliance インスタンスとの間のポート 80 経由のインバウンドおよびアウトバウンドのトラフィックを許可する必要があります。
+* AWS ネットワークでインターネットアクセスに NAT やプロキシを使用しない場合、 Cloud Manager のセキュリティグループは、 Cloud Compliance インスタンスからの TCP ポート 3128 経由のインバウンドトラフィックを許可する必要があります。
+
+
+
+
+== 前提条件の確認
+
+Cloud Compliance を有効にする前に、次の前提条件を確認し、サポートされている構成であることを確認してください。Cloud Compliance を有効にしたあとは、コンポーネント間の接続を確認する必要があります。これについては以下で説明します。
+
+アウトバウンドインターネットアクセスを有効にします::
++
+--
+[cols="43,57"]
+|===
+| エンドポイント | 目的 
+
+
+| \ https://cloudmanager.cloud.netapp.com | Cloud Central アカウントを含む Cloud Manager サービスとの通信。 
+
+
+| https://netapp-cloud-account.auth0.com | NetApp Cloud Central との通信により、ユーザ認証を一元的に行うことができます。 
+
+
+| ¥ https://cloud-compliance-support-netapp.s3.us-west-1.amazonaws.com ¥ https://hub.docker.com | ソフトウェアイメージ、マニフェスト、およびテンプレートにアクセスできます。 
+
+
+| \ https://kinesis.us-east-1.amazonaws.com | ネットアップが監査レコードからデータをストリーミングできるようにします。 
+
+
+| ¥ https://cognito-idp.us-east-1.amazonaws.com ¥ https://cognito-identity.us-east-1.amazonaws.com | Cloud Compliance でマニフェストとテンプレートにアクセスしてダウンロードしたり、ログと指標を送信したりできます。 
+|===
+--
+Web ブラウザから Cloud Compliance への接続を確認::
++
+--
+
+TIP: パブリック IP アドレスを使用して Cloud Manager にアクセスしている場合は、ネットワーク内のホストで Web ブラウザが実行されていない可能性があります。
+
+--
+クラウドコンプライアンスを継続的に実現:: データを継続的にスキャンするには、 Cloud Compliance インスタンスをオンのままにする必要があります。
+
+
+
+
+== 新しい作業環境での Cloud Compliance の有効化
+
+Cloud Compliance は、作業環境ウィザードではデフォルトで有効になります。このオプションは必ず有効にしておいてください。
+
+.手順
+. [ Cloud Volumes ONTAP の作成 *] をクリックします。
+. クラウドプロバイダとして Amazon Web Services または Microsoft Azure を選択し、シングルノードまたは HA システムを選択します。
+. [ 詳細と資格情報 ] ページに入力します。
+. [ サービス ] ページで、 Cloud Compliance を有効のままにして、 [* 続行 ] をクリックします。
++
+image:screenshot_cloud_compliance.gif["作業環境ウィザードのサービスページを示すスクリーンショット。"]
+
+. ウィザードの各ページを設定し、システムを導入します。
++
+ヘルプについては、を参照してください link:task_deploying_otc_aws.html["AWS での Cloud Volumes ONTAP の起動"] および 。
+
+
+
+Cloud Volumes ONTAP システムでクラウドコンプライアンスが有効になっています。Cloud Compliance を初めて有効にした場合は、 Cloud Manager によってクラウドプロバイダに Cloud Compliance インスタンスが導入されます。インスタンスが使用可能になると、作成した各ボリュームにインスタンスが書き込まれた時点でデータのスキャンが開始されます。
+
+
+
+== 既存の作業環境で Cloud Compliance を有効化
+
+既存の Cloud Volumes ONTAP システムで Cloud Compliance を有効にするには、 Cloud Manager の * Compliance * タブを使用します。
+
+また、作業環境を個別に選択して、 * 作業環境 * タブからクラウドへのコンプライアンスを有効にすることもできます。システムが 1 つしかない場合を除き、完了するまでに時間がかかります。
+
+.複数の作業環境での手順
+. Cloud Manager の上部で、 * Compliance * をクリックします。
+. 特定の作業環境で Cloud Compliance を有効にする場合は、編集アイコンをクリックします。
++
+それ以外の場合は、アクセス可能なすべての作業環境で Cloud Compliance が有効になります。
+
++
+image:screenshot_show_compliance_dashboard.gif["スキャンする作業環境を選択するときにクリックするアイコンが表示される [ コンプライアンス ] タブのスクリーンショット。"]
+
+. ［ * 遵守ダッシュボードを表示 * ］ をクリックします。
+
+
+.単一の作業環境での手順
+. Cloud Manager の上部で、 * 作業環境 * をクリックします。
+. 作業環境を選択します。
+. 右側のペインで、 * コンプライアンスを有効にする * をクリックします。
++
+image:screenshot_enable_compliance.gif["作業環境を選択した後に作業環境タブで使用可能なコンプライアンスを有効化アイコンを示すスクリーンショット。"]
+
+
+
+Cloud Compliance を初めて有効にした場合は、 Cloud Manager によってクラウドプロバイダに Cloud Compliance インスタンスが導入されます。
+
+Cloud Compliance は、それぞれの作業環境でデータのスキャンを開始します。データは、 Cloud Compliance の初期スキャンが完了するとすぐに Compliance ダッシュボードに表示されます。所要時間はデータ量によって異なります。数分から数時間かかる場合もあります。
+
+
+
+== Cloud Compliance がボリュームにアクセスできることの確認
+
+ネットワーク、セキュリティグループ、およびエクスポートポリシーを確認して、 Cloud Compliance が Cloud Volumes ONTAP 上のボリュームにアクセスできることを確認します。CIFS ボリュームにアクセスできるようにするには、 Cloud Compliance に CIFS クレデンシャルを指定する必要があります。
+
+.手順
+. クラウドコンプライアンスインスタンスと各 Cloud Volumes ONTAP サブネットの間にネットワーク接続が確立されていることを確認します。
++
+Cloud Manager は、要求に応じて最初の Cloud Volumes ONTAP システムと同じ VPC または VNet に Cloud Compliance インスタンスを導入します。そのため、一部の Cloud Volumes ONTAP システムが異なるサブネットまたは仮想ネットワークにある場合は、この手順が重要になります。
+
+. Cloud Volumes ONTAP のセキュリティグループがクラウドコンプライアンスインスタンスからのインバウンドトラフィックを許可していることを確認してください。
++
+Cloud Compliance インスタンスの IP アドレスからのトラフィックのセキュリティグループを開くか、仮想ネットワーク内からのすべてのトラフィックのセキュリティグループを開くことができます。
+
+. NFS ボリュームのエクスポートポリシーに Cloud Compliance インスタンスの IP アドレスが含まれていて、各ボリュームのデータにアクセスできることを確認します。
+. CIFS を使用する場合は、 Active Directory クレデンシャルを使用して Cloud Compliance を提供し、 CIFS ボリュームをスキャンできるようにします。
++
+.. Cloud Manager の上部で、 * Compliance * をクリックします。
+.. 右上の * CIFS Scan Status をクリックします。
++
+image:screenshot_cifs_credentials.gif["コンテンツペインの右上にある [CIFS Scan Status] ボタンを示す [Compliance] タブのスクリーンショット。"]
+
+.. 各 Cloud Volumes ONTAP システムについて、 * CIFS クレデンシャルの編集 * をクリックし、クラウド・コンプライアンスがシステム上の CIFS ボリュームにアクセスするために必要なユーザ名とパスワードを入力します。
++
+クレデンシャルは読み取り専用ですが、管理者のクレデンシャルを指定することで、 Cloud Compliance は昇格された権限が必要なデータを読み取ることができます。クレデンシャルは Cloud Compliance インスタンスに保存されます。
+
++
+クレデンシャルを入力すると、すべての CIFS ボリュームが認証されたことを示すメッセージが表示されます。
+
++
+image:screenshot_cifs_status.gif["CIFS スキャンステータスページと、 CIFS クレデンシャルが正常に入力された 1 つの Cloud Volumes ONTAP システムを示すスクリーンショット。"]
+
+
+
+
+
+
+
+== Cloud Manager から Cloud Compliance にアクセスできることの確認
+
+Cloud Manager と Cloud Compliance の間の接続を確認し、 Cloud Compliance が検出したコンプライアンスの分析情報を確認します。
+
+.手順
+. Cloud Manager のセキュリティグループで、 Cloud Compliance インスタンスとの間のポート 80 経由のインバウンドおよびアウトバウンドのトラフィックが許可されていることを確認してください。
++
+この接続により、 [ コンプライアンス ] タブに情報を表示できます。
+
+. AWS ネットワークがインターネットアクセスに NAT やプロキシを使用しない場合は、 Cloud Manager のセキュリティグループを変更して、 Cloud Compliance インスタンスからの TCP ポート 3128 経由のインバウンドトラフィックを許可します。
++
+これは、 Cloud Compliance インスタンスが、インターネットへのアクセスにプロキシとして Cloud Manager を使用するためです。
+
++
+
+NOTE: このポートは、すべての新しい Cloud Manager インスタンスで、バージョン 3.7.5 以降でデフォルトで開きます。それより前のバージョンで作成された Cloud Manager インスタンスでは開きません。
+
+

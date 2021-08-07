@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: reference_networking_azure.html 
+keywords: networking, network, requirements, connection, connections, vnet, security group, security groups, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, blob, service endpoint 
+summary: Cloud Volumes ONTAP システムが適切に動作するように Azure ネットワークをセットアップします。 
+---
+= Azure の Cloud Volumes ONTAP のネットワーク要件
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP システムが適切に動作するように Azure ネットワークをセットアップします。
+
+Cloud Volumes ONTAP 用のアウトバウンドインターネットアクセス::
++
+--
+Cloud Volumes ONTAP が AutoSupport メッセージを送信できるように、ルーティングポリシーとファイアウォールポリシーで次のエンドポイントへの HTTP / HTTPS トラフィックを許可する必要があります。
+
+* \ https://support.netapp.com/aods/asupmessage
+* \ https://support.netapp.com/asupprod/post/1.0/postAsup
+
+
+--
+セキュリティグループ:: Cloud Manager ではセキュリティグループを作成する必要がないため、セキュリティグループを作成する必要はありません。自分で使用する必要がある場合は、を参照してください link:reference_security_groups_azure.html["セキュリティグループのルール"]。
+IP アドレスの数::
++
+--
+* シングルノード： 5 つの IP アドレス
+* HA ペア： IP アドレス × 16
++
+Cloud Manager では、 HA ペア上に SVM 管理 LIF が作成されますが、 Azure のシングルノードシステム上には作成されません。
+
++
+
+TIP: LIF は、物理ポートに関連付けられた IP アドレスです。SnapCenter などの管理ツールには、 SVM 管理 LIF が必要です。
+
+
+
+--
+クラウドボリューム ONTAP から Azure BLOB ストレージへの接続により、データ階層化を実現します::
++
+--
+[source, json]
+----
+"Microsoft.Network/virtualNetworks/subnets/write",
+"Microsoft.Network/routeTables/join/action",
+----
+これらの権限は最新のに含まれています https://mysupport.netapp.com/cloudontap/iampolicies["Cloud Manager ポリシー"]。
+
+データ階層化の設定の詳細については、を参照してください link:task_tiering.html["コールドデータを低コストのオブジェクトストレージに階層化する"]。
+
+--
+他のネットワーク内の ONTAP システムへの接続::
++
+--
+手順については、を参照してください https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal["Microsoft Azure のドキュメント：「 Create a Site-to-Site connection in the Azure portal"^]。
+
+--
+

@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: task_setting_up_cloud_central_accounts.html 
+keywords: account settings, workspaces, service connector, account admin, workspace admin, users, associate, disassociate, add user, add users, user management, administer, user, management, account, user account, user accounts, create workspace, add workspace, setup workspace, workspace, service connector, manage service connector, manage workspace, associate service connector 
+summary: 各 Cloud Manager システムは、 NetApp Cloud Central アカウントに関連付けられています。ユーザが Cloud Manager にアクセスしてワークスペースに Cloud Volumes ONTAP システムを導入できるように、 Cloud Manager システムに関連付けられた Cloud Central アカウントをセットアップします。ユーザーを追加したり、複数のユーザーとワークスペースを追加したりするだけです。 
+---
+= Cloud Central アカウントでのワークスペースとユーザのセットアップ
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+各 Cloud Manager システムには、 _NetApp Cloud Central アカウント _ が関連付けられています。ユーザが Cloud Manager にアクセスしてワークスペースに Cloud Volumes ONTAP システムを導入できるように、 Cloud Manager システムに関連付けられた Cloud Central アカウントをセットアップします。ユーザを追加するか、複数のユーザとワークスペースを追加するだけです。
+
+アカウントは Cloud Central で管理されるため、ユーザが行った変更は他の Cloud Manager システムやネットアップクラウドデータサービスにも適用されます。 link:concept_cloud_central_accounts.html["Cloud Central アカウントの仕組みの詳細については、こちらをご覧ください"]。
+
+
+
+== ワークスペースの追加
+
+Cloud Manager のワークスペースを使用すると、作業環境のセットを他の作業環境や他のユーザから分離できます。たとえば、 2 つのワークスペースを作成し、別々のユーザをワークスペースに関連付けることができます。
+
+.手順
+. 「 * アカウント設定 * 」をクリックします。
++
+image:screenshot_account_settings_menu.gif["Cloud Manager の上部のバナーにあるアカウント設定オプションを示すスクリーンショット。"]
+
+. [* ワークスペース * ] をクリックします。
+. [ 新規ワークスペースの追加 ] をクリックします。
+. ワークスペースの名前を入力し、 * 追加 * をクリックします。
+
+
+ユーザーとサービスコネクタをワークスペースに関連付けることができるようになりました。
+
+
+
+== ユーザを追加する
+
+Cloud Central ユーザを Cloud Central アカウントに関連付けて、これらのユーザが Cloud Manager で作業環境を作成および管理できるようにします。
+
+.手順
+. ユーザーがまだ行っていない場合は、にアクセスするようにユーザーに依頼します https://cloud.netapp.com["NetApp Cloud Central"^] アカウントを作成します。
+. Cloud Manager で、 * アカウント設定 * をクリックします。
+. [ ユーザー ] タブで、 [ ユーザーの関連付け ] をクリックします。
+. ユーザの E メールアドレスを入力し、ユーザのロールを選択します。
++
+** * アカウント管理者 * ： Cloud Manager で任意の操作を実行できます。
+** * ワークスペース管理者 * ：割り当てられたワークスペースでリソースを作成および管理できます。
+
+
+. Workspace Admin を選択した場合は、 1 つ以上のワークスペースを選択してそのユーザーに関連付けます。
++
+image:screenshot_associate_user.gif["ロールと関連するワークスペースを選択してユーザを関連付ける方法を示すスクリーンショット。"]
+
+. [ ユーザーの関連付け ] をクリックします。
+
+
+ユーザには、 NetApp Cloud Central の「 Account Association 」というタイトルの E メールが送信されます。 E メールには、 Cloud Manager にアクセスするために必要な情報が記載されています。
+
+
+
+== ワークスペース管理者とワークスペースの関連付け
+
+ワークスペース管理者は、いつでも追加のワークスペースに関連付けることができます。ユーザーを関連付けると、ワークスペース内の作業環境を作成して表示できます。
+
+.手順
+. 「 * アカウント設定 * 」をクリックします。
+. ユーザに対応する行のアクションメニューをクリックします。
++
+image:screenshot_associate_user_workspace.gif["ユーザテーブルでユーザの名前にカーソルを合わせたときに使用できる操作メニューを示すスクリーンショット。"]
+
+. * ワークスペースの管理 * をクリックします。
+. 1 つ以上のワークスペースを選択し、 * 適用 * をクリックします。
+
+
+サービスコネクタもワークスペースに関連付けられていれば、ユーザは Cloud Manager からこれらのワークスペースにアクセスできるようになりました。
+
+
+
+== サービスコネクタとワークスペースの関連付け
+
+サービスコネクタは、 Cloud Manager システムの一部です。クラウドプロバイダに導入された仮想マシンインスタンス上、または設定したオンプレミスホスト上で実行されます。このサービスコネクタをワークスペースに関連付けて、 Workspace 管理者がこれらのワークスペースに Cloud Manager からアクセスできるようにする必要があります。
+
+アカウント管理者のみがいる場合は、サービスコネクタをワークスペースに関連付ける必要はありません。アカウント管理者は、デフォルトで Cloud Manager のすべてのワークスペースにアクセスできます。
+
+link:concept_cloud_central_accounts.html#users-workspaces-and-service-connectors["ユーザー、ワークスペース、サービスコネクタの詳細をご覧ください"]。
+
+.手順
+. 「 * アカウント設定 * 」をクリックします。
+. サービスコネクター * をクリックします。
+. 関連付けるサービスコネクタの [ ワークスペースの管理 *] をクリックします。
+. 1 つ以上のワークスペースを選択し、 * 適用 * をクリックします。
+
+
+ワークスペース管理者は、ユーザーがワークスペースにも関連付けられている限り、関連付けられたワークスペースにアクセスできるようになりました。

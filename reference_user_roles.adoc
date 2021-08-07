@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: reference_user_roles.html 
+keywords: user, users, roles, role, task, permission, permissions, tasks, admin, Account Admin, Workspace Admin 
+summary: アカウント管理者ロールとワークスペース管理者ロールは、ユーザーに特定の権限を提供します。 
+translate: false 
+---
+= ロール
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+アカウント管理者ロールとワークスペース管理者ロールは、ユーザーに特定の権限を提供します。
+
+[cols="34,33,33"]
+|===
+| タスク | アカウント管理者 | ワークスペース管理者 
+
+
+| 作業環境の管理 | はい。 | はい、関連付けられたワークスペースの場合 
+
+
+| データ複製ステータスを表示します | はい。 | はい、関連付けられたワークスペースの場合 
+
+
+| タイムラインを表示します | はい。 | はい、関連付けられたワークスペースの場合 
+
+
+| 作業環境を削除します | はい。 | いいえ 
+
+
+| Kubernetes クラスタを Cloud Volumes ONTAP に接続 | はい。 | いいえ 
+
+
+| Cloud Volumes ONTAP レポートを受信します | はい。 | いいえ 
+
+
+| Cloud Central アカウントを管理します | はい。 | いいえ 
+
+
+| クラウドプロバイダのアカウントを管理 | はい。 | いいえ 
+
+
+| Cloud Manager の設定を変更 | はい。 | いいえ 
+
+
+| サポートダッシュボードを表示および管理します | はい。 | いいえ 
+
+
+| Cloud Manager から作業環境を削除します | はい。 | いいえ 
+
+
+| Cloud Manager を更新します | はい。 | いいえ 
+
+
+| HTTPS 証明書をインストールします | はい。 | いいえ 
+
+
+| Active Directory をセットアップします | はい。 | いいえ 
+|===
+.関連リンク
+* link:task_setting_up_cloud_central_accounts.html["Cloud Central アカウントでのワークスペースとユーザのセットアップ"]
+* link:task_managing_cloud_central_accounts.html["Cloud Central アカウントでのワークスペースとユーザの管理"]
+

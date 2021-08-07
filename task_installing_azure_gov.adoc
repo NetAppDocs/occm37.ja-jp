@@ -1,0 +1,137 @@
+---
+sidebar: sidebar 
+permalink: task_installing_azure_gov.html 
+keywords: software, azure, us gov, gov, marketplace, deploy 
+summary: Azure Government Marketplace から Cloud Manager を導入し、 Cloud Volumes ONTAP システムを導入するために Cloud Manager に必要な権限を提供 
+---
+= Azure US Government リージョンでの Cloud Manager の導入
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager を米国政府機関のリージョンで運用開始するには、まず Azure Government Marketplace から Cloud Manager を導入します。次に、 Cloud Volumes ONTAP システムを導入して管理するために Cloud Manager に必要な権限を指定します。
+
+サポートされている Azure US Government リージョンのリストについては、を参照してください https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volume グローバルリージョン"^]。
+
+
+
+== Azure US Government Marketplace からの Cloud Manager の導入
+
+Cloud Manager は、 Azure US Government Marketplace のイメージとして提供されています。
+
+.手順
+. サブスクリプションで Azure Government Marketplace が有効になっていることを確認します。
++
+.. Enterprise Administrator としてポータルにログインします。
+.. 「 * Manage * 」（管理）に移動します。
+.. [ * 加入の詳細 * ] で、 [* Azure Marketplace] の横にある鉛筆アイコンをクリックします。
+.. [ 有効 ] を選択します。
+.. [ 保存（ Save ） ] をクリックします。
++
+https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-manage-marketplace["Microsoft Azure のドキュメント：「 Azure Government Marketplace"^]
+
+
+
+. Azure US Government ポータルで OnCommand Cloud Manager を検索してください。
+. [* Create] をクリックし、手順に従って仮想マシンを設定します。
++
+仮想マシンを構成するときは、次の点に注意してください。
+
++
+** Cloud Manager は、 HDD または SSD ディスクのいずれかで最適なパフォーマンスを実現できます。
+** 推奨される仮想マシンサイズの中から 1 つを選択してください： A2 、 D2 v2 、または D2 v3 （可用性に基づく）。
+** ネットワーク・セキュリティー・グループには、「 * 詳細設定 * 」を選択するのが最適です。
++
+* Advanced * オプションを指定すると、 Cloud Manager に必要なインバウンドルールを含む新しいセキュリティグループが作成されます。Basic を選択した場合は、を参照してください link:reference_security_groups_azure.html["セキュリティグループのルール"] をクリックして必要なルールを選択してください。
+
+
+
+. 概要ページで選択内容を確認し、 * 作成 * をクリックして展開を開始します。
++
+指定した設定で仮想マシンが展開されます。Virtual Machine と Cloud Manager ソフトウェアは、約 5 分で実行されます。
+
+. Cloud Manager 仮想マシンに接続しているホストから Web ブラウザを開き、次の URL を入力します。
++
+http://_ipaddress_:80[]
+
+. ログインしたら、 Cloud Manager をセットアップします。
++
+.. この Cloud Manager システムに関連付ける Cloud Central アカウントを指定してください。
++
+link:concept_cloud_central_accounts.html["Cloud Central アカウントについて詳しくは、こちらをご覧ください"]。
+
+.. システムの名前を入力します。
++
+image:screenshot_set_up_cloud_manager.gif["Cloud Manager のセットアップ画面のスクリーンショット。 Cloud Central アカウントを選択して、 Cloud Manager システムに名前を付けることができます。"]
+
+
+
+
+
+Cloud Manager のインストールとセットアップが完了しました。Cloud Volumes ONTAP を Azure に導入するには、 Azure の権限を付与する必要があります。
+
+
+
+== 管理対象 ID を使用した Cloud Manager への Azure 権限の付与
+
+アクセス許可を設定する最も簡単な方法は、を有効にすることです https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["管理された ID"^] Cloud Manager 仮想マシンで、必要な権限を仮想マシンに割り当てます。必要に応じて、別の方法がになります link:task_adding_azure_accounts.html["サービスプリンシパルを使用して Azure 権限を付与します"]。
+
+.手順
+. Cloud Manager 仮想マシンで管理対象 ID を有効にします。
++
+.. Cloud Manager 仮想マシンに移動して、 * Identity * を選択します。
+.. [ システム割り当て済み *] で、 [ * オン *] をクリックし、 [ * 保存 *] をクリックします。
+
+
+. Cloud Manager ポリシーを使用してカスタムロールを作成します。
++
+.. をダウンロードします https://mysupport.netapp.com/cloudontap/iampolicies["Cloud Manager Azure ポリシー"^]。
+.. 割り当て可能なスコープに Azure サブスクリプション ID を追加して、 JSON ファイルを変更します。
++
+ユーザが Cloud Volumes ONTAP システムを作成する Azure サブスクリプションごとに ID を追加する必要があります。
+
++
+* 例 *
+
++
+「譲渡対象」：「 / 契約 / D333AF45-0D07-4154-943D-C25FBZZZZ 」、「 / 契約 / 契約 /54B91999-B3E6-4599-908E-416E0ZZZZ 」、「 / 契約 /E471C-3B42-4AE7-9B59-CE5BBZZZZ 」
+
+.. JSON ファイルを使用して、 Azure でカスタムロールを作成します。
++
+次の例は、 Azure CLI 2.0 を使用してカスタムロールを作成する方法を示しています。
+
++
+* AZ 役割定義 create -- 役割定義 C ： \Policy_For _Cloud_Manager_Azure_3.7.4.json *
+
++
+これで、 OnCommand Cloud Manager Operator という名前のカスタムロールが作成され、 Cloud Manager 仮想マシンに割り当てることができるようになりました。
+
+
+
+. 1 つ以上のサブスクリプションの役割を Cloud Manager 仮想マシンに割り当てます。
++
+.. [ サブスクリプション ] サービスを開き、 Cloud Volumes ONTAP システムを展開するサブスクリプションを選択します。
+.. 「 * アクセスコントロール（ IAM ） * 」をクリックします。
+.. [ * 追加 ] をクリックし、 [ * 役割の割り当ての追加 * ] をクリックして、権限を追加します。
++
+*** OnCommand Cloud Manager Operator * ロールを選択します。
++
+
+NOTE: OnCommand Cloud Manager Operator は、で指定されたデフォルトの名前です https://mysupport.netapp.com/info/web/ECMP11022837.html["Cloud Manager ポリシー"]。ロールに別の名前を選択した場合は、代わりにその名前を選択します。
+
+*** 仮想マシン * へのアクセスを割り当てます。
+*** Cloud Manager 仮想マシンが作成されたサブスクリプションを選択します。
+*** 仮想マシンの名前を入力し、選択します。
+*** [ 保存（ Save ） ] をクリックします。
+
+
+.. 追加のサブスクリプションから Cloud Volumes ONTAP を導入する場合は、そのサブスクリプションに切り替えてから、これらの手順を繰り返します。
+
+
+
+
+Cloud Manager には、クラウドボリューム ONTAP を Azure に導入して管理するために必要な権限が付与されました。

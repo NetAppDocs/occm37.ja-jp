@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: reference_integration_faq.html 
+keywords: faq, questions, integration, migration, cloud manager, cloud central, authentication, users, accounts, email, ldap, scripts, automation 
+summary: Cloud Manager 3.5 にアップグレードする場合、ネットアップは特定の Cloud Manager システムを選択して、 NetApp Cloud Central と統合します（統合されていない場合）。この FAQ では、このプロセスに関する質問にお答えします。 
+translate: false 
+---
+= よくある質問： Cloud Manager と NetApp Cloud Central の統合
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager 3.4 以前からのアップグレードの場合、 NetApp Cloud Central と統合する特定の Cloud Manager システムは選択されます（まだ統合されていない場合）。この FAQ では、このプロセスに関する質問にお答えします。
+
+
+
+== NetApp Cloud Central とは
+
+NetApp Cloud Central は、 NetApp クラウドデータサービスにアクセスして管理するための一元化された場所を提供します。これらのサービスを利用すると、重要なアプリケーションをクラウドで実行したり、自動化された DR サイトを作成したり、 SaaS データをバックアップしたり、複数のクラウド間でデータを効果的に移行および制御したりすることができます。
+
+
+
+== ネットアップが Cloud Manager システムと Cloud Central を統合する理由は何ですか。
+
+Cloud Manager と NetApp Cloud Central を統合すると、導入環境の簡易化、複数の Cloud Manager システムの表示と管理を行う単一の場所、ユーザ認証の一元化など、いくつかのメリットが得られます。
+
+
+
+== 統合プロセスではどうなりますか。
+
+NetApp は、 Cloud Manager システム内のすべてのローカルユーザアカウントを、 Cloud Central で使用可能な中央集中型ユーザ認証に移行します。
+
+
+
+== 中央集中型のユーザ認証はどのように機能しますか。
+
+一元的なユーザ認証では、 Cloud Manager システム全体、および Cloud Manager と他のデータサービス（ Cloud Sync など）の間で同じクレデンシャルセットを使用できます。パスワードを忘れた場合は、簡単にリセットできます。
+
+
+
+== Cloud Central ユーザーアカウントにサインアップする必要がありますか？
+
+NetApp は、 Cloud Manager システムと Cloud Central を統合する際に、 Cloud Central ユーザアカウントを作成します。登録プロセスを完了するには、パスワードをリセットするだけです。
+
+
+
+== Cloud Central ユーザーアカウントをすでにお持ちの場合はどうなりますか？
+
+Cloud Manager へのログインに使用する電子メールアドレスが Cloud Central ユーザーアカウントの電子メールアドレスと一致する場合は、 Cloud Manager システムにログインできます。
+
+
+
+== Cloud Manager システムに複数のユーザアカウントがある場合はどうなりますか。
+
+ネットアップは、すべてのローカルユーザアカウントを Cloud Central ユーザアカウントに移行します。すべてのユーザがパスワードをリセットする必要があります。
+
+
+
+== 複数の Cloud Manager システムで同じ電子メールアドレスを使用するユーザアカウントを使用している場合はどうなりますか。
+
+パスワードを一度リセットするだけで、同じ Cloud Central ユーザーアカウントを使用して各 Cloud Manager システムにログインできます。
+
+
+
+== ローカルユーザアカウントで無効な電子メールアドレスを使用している場合はどうなりますか。
+
+パスワードをリセットするには、有効なメールアドレスが必要です。Cloud Manager インターフェイスの右下にあるチャットアイコンを使用してお問い合わせください。
+
+
+
+== Cloud Manager API 用の自動化スクリプトを使用している場合はどうなりますか。
+
+すべての API は下位互換性があります。パスワードをリセットしたときにパスワードを変更した場合は、パスワードを使用するスクリプトを更新する必要があります。
+
+
+
+== Cloud Manager システムで LDAP を使用している場合はどうなりますか。
+
+システムで LDAP を使用している場合、ネットアップはシステムを Cloud Central と自動的に統合することはできません。次の手順を手動で実行する必要があります。
+
+. から新しい Cloud Manager システムを導入します https://cloud.netapp.com/["NetApp Cloud Central"^]。
+. https://services.cloud.netapp.com/misc/federation-support["新しいシステムで LDAP を設定します。"^]。
+. link:task_adding_ontap_cloud.html["既存の Cloud Volumes ONTAP システムを検出"] 新しい Cloud Manager システムから作成します。
+. 古い Cloud Manager システムを削除します。
+
+
+
+
+== Cloud Manager システムのインストール先はどこにいても問題ありませんか。
+
+いいえネットアップは、 AWS 、 Azure 、オンプレミスなど、システムの場所に関係なく、 Cloud Central とシステムを統合します。
+
+
+NOTE: 唯一の例外は、 AWS コマーシャルクラウドサービス環境です。

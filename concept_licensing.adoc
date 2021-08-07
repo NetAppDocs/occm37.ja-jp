@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: concept_licensing.html 
+keywords: licenses, licensing, byol, license, subscription, renewal, expire, netapp support site, account, credentials, file, license file, upload, nlf 
+summary: 各クラウドボリューム ONTAP BYOL システムには、アクティブなサブスクリプションを持つライセンスがインストールされている必要があります。Cloud Manager は、ライセンスを管理して期限が切れる前に通知することで、ライセンスプロセスを簡易化します。 
+---
+= ライセンス
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+各クラウドボリューム ONTAP BYOL システムには、アクティブなサブスクリプションを持つライセンスがインストールされている必要があります。アクティブライセンスがインストールされていない場合、 Cloud Volumes ONTAP システムは 30 日後にシャットダウンします。Cloud Manager では、ライセンスを管理し、有効期限が切れる前に通知することで、プロセスを簡素化します。
+
+[discrete]
+=== 新しいシステムのライセンス管理
+
+BYOL システムを作成する際、 Cloud Manager は NetApp Support Site のアカウントを入力するように求めます。Cloud Manager は、アカウントを使用してネットアップからライセンスファイルをダウンロードし、 Cloud Volumes ONTAP システムにインストールします。
+
+link:task_adding_nss_accounts.html["ネットアップサポートサイトのアカウントをクラウドに追加する方法をご確認ください マネージャー"]。
+
+Cloud Manager がセキュアなインターネット接続経由でライセンスファイルにアクセスできない場合は、ファイルを自分で取得してから、手動で Cloud Manager にアップロードできます。手順については、を参照してください link:task_modifying_ontap_cloud.html#installing-license-files-on-cloud-volumes-ontap-byol-systems["Cloud Volumes ONTAP BYOL システムへのライセンスファイルのインストール"]。
+
+[discrete]
+=== ライセンスの有効期限
+
+ライセンスの有効期限が切れる 30 日前と、ライセンスの有効期限が切れる 30 日前に、 Cloud Manager から警告が表示されます。次の図は、 30 日間の有効期限の警告を示しています。
+
+image:screenshot_warning.gif["スクリーンショット：警告アイコンが含まれている Cloud Volumes ONTAP の作業環境を示します。アイコンは、アクションが必要であることを示します。"]
+
+メッセージを確認する作業環境を選択できます。
+
+ライセンスを期限内に更新しないと、 Cloud Volumes ONTAP システムは自動的にシャットダウンします。再起動すると、自動的にシャットダウンされます。
+
+
+NOTE: Cloud Volumes ONTAP では、 EMS （ Event Management System ）イベント通知を使用して、電子メール、 SNMP トラップホスト、または syslog サーバから通知することもできます。手順については、を参照してください http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-ems/home.html["ONTAP 9 EMS 構成エクスプレスガイド"^]。
+
+[discrete]
+=== ライセンスの更新
+
+ネットアップの担当者に連絡して BYOL サブスクリプションを更新すると、 Cloud Manager は自動的にネットアップから新しいライセンスを取得し、 Cloud Volumes ONTAP システムにインストールします。
+
+Cloud Manager がセキュアなインターネット接続経由でライセンスファイルにアクセスできない場合は、ファイルを自分で取得してから、手動で Cloud Manager にアップロードできます。手順については、を参照してください link:task_modifying_ontap_cloud.html#installing-license-files-on-cloud-volumes-ontap-byol-systems["Cloud Volumes ONTAP BYOL システムへのライセンスファイルのインストール"]。

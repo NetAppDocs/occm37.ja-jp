@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: task_configuring_proxy.html 
+keywords: proxy, proxy server, proxy, internet 
+summary: Cloud Manager を初めて導入するときに、システムにインターネットアクセスがない場合は、プロキシサーバの入力を求めるプロンプトが表示されます。また、 Cloud Manager の設定からプロキシを手動で入力および変更することもできます。 
+---
+= プロキシサーバを使用するように Cloud Manager を設定しています
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager を初めて導入するときに、システムにインターネットアクセスがない場合は、プロキシサーバの入力を求めるプロンプトが表示されます。また、 Cloud Manager の設定からプロキシを手動で入力および変更することもできます。
+
+インターネットへのすべての HTTP 通信にプロキシサーバを使用するように社内ポリシーで指示されている場合は、そのプロキシサーバを使用するように Cloud Manager を設定する必要があります。プロキシサーバは、クラウドまたはネットワークに配置できます。
+
+プロキシサーバを使用するように Cloud Manager を設定すると、 Cloud Manager 、 Cloud Volumes ONTAP 、および HA Mediator はすべてプロキシサーバを使用します。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * Cloud Manager 設定 * を選択します。
++
+image:screenshot_settings_icon.gif["Cloud Manager コンソールの右上にある設定アイコンを示すスクリーンショット。"]
+
+. HTTP プロキシで、構文を使用してサーバを入力します http://_address:port_[]をクリックして、サーバーの基本認証が必要な場合はユーザー名とパスワードを指定し、 * 保存 * をクリックします。
++
+
+NOTE: Cloud Manager では、 @ 文字を含むパスワードはサポートされていません。
+
+
+
+プロキシサーバを指定すると、 AutoSupport メッセージの送信時にプロキシサーバを使用するように、新しい Cloud Volumes ONTAP システムが自動的に設定されます。ユーザが Cloud Volumes ONTAP システムを作成する前にプロキシサーバを指定しない場合は、 System Manager を使用して、各システムの AutoSupport オプションでプロキシサーバを手動で設定する必要があります。

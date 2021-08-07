@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: task_managing_cloud_central_accounts.html 
+keywords: account settings, workspaces, service connector, account admin, workspace admin, users, associate, disassociate, add user, add users, user management, administer, user, management, remove user, remove users, remove, delete, account, user account, user accounts, add workspace, setup workspace, workspace, service connector, manage service connector, manage workspace, associate service connector 
+summary: 初期セットアップの実行後、ユーザ、ワークスペース、およびサービスコネクタの管理が必要になる場合があります。 
+---
+= Cloud Central アカウントでのワークスペースとユーザの管理
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+link:task_setting_up_cloud_central_accounts.html["初期セットアップを実行したあと"]を使用すると、ユーザ、ワークスペース、およびサービスコネクタの管理が必要になる場合があります。
+
+link:concept_cloud_central_accounts.html["Cloud Central アカウントの仕組みの詳細については、こちらをご覧ください"]。
+
+
+
+== ユーザを追加する
+
+Cloud Central ユーザを Cloud Central アカウントに関連付けて、これらのユーザが Cloud Manager で作業環境を作成および管理できるようにします。
+
+.手順
+. ユーザーがまだ行っていない場合は、にアクセスするようにユーザーに依頼します https://cloud.netapp.com["NetApp Cloud Central"^] アカウントを作成します。
+. Cloud Manager で、 * アカウント設定 * をクリックします。
+. [ ユーザー ] タブで、 [ ユーザーの関連付け ] をクリックします。
+. ユーザの E メールアドレスを入力し、ユーザのロールを選択します。
++
+** * アカウント管理者 * ： Cloud Manager で任意の操作を実行できます。
+** * ワークスペース管理者 * ：割り当てられたワークスペースでリソースを作成および管理できます。
+
+
+. Workspace Admin を選択した場合は、 1 つ以上のワークスペースを選択してそのユーザーに関連付けます。
++
+image:screenshot_associate_user.gif["ロールと関連するワークスペースを選択してユーザを関連付ける方法を示すスクリーンショット。"]
+
+. [ ユーザーの関連付け ] をクリックします。
+
+
+ユーザには、 NetApp Cloud Central の「 Account Association 」というタイトルの E メールが送信されます。 E メールには、 Cloud Manager にアクセスするために必要な情報が記載されています。
+
+ユーザには、 NetApp Cloud Central の「 Account Association 」というタイトルの E メールが送信されます。 E メールには、 Cloud Manager にアクセスするために必要な情報が記載されています。
+
+
+
+== ユーザの削除
+
+ユーザの関連付けを解除すると、 Cloud Central アカウント内のリソースにアクセスできなくなります。
+
+.手順
+. 「 * アカウント設定 * 」をクリックします。
+. ユーザに対応する行のアクションメニューをクリックします。
++
+image:screenshot_associate_user_workspace.gif["ユーザテーブルでユーザの名前にカーソルを合わせたときに使用できる操作メニューを示すスクリーンショット。"]
+
+. [ ユーザーの関連付けを解除（ Disassociate User ） ] をクリックし、 [ 関連付けを解除（ Disassociate ） ] をクリックして
+
+
+ユーザはこの Cloud Central アカウントのリソースにアクセスできなくなります。
+
+
+
+== ワークスペース管理者のワークスペースの管理
+
+ワークスペース管理者は、いつでもワークスペースに関連付けたり、ワークスペースと関連付けを解除したりできます。ユーザーを関連付けると、ワークスペース内の作業環境を作成して表示できます。
+
+.手順
+. 「 * アカウント設定 * 」をクリックします。
+. ユーザに対応する行のアクションメニューをクリックします。
++
+image:screenshot_associate_user_workspace.gif["ユーザテーブルでユーザの名前にカーソルを合わせたときに使用できる操作メニューを示すスクリーンショット。"]
+
+. * ワークスペースの管理 * をクリックします。
+. ユーザーに関連付けるワークスペースを選択し、 * 適用 * をクリックします。
+
+
+サービスコネクタもワークスペースに関連付けられていれば、ユーザは Cloud Manager からこれらのワークスペースにアクセスできるようになりました。
+
+
+
+== ワークスペースの管理
+
+ワークスペースの作成、名前の変更、および削除により、ワークスペースを管理します。ワークスペースにリソースが含まれている場合、ワークスペースは削除できません。空である必要があります。
+
+.手順
+. 「 * アカウント設定 * 」をクリックします。
+. [* ワークスペース * ] をクリックします。
+. 次のいずれかのオプションを選択します。
++
+** 新しいワークスペースを作成するには、 * 新しいワークスペースを追加 * をクリックします。
+** * 名前変更 * をクリックして、ワークスペースの名前を変更します。
+** ワークスペースを削除するには、 * 削除 * をクリックします。
+
+
+
+
+
+
+== サービスコネクタのワークスペースを管理する
+
+サービスコネクタをワークスペースに関連付けて、 Workspace 管理者がこれらのワークスペースに Cloud Manager からアクセスできるようにする必要があります。
+
+アカウント管理者のみがいる場合は、サービスコネクタをワークスペースに関連付ける必要はありません。アカウント管理者は、デフォルトで Cloud Manager のすべてのワークスペースにアクセスできます。
+
+link:concept_cloud_central_accounts.html#users-workspaces-and-service-connectors["ユーザー、ワークスペース、サービスコネクタの詳細をご覧ください"]。
+
+.手順
+. 「 * アカウント設定 * 」をクリックします。
+. サービスコネクター * をクリックします。
+. 関連付けるサービスコネクタの [ ワークスペースの管理 *] をクリックします。
+. サービスコネクタに関連付けるワークスペースを選択し、 * 適用 * をクリックします。
+

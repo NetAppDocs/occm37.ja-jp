@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: task_managing_compliance.html 
+keywords: remove, delete, stop, stop scans, stop scanning, cloud compliance, stop cloud compliance, delete cloud compliance, terminate, deactivate, deactivating cloud compliance 
+summary: 必要に応じて、 Cloud Compliance のスキャンを停止して、 1 つ以上の作業環境をスキャンすることができます。また、 Cloud Volumes ONTAP システムでクラウドコンプライアンスを使用する必要がなくなった場合は、クラウドコンプライアンスインスタンスを削除することもできます。 
+---
+= Cloud Compliance の無効化
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+必要に応じて、 Cloud Compliance のスキャンを停止して、 1 つ以上の作業環境をスキャンすることができます。また、 Cloud Volumes ONTAP システムでクラウドコンプライアンスを使用する必要がなくなった場合は、クラウドコンプライアンスインスタンスを削除することもできます。
+
+
+
+== 作業環境のコンプライアンススキャンを非アクティブにします
+
+スキャンを非アクティブ化すると、 Cloud Compliance はシステム上のデータをスキャンしなくなり、インデックス付けされたコンプライアンス分析情報を Cloud Compliance インスタンスから削除します（作業環境自体のデータは削除されません）。
+
+.手順
+. Cloud Manager の上部で、 * 作業環境 * をクリックします。
+. 作業環境を選択します。
+. 右側のパネルで、 Cloud Compliance サービスのアクションアイコンをクリックし、 * スキャンを非アクティブ化 * を選択します。
++
+image:screenshot_deactivate_compliance_scan.png["アクションアイコンのスクリーンショット。スキャンを非活動化（ Deactivate scan ）を選択できます。このオプションは、作業環境ページで作業環境を選択した後で使用できます。"]
+
+
+
+
+
+== Cloud Compliance インスタンスを削除しています
+
+Cloud Volumes ONTAP でクラウドコンプライアンスを使用する必要がなくなった場合は、クラウドコンプライアンスインスタンスを削除できます。インスタンスを削除すると、インデックス付きデータが存在する関連ディスクも削除されます。
+
+.ステップ
+. クラウドプロバイダのコンソールに移動して、 Cloud Compliance インスタンスを削除します。
++
+インスタンスの名前は _CloudCompliancy_with で、生成されたハッシュ（ UUID ）を連結しています。例： _CloudCompliion-16bb6564-38ad-40802-9a92-36f5fd2f71c7_
+
+

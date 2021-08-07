@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: task_uninstalling.html 
+keywords: uninstalling, uninstall, reinstall 
+summary: Cloud Manager にはアンインストールスクリプトが含まれており、このスクリプトを使用してソフトウェアをアンインストールし、問題のトラブルシューティングを行ったり、ホストからソフトウェアを完全に削除したりできます。 
+---
+= Cloud Manager をアンインストールしています
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager にはアンインストールスクリプトが含まれており、このスクリプトを使用してソフトウェアをアンインストールし、問題のトラブルシューティングを行ったり、ホストからソフトウェアを完全に削除したりできます。
+
+.手順
+. Linux ホストからアンインストールスクリプトを実行します。
++
+* /opt/application/NetApp/cloudmanager/bin/uninstall.sh [ サイレント ] *
+
++
+silent_ 確認を求めずにスクリプトを実行します。
+
+

@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: reference_cloud_mgr_reqs.html 
+keywords: configurations, ec2, vm, ports, ram, operating system, os, host, requirement, requirements, hypervisor, disk, space, mysql, centos, rhel, red hat, cpu, disk space, 3306 
+summary: 独自のホストに Cloud Manager をインストールする場合は、オペレーティングシステムの要件、ポートの要件など、構成のサポートを確認する必要があります。 
+---
+= Cloud Manager ホストの要件
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+独自のホストに Cloud Manager をインストールする場合は、オペレーティングシステムの要件、ポートの要件など、構成のサポートを確認する必要があります。
+
+
+NOTE: Cloud Manager は GCP 内の自分のホストにインストールできますが、オンプレミスネットワークにはインストールできません。GCP に Cloud Volumes ONTAP を導入するには、 GCP に Cloud Manager をインストールする必要があります。
+
+専用のホストが必要です:: 他のアプリケーションと共有しているホストでは、 Cloud Manager はサポートされません。専用のホストである必要があります。
+サポートされている AWS EC2 インスタンスタイプ::
++
+--
+* t2.medium
+* t3.medium （推奨）
+* m4.large のいずれかです
+* m5.xlarge のように指定します
+* m5.2xlarge
+* m5.mc
+* m5.8xlarge
+
+
+--
+サポートされる Azure VM サイズ:: A2 、 D2 v2 、または D2 v3 （可用性に基づく）
+サポートされている GCP マシンタイプ:: vCPU が 2 個以上、メモリが 4GB 以上のマシンタイプ。
+サポートされているオペレーティングシステム::
++
+--
+* CentOS 7.2
+* CentOS 7.3
+* CentOS 7.4.
+* CentOS 7.5
+* Red Hat Enterprise Linux 7.2
+* Red Hat Enterprise Linux 7.3
+* Red Hat Enterprise Linux 7.4
+* Red Hat Enterprise Linux 7.5
++
+Red Hat Enterprise Linux システムは、 Red Hat サブスクリプション管理に登録する必要があります。登録されていない場合、システムは、 Cloud Manager のインストール中に必要なサードパーティソフトウェアをアップデートするためのリポジトリにアクセスできません。
+
++
+Cloud Manager は、これらのオペレーティングシステムの英語版でサポートされています。
+
+
+
+--
+ハイパーバイザー:: 認定済みのベアメタルハイパーバイザーまたはホスト型ハイパーバイザー CentOS または Red Hat Enterprise Linux を実行しますhttps://access.redhat.com/certified-hypervisors["Red Hat ソリューション：「 Which hypervisors are certified to run Red Hat Enterprise Linux ？」"^]
+CPU:: 2.27 GHz 以上（ 2 コア
+RAM:: 4 GB
+空きディスク容量:: 50 GB
+アウトバウンドインターネットアクセス:: Cloud Manager をインストールする場合、および Cloud Manager を使用して Cloud Volumes ONTAP を導入する場合は、アウトバウンドインターネットアクセスが必要です。エンドポイントのリストについては、を参照してください link:reference_networking_cloud_manager.html["Cloud Manager のネットワーク要件"]。
+ポート::
++
+--
+* HTTP アクセスの場合は 80
+* 443 ： HTTPS アクセス用
+* 3306 （ Cloud Manager データベース用
+* クラウドマネージャ API プロキシの場合は 8080
++
+他のサービスがこれらのポートを使用している場合、 Cloud Manager のインストールは失敗します。
+
++
+
+NOTE: ポート 3306 との競合が発生する可能性があります。MySQL の別のインスタンスがホストで実行されている場合、デフォルトではポート 3306 が使用されます。既存の MySQL インスタンスが使用するポートを変更する必要があります。
+
++
+Cloud Manager のインストール時に、デフォルトの HTTP ポートと HTTPS ポートを変更できます。MySQL データベースのデフォルトポートは変更できません。HTTP ポートと HTTPS ポートを変更する場合は、ユーザがリモートホストから Cloud Manager Web コンソールにアクセスできることを確認する必要があります。
+
++
+** セキュリティグループを変更して、ポート経由の着信接続を許可します。
+** Cloud Manager Web コンソールへの URL を入力するときにポートを指定します。
+
+
+
+
+--
+

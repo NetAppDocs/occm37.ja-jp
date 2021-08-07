@@ -1,0 +1,152 @@
+---
+sidebar: sidebar 
+permalink: task_manage_cvs_aws.html 
+keywords: cloud volumes service for aws, cloud volumes, create cloud volumes, discover cloud volumes service for aws, delete cloud volumes, cloud volumes service subscription, discover cloud volumes service subscription, access key, secret key, discover region, service level, allowed clients 
+summary: Cloud Manager を使用すると、 Cloud Volumes Service for AWS サブスクリプションで NFS Cloud Volume を検出できます。検出後、 NFS Cloud Volume を Cloud Manager から直接追加することができます。 
+---
+= Cloud Volumes Service for AWS を管理する
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager を使用すると、で NFS Cloud Volume を検出できます https://cloud.netapp.com/cloud-volumes-service-for-aws["Cloud Volumes Service for AWS"^] サブスクリプション。検出後、 NFS Cloud Volume を Cloud Manager から直接追加することができます。
+
+
+NOTE: Cloud Volumes Service for AWS では、 Cloud Manager で SMB ボリュームやデュアルプロトコルボリュームを使用することはできません。
+
+
+
+== 始める前に
+
+* Cloud Manager Cloud Volumes Service で、 AWS サブスクリプションに対する _existing_aws を検出できます。を参照してください https://docs.netapp.com/us-en/cloud_volumes/aws/media/cvs_aws_account_setup.pdf["『 NetApp Cloud Volumes Service for AWS Account Setup Guide 』を参照してください"^] 月額プランをまだ設定していない場合は、
++
+Cloud Manager でリージョンを検出するには、リージョンごとに次のセットアッププロセスを実行し、 Cloud Volumes Service から最初のボリュームをプロビジョニングする必要があります。
+
+* Cloud Manager に提供するためには、 Cloud Volumes API のキーとシークレットキーを取得する必要があります。 https://docs.netapp.com/us-en/cloud_volumes/aws/reference_cloud_volume_apis.html#finding-the-api-url-api-key-and-secret-key["手順については、 Cloud Volumes Service for AWS のドキュメントを参照してください"^]。
+
+
+
+
+== Cloud Volumes Service for AWS サブスクリプションを検出しています
+
+最初に、 AWS リージョンの Cloud Volume を検出する必要があります。追加のリージョンはあとで検出できます。
+
+.手順
+. 作業環境ページで、 * 検出 * をクリックします。
+. Cloud Volumes Service for AWS * を選択します。
++
+image:screenshot_discover.gif["Cloud Manager の検出ページを示すスクリーンショット。 Cloud Volumes Service for AWS サブスクリプションで ONTAP クラスタ、 Cloud Volumes ONTAP システム、または Cloud Volume を検出できます。"]
+
+. Cloud Volumes Service サブスクリプションに関する情報を入力します。
++
+.. Cloud Volume が配置されている AWS リージョンを選択します。
+.. Cloud Volume の API キーとシークレットキーを入力します。 https://docs.netapp.com/us-en/cloud_volumes/aws/reference_cloud_volume_apis.html#finding-the-api-url-api-key-and-secret-key["手順については、 Cloud Volumes Service for AWS のドキュメントを参照してください"^]。
+.. [Go*] をクリックします。
++
+image:screenshot_cvs_aws_details.gif["Cloud Volumes Service の詳細ページのスクリーンショット。設定を検出できます。このフィールドには、 AWS リージョン、アクセスキー、およびシークレットキーの 3 つがあります。"]
+
+
+
+
+
+これで、 Cloud Manager の作業環境のページに Cloud Volumes Service for AWS の設定が表示されます。
+
+image:screenshot_cvs_aws_cloud.gif["Cloud Volumes Service for AWS の作業環境のページ上のスクリーンショット。"]
+
+
+
+== 追加のリージョンを検出する
+
+追加のリージョンに Cloud Volume がある場合は、各リージョンを検出する必要があります。
+
+.手順
+. 作業環境ページで、作業環境を選択します（ダブルクリックして開かないでください）。
+. 右ペインで、 * 別の地域で Cloud Volumes Service を検出 * をクリックします。
++
+image:screenshot_cvs_discover_region.gif["「 Discover Cloud Volumes Service in another region 」オプションを示すスクリーンショットこのペインは、作業環境を選択すると表示されます。"]
+
+. Cloud Volumes Service サブスクリプションに関する情報を入力します。
++
+.. Cloud Volume が配置されている AWS リージョンを選択します。
+.. Cloud Volume の API キーとシークレットキーを入力します。 https://docs.netapp.com/us-en/cloud_volumes/aws/reference_cloud_volume_apis.html#finding-the-api-url-api-key-and-secret-key["手順については、 Cloud Volumes Service for AWS のドキュメントを参照してください"^]。
+.. [Go*] をクリックします。
+
+
+
+
+Cloud Manager によって、選択したリージョン内の Cloud Volume に関する情報が検出されます。
+
+
+
+== Cloud Volume を作成しています
+
+Cloud Manager で NFSv3 Cloud Volume を作成できます。Cloud Volume は、初期サイズと単一のエクスポートポリシーでのみ作成できます。ボリュームの編集は、クラウドボリュームサービスのユーザインターフェイスから実行する必要があります。
+
+. 作業環境を開きます。
+. [ 新しいボリュームの追加 ] をクリックします。
+. ボリュームの詳細を入力します。
++
+.. ボリュームの名前を入力します。
+.. 100GiB ~ 90,000GiB の範囲でサイズを指定します（ 88 TiB に相当）。
++
+
+NOTE: Cloud Manager ではボリュームが GiB 単位で表示され、 Cloud Volumes Service では GB 単位で表示されます。
+
+.. サービスレベルとして、 Standard 、 Premium 、または Extreme を指定します。
++
+https://docs.netapp.com/us-en/cloud_volumes/aws/reference_selecting_service_level_and_quota.html#service-levels["これらのサービスレベルの詳細については、こちらをご覧ください"^]。
+
+.. リージョンを選択します。Cloud Manager によって検出されたリージョン内にボリュームを作成できます。
+.. IP アドレスまたは Classless Inter-Domain Routing （ CIDR ）を指定して、クライアントアクセスを制限します。
++
+image:screenshot_cvs_aws_add_volume.gif["Cloud Volumes Service for AWS の新しいボリュームの追加画面のスクリーンショット。"]
+
+
+
+. [Go*] をクリックします。
+
+
+
+
+== Cloud Volume を削除しています
+
+不要になった Cloud Volume を削除します。
+
+.手順
+. 作業環境を開きます。
+. ボリュームにカーソルを合わせて、メニューをクリックします。[ 削除（ Delete ） ] をクリックします。
++
+image:screenshot_cvs_aws_menu.gif["ボリューム、右上にあるメニュー、 info と delete の 2 つのオプションを示すスクリーンショット。"]
+
+. ボリュームを削除することを確定します。
+
+
+
+
+== サポートを受ける
+
+サービスに関する一般的な質問については、 Cloud Manager のチャットを使用してください。
+
+クラウドボリュームに関連するテクニカルサポートの問題については、 Cloud Volumes Service ユーザーインタフェースの「サポート」タブにある 20 桁の「 930 」シリアル番号を使用してください。このサポート ID は、 Web チケットを開くとき、またはサポートに電話するときに使用します。Cloud Volumes Service のシリアル番号は、必ず Cloud Volumes Service のユーザインターフェイスから有効にしてください。 https://docs.netapp.com/us-en/cloud_volumes/aws/task_activating_support_entitlement.html["ここでは、これらの手順について説明します"^]。
+
+
+
+== 制限
+
+* Cloud Manager では、 SMB またはデュアルプロトコルのボリュームはサポートされません。
+* Cloud Volume は、初期サイズと単一のエクスポートポリシーでのみ作成できます。ボリュームの編集は、クラウドボリュームサービスのユーザインターフェイスから実行する必要があります。
+* Cloud Manager では、 Cloud Volumes Service for AWS サブスクリプションとの間のデータレプリケーションはサポートされていません。
+* Cloud Manager から Cloud Volumes Service for AWS サブスクリプションを削除することはできません。Cloud Manager からリージョンを検出する場合、料金は発生しません。
+
+
+
+
+== 関連リンク
+
+* https://cloud.netapp.com/cloud-volumes-service-for-aws["NetApp Cloud Central ： Cloud Volumes Service for AWS"^]
+* https://docs.netapp.com/us-en/cloud_volumes/aws/["NetApp Cloud Volumes Service for AWS のドキュメント"^]
+

@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: task_enabling_flash_cache.html 
+keywords: cloud volumes ontap, aws, ec2, flash cache, read-intensive, read, random, databases, email, file services, c5d.4xlarge, c5d.9xlarge, r5d.2xlarge, compression, performance, azure, nvme, standard, l8s, vm type, virtual machine 
+summary: AWS および Azure の一部の Cloud Volumes ONTAP 構成にはローカルの NVMe ストレージが含まれています。このストレージは、 Cloud Volumes ONTAP がパフォーマンスを向上させるために Flash Cache として使用します。 
+---
+= Cloud Volumes ONTAP で Flash Cache を有効にしています
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+AWS および Azure の一部の Cloud Volumes ONTAP 構成にはローカルの NVMe ストレージが含まれています。このストレージは、 Cloud Volumes ONTAP でパフォーマンスを向上させるために _Flash Cache _ として使用されます。
+
+
+
+== Flash Cache とは
+
+Flash Cache は、最近読み取られたユーザデータとネットアップのメタデータをリアルタイムでインテリジェントにキャッシングすることで、データへのアクセスを高速化します。データベース、 E メール、ファイルサービスなど、ランダムリードが大量に発生するワークロードに効果的です。
+
+
+
+== 制限
+
+* Flash Cache のパフォーマンス向上を利用するには、すべてのボリュームで圧縮を無効にする必要があります。
+* 再起動後のキャッシュの再ウォームアップは、 Cloud Volumes ONTAP ではサポートされていません。
+
+
+
+
+== AWS での Cloud Volumes ONTAP での Flash Cache の有効化
+
+Flash Cache は、 AWS で Cloud Volumes ONTAP Premium および BYOL を使用してサポートされています。
+
+.手順
+. 新規または既存の Cloud Volumes ONTAP Premium または BYOL システムがある EC2 インスタンスタイプを選択します。
++
+** c5d.csi
+** c5d.9xlarge
+** r5d.2xlarge
+
+
+. Flash Cache のパフォーマンス向上を利用するには、すべてのボリュームで圧縮を無効にします。
++
+Cloud Manager からボリュームを作成するときに Storage Efficiency を使用しないようにするか、ボリュームを作成してから実行するように選択します http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["CLI を使用してデータ圧縮を無効にします"^]。
+
+
+
+
+
+== Azure での Cloud Volumes ONTAP での Flash Cache の有効化
+
+Flash Cache は、シングルノードシステムで Cloud Volumes ONTAP BYOL を使用してサポートされています。
+
+.手順
+. Azure で、単一ノードの Cloud Volumes ONTAP BYOL システムを使用した Standard_L8s_v2 VM タイプを選択します。
+. Flash Cache のパフォーマンス向上を利用するには、すべてのボリュームで圧縮を無効にします。
++
+Cloud Manager からボリュームを作成するときに Storage Efficiency を使用しないようにするか、ボリュームを作成してから実行するように選択します http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["CLI を使用してデータ圧縮を無効にします"^]。
+
+

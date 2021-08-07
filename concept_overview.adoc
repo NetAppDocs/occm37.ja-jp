@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: concept_overview.html 
+keywords: overview, concepts, features, use case 
+summary: Cloud Manager を使用すると、 Cloud Volumes ONTAP を導入できます。これにより、クラウドストレージでエンタープライズクラスの機能を利用できます。また、ネットアップを基盤に構築されたハイブリッドクラウド全体でデータを簡単にレプリケートできます。 
+---
+= Cloud Manager と Cloud Volumes ONTAP の概要
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+Cloud Manager を使用すると、 Cloud Volumes ONTAP を導入できます。これにより、クラウドストレージでエンタープライズクラスの機能を利用できます。また、ネットアップを基盤に構築されたハイブリッドクラウド全体でデータを簡単にレプリケートできます。
+
+
+
+== クラウドマネージャ
+
+Cloud Manager は、シンプルさを念頭に置いて構築されています。Cloud Volumes ONTAP のセットアップ手順を順を追って説明します。ストレージプロビジョニングの簡易化と容量管理の自動化を実現し、ハイブリッドクラウド全体でのドラッグアンドドロップによるデータレプリケーションを可能にすることで、データ管理を簡易化します。
+
+Cloud Manager は、 Cloud Volumes ONTAP の導入と管理に必要ですが、オンプレミスの ONTAP クラスタのストレージの検出とプロビジョニングも可能です。これにより、クラウドとオンプレミスのストレージインフラを一元管理できます。
+
+Cloud Manager は、クラウドまたはネットワークで実行できます。 Cloud Volumes ONTAP を導入するネットワークに接続するだけで済みます。次の図は、クラウドプロバイダで実行されている Cloud Manager と Cloud Volumes ONTAP を示しています。また、ハイブリッドクラウド全体のデータレプリケーションも示しています。
+
+image:diagram_cloud_manager_overview.png["は、ハイブリッドクラウド環境とマルチクラウド環境にわたる Cloud Volumes ONTAP システムとデータレプリケーションの管理を Cloud Manager で示しています。"]
+
+https://www.netapp.com/us/products/data-infrastructure-management/cloud-manager.aspx["Cloud Manager の詳細については、こちらをご覧ください"^]
+
+
+
+== Cloud Volumes ONTAP
+
+Cloud Volumes ONTAP は、 ONTAP データ管理ソフトウェアをクラウドで実行するソフトウェア専用のストレージアプライアンスです。Cloud Volumes ONTAP は、本番ワークロード、ディザスタリカバリ、 DevOps 、ファイル共有、データベース管理に使用できます。
+
+Cloud Volumes ONTAP では、次の主要な機能を使用して、エンタープライズストレージをクラウドに拡張します。
+
+* ストレージの効率化：組み込みのデータ重複排除機能、データ圧縮機能、シンプロビジョニング機能、クローニング機能を活用して、ストレージコストを最小限に抑えます。
+* 高可用性は、クラウド環境で障害が発生した場合にエンタープライズクラスの信頼性と継続的な運用を実現します。
+* Data Replication Cloud Volumes ONTAP は、ネットアップの業界をリードするレプリケーションテクノロジである SnapMirror を活用してオンプレミスデータをクラウドにレプリケートするため、複数のユースケースでセカンダリコピーを簡単に使用できます。
+* アプリケーションをオフラインにすることなく、オンデマンドでハイパフォーマンスストレージプールと低パフォーマンスストレージプールの間のデータ階層化スイッチを切り替えます。
+* アプリケーションの整合性 NetApp SnapCenter を使用して、 NetApp Snapshot コピーの整合性を確保します。
+
+
+
+NOTE: ONTAP 機能のライセンスは、 Cloud Volumes ONTAP に含まれています。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html["サポートされている Cloud Volumes ONTAP 構成を表示します"^]
+
+https://cloud.netapp.com/ontap-cloud["Cloud Volumes ONTAP の詳細については、こちらを参照してください"^]

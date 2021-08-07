@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: reference_networking_gcp.html 
+keywords: networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, tiering, data tiering, bucket, private google access, set up data tiering, data tiering requirement, gcp networking, google networking, shared vpc, host project, service project 
+summary: Cloud Volumes ONTAP システムが正常に動作するように、 Google Cloud Platform ネットワークをセットアップします。 
+---
+= Cloud Volumes ONTAP in GCP のネットワーク要件
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP システムが正常に動作するように、 Google Cloud Platform ネットワークをセットアップします。
+
+共有 VPC::
++
+--
+共有 VPC を使用すると、複数のプロジェクトの仮想ネットワークを設定し、一元管理できます。ホストプロジェクト _ で共有 VPC ネットワークをセットアップし、サービスプロジェクト _ で Cloud Manager と Cloud Volumes ONTAP の仮想マシンインスタンスを導入できます。 https://cloud.google.com/vpc/docs/shared-vpc["Google Cloud のドキュメント：「 Shared VPC Overview"^]。
+
+共有 VPC ホストプロジェクトの Cloud Manager サービスアカウントには、次の権限のみを付与する必要があります。
+
+Compute.firewall.* compute.networks.* compute.subnetworks 。 *
+
+Cloud Manager は、ホストプロジェクトのファイアウォール、 VPC 、およびサブネットを照会するためにこれらの権限を必要とします。
+
+--
+Cloud Volumes ONTAP 用のアウトバウンドインターネットアクセス::
++
+--
+Cloud Volumes ONTAP が AutoSupport メッセージを送信できるように、ルーティングポリシーとファイアウォールポリシーで次のエンドポイントへの HTTP / HTTPS トラフィックを許可する必要があります。
+
+* \ https://support.netapp.com/aods/asupmessage
+* \ https://support.netapp.com/asupprod/post/1.0/postAsup
+
+
+--
+IP アドレスの数::
++
+--
+Cloud Manager では、 GCP の Cloud Volumes ONTAP 用の SVM 管理 LIF は作成されません。
+
+
+TIP: LIF は、物理ポートに関連付けられた IP アドレスです。SnapCenter などの管理ツールには、 SVM 管理 LIF が必要です。
+
+--
+ファイアウォールルール:: ファイアウォールルールを作成する必要はありません。ファイアウォールルールは Cloud Manager で自動的に作成されます。自分で使用する必要がある場合は、を参照してください link:reference_firewall_rules_gcp.html["GCP ファイアウォールルール"]。
+の Cloud Volumes ONTAP から Google Cloud Storage への接続 データ階層化::
++
+--
+Cloud Manager でデータの階層化を設定するための追加の手順については、を参照してください link:task_tiering.html["コールドデータを低コストのオブジェクトストレージに階層化する"]。
+
+--
+他のネットワーク内の ONTAP システムへの接続::
++
+--
+手順については、を参照してください https://cloud.google.com/vpn/docs/concepts/overview["Google Cloud のドキュメント：「 Cloud VPN Overview"^]。
+
+--
+

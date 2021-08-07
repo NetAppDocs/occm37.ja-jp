@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: task_updating_cloud_manager.html 
+keywords: updating, upgrading, patch, automatic, updates, upgrade, update 
+summary: Cloud Manager は、最新バージョンにアップデートすることも、ネットアップの担当者が共有しているパッチを使用してアップデートすることもできます。 
+---
+= Cloud Manager を更新しています
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager は、最新バージョンにアップデートすることも、ネットアップの担当者が共有しているパッチを使用してアップデートすることもできます。
+
+
+
+== 自動更新を有効にする
+
+新しいバージョンが利用可能になると、 Cloud Manager は自動的に更新されます。これにより、最新バージョンが実行されていることを確認できます。
+
+Cloud Manager は、実行中の処理がない場合、自動的に深夜 12 時に更新されます。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * Cloud Manager 設定 * を選択します。
+. Automatic Cloud Manager Updates の下のチェックボックスを選択し、 * Save * をクリックします。
+
+
+
+
+== Cloud Manager を最新バージョンに更新しています
+
+Cloud Manager への自動更新を有効にする必要がありますが、 Web コンソールから直接手動で更新することもできます。Cloud Manager は、 AWS の NetApp 所有 S3 バケットからソフトウェアアップデートを取得します。
+
+を確認しておきます link:reference_new_occm.html["このリリースの新機能"] をクリックして、サポートに関する新しい要件と変更点を特定します。
+
+ソフトウェアの更新には数分かかります。Cloud Manager は更新中に使用できません。
+
+.手順
+. コンソールの右下隅を見て、新しいバージョンが使用可能かどうかを確認します。
++
+image:screenshot_new_version.gif["スクリーンショット： Cloud Manager Web コンソールの右下隅にある新しいバージョンのリンクが表示されます。"]
+
+. 新しいバージョンが利用可能な場合は、 [ タイムライン *] をクリックして、進行中のタスクがあるかどうかを確認します。
++
+処理中のタスクがある場合は、完了するまで待ってから次の手順に進みます。
+
+. コンソールの右下にある [ 新しいバージョンを使用可能にする *] をクリックします。
+. Cloud Manager の Software Update ページで、目的のバージョンの横にある * Update * をクリックします。
+. 確認ダイアログボックスに入力し、 * OK * をクリックします。
+
+
+Cloud Manager が更新プロセスを開始します。数分後にコンソールにログインできます。
+
+
+
+== パッチを使用した Cloud Manager の更新
+
+ネットアップがパッチを共有している場合は、 Cloud Manager Web コンソールから直接、提供されたパッチを使用して Cloud Manager を更新できます。
+
+通常、パッチの更新には数分かかります。Cloud Manager は更新中に使用できません。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * ソフトウェア更新 * を選択します。
++
+image:screenshot_settings_icon.gif["Cloud Manager コンソールの右上にある設定アイコンを示すスクリーンショット。"]
+
+. リンクをクリックして、提供されたパッチで Cloud Manager を更新します。
++
+image:screenshot_patch.gif["スクリーンショット：パッチを使用して Cloud Manager を更新するためのリンクを示しています。"]
+
+. 確認ダイアログボックスに入力し、 * OK * をクリックします。
+. 提供されたパッチを選択します。
+
+
+Cloud Manager はパッチを適用します。数分後にコンソールにログインできます。

@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: reference_limitations.html 
+keywords: limitations, active directory, ad, iscsi, key managers, ip address, govcloud, cloud manager, Cloud Volumes ONTAP 
+summary: 既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください 
+---
+= 既知の制限
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください
+
+
+
+== Cloud Manager は常時実行されている必要があります
+
+Cloud Manager は、 Cloud Volumes ONTAP の健全性と課金において重要な要素です。Cloud Manager の電源がオフになっている場合、 Cloud Manager との通信が失われてから 4 日以上が経過すると Cloud Volumes ONTAP システムがシャットダウンします。
+
+
+
+== 共有 Linux ホストはサポートされません
+
+他のアプリケーションと共有しているホストでは、 Cloud Manager はサポートされません。専用のホストである必要があります。
+
+
+
+== Cloud Manager では FlexGroup ボリュームはサポートされません
+
+Cloud Volumes ONTAP では FlexGroup ボリュームがサポートされますが、 Cloud Manager ではサポートされません。System Manager または CLI から FlexGroup ボリュームを作成する場合は、 Cloud Manager の容量管理モードを手動に設定する必要があります。FlexGroup ボリュームで自動モードが適切に機能しない可能性があります。
+
+
+
+== Cloud Manager の新規インストールでは、 Active Directory はデフォルトでサポートされていません
+
+バージョン 3.4 以降では、 Cloud Manager を新規にインストールした場合、組織の Active Directory 認証を使用したユーザ管理はサポートされません。必要に応じて、 Cloud Manager を使用した Active Directory のセットアップをネットアップがサポートします。Cloud Manager の右下にあるチャットアイコンをクリックすると、サポートを受けることができます。
+
+
+
+== AWS GovCloud （米国）地域の制限
+
+* AWS GovCloud （ US ）リージョンで Cloud Volumes ONTAP インスタンスを起動する場合は、 Cloud Manager を AWS GovCloud （ US ）リージョンに導入する必要があります。
+* AWS GovCloud （ US ）リージョンに導入されている場合、 Cloud Manager は、 Microsoft Azure 構成用の NetApp プライベートストレージまたは SoftLayer 構成用の NetApp プライベートストレージ内の ONTAP クラスタを検出できません。
+
+
+
+
+== Cloud Manager は iSCSI ボリュームをセットアップしません
+
+Storage System View を使用して Cloud Manager でボリュームを作成する場合は、 NFS または CIFS プロトコルを選択できます。iSCSI 用のボリュームを作成するには、 OnCommand System Manager を使用する必要があります。
+
+
+
+== Storage Virtual Machine （ SVM ）の制限
+
+Cloud Volumes ONTAP は、 1 つのデータサービス SVM と、災害復旧に使用される 1 つ以上の SVM をサポートします。1 つのデータ提供用 SVM は、 Cloud Volumes ONTAP システム全体（ HA ペアまたはシングルノード）にまたがります。
+
+Cloud Manager では、 SVM ディザスタリカバリのセットアップやオーケストレーションはサポートされません。また、追加の SVM ではストレージ関連のタスクをサポートしません。SVM ディザスタリカバリには、 System Manager または CLI を使用する必要があります。

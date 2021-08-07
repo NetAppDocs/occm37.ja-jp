@@ -1,0 +1,209 @@
+---
+sidebar: sidebar 
+permalink: reference_default_configs.html 
+keywords: linux, user name, operating system, installation files, installation folder, folder, log, logs, service, mysql, packages, linux,  svm, LIF, LIFs, configuration backups, attributes, autosize, security style, space guarantee, unix permissions, NTFS, UNIX, boot, root, disks, aggr0, aggr1, svm, svms, storage virtual machine, LIF failover, failover, attributes, volume attributes, boot disk, root disk, licenses, feature licenses, default licenses, ontap licenses, ontap features 
+summary: Cloud Manager と Cloud Volumes ONTAP のデフォルト設定方法の詳細は、システムの管理に役立ちます。 
+translate: false 
+---
+= デフォルト設定
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager と Cloud Volumes ONTAP のデフォルト設定方法の詳細は、システムの管理に役立ちます。
+
+
+
+== Linux での Cloud Manager のデフォルト設定
+
+Cloud Manager または Linux ホストのトラブルシューティングを行う必要がある場合は、 Cloud Manager の設定方法を理解することができます。
+
+* NetApp Cloud Central （またはクラウドプロバイダのマーケットプレイスから直接）から Cloud Manager を導入した場合は、次の点に注意してください。
++
+** AWS では、 EC2 Linux インスタンスのユーザ名は EC2-user です。
+** Cloud Manager イメージのオペレーティングシステムは、 Red Hat Enterprise Linux 7.4 （ HVM ）です。
++
+オペレーティングシステムには GUI は含まれていません。システムにアクセスするには、端末を使用する必要があります。
+
+
+
+* Cloud Manager のインストールフォルダは、次の場所にあります。
++
+/opt/application/netapp/cloudmanager です
+
+* ログファイルは次のフォルダに格納されます。
++
+/opt/application/netapp/cloudmanager/log を選択します
+
+* Cloud Manager サービスの名前は occm です。
+* OCCM サービスは MySQL サービスに依存します。
++
+MySQL サービスがダウンしている場合は、 OCCM サービスもダウンしています。
+
+* 次のパッケージがまだインストールされていない場合は、 Cloud Manager によって Linux ホストにインストールされます。
++
+** 7 郵便番号
+** AWSCLI
+** Java
+** Kubectl のように入力する
+** MySQL
+** Tridentctl
+** 取得
+
+
+
+
+
+
+== Cloud Volumes ONTAP のデフォルト設定
+
+Cloud Volumes ONTAP がデフォルトでどのように設定されているかを理解すると、システムのセットアップと管理に役立ちます。特に、 ONTAP に精通している場合は、 Cloud Volumes ONTAP のデフォルト設定は ONTAP とは異なるためです。
+
+* Cloud Volumes ONTAP は、 AWS 、 Azure 、 GCP ではシングルノードシステムとして、 AWS と Azure では HA ペアとして利用できます。
+* Cloud Manager は、 Cloud Volumes ONTAP の導入時に 1 つのデータサービス SVM を作成します。複数のデータを提供する SVM の使用はサポートされていません。
+* Cloud Manager は、次の ONTAP 機能ライセンスを Cloud Volumes ONTAP に自動的にインストールします。
++
+** CIFS
+** FlexCache
+** FlexClone
+** iSCSI
+** NetApp Volume Encryption （ライセンス使用システムまたは登録従量課金制システムの場合のみ）
+** NFS
+** SnapMirror
+** SnapRestore
+** SnapVault
+
+
+* デフォルトでは、いくつかのネットワークインターフェイスが作成されます。
++
+** クラスタ管理 LIF
+** クラスタ間 LIF
+** Azure の HA システム、 AWS のシングルノードシステム、および複数の AWS アベイラビリティゾーンの HA システム上の SVM 管理 LIF の 1 つ
+** ノード管理 LIF
+** iSCSI データ LIF
+** CIFS および NFS データ LIF
++
+
+NOTE: EC2 の要件により、 Cloud Volumes ONTAP の LIF フェイルオーバーはデフォルトで無効になっています。LIF を別のポートに移行すると、インスタンス上の IP アドレスとネットワークインターフェイス間の外部マッピングが解除され、 LIF にアクセスできなくなります。
+
+
+
+* Cloud Volumes ONTAP は、 HTTPS を使用して設定バックアップを Cloud Manager に送信します。
++
+Cloud Manager にログインすると、からバックアップにアクセスできます https://ipaddress/occm/offboxconfig/[]
+
+* Cloud Manager は、他の管理ツール（ System Manager や CLI など）とは異なるボリューム属性をいくつか設定します。
++
+次の表に、 Cloud Manager がデフォルトとは異なる設定にしたボリューム属性を示します。
+
++
+[cols="15,85"]
+|===
+| 属性 | Cloud Manager によって設定される値 
+
+
+| オートサイズモード | 成長 
+
+
+| 最大オートサイズ  a| 
+1,000 パーセント
+
+
+NOTE: アカウント管理者は、 [ 設定 ] ページからこの値を変更できます。
+
+
+
+| セキュリティ形式 | CIFS ボリューム UNIX の場合は NTFS 、 NFS ボリュームの場合は NTFS 
+
+
+| スペースギャランティスタイル | なし 
+
+
+| UNIX 権限（ NFS のみ） | 777 
+|===
++
+これらの属性の詳細については、 _volume create のマニュアルページを参照してください。
+
+
+
+
+
+== Cloud Volumes ONTAP のブートデータとルートデータ
+
+Cloud Manager は、ユーザデータ用のストレージに加えて、各 Cloud Volumes ONTAP システムのブートデータとルートデータ用のクラウドストレージも購入します。
+
+
+
+=== AWS
+
+* 汎用 SSD ディスク × 2 ：
++
+** ルートデータ用に 140GB ディスク × 1 （ノードごとに 1 つ）
+** 9.6 以降：ブートデータ用に 86 GB のディスクが 1 つ（ノードごとに 1 つ）
+** 9.5 以前：ブートデータ用に 45GB のディスク 1 本（ノードごとに 1 本）
+
+
+* ブートディスクとルートディスクごとに 1 つの EBS スナップショット
+* HA ペアの場合は、メディエーターインスタンス用の EBS ボリュームが 1 つで、約 8GB です
+
+
+
+
+=== Azure （シングルノード）
+
+* Premium SSD ディスク × 2 ：
++
+** ブートデータ用に 90 GB のディスクを 1 台
+** ルートデータ用に 140GB のディスクが 1 つ
+
+
+* 各ブートディスクとルートディスクに 1 つの Azure Snapshot
+
+
+
+
+=== Azure （ HA ペア）
+
+* ブートボリューム用に 90GB の Premium SSD ディスクを 2 本（各ノードに 1 本）
+* ルート用の 140 GB Premium Storage ページブロブ 2 つ ボリューム（ノードごとに 1 つ）
+* コアを節約するために 128 GB の標準 HDD ディスク 2 台 （ノードごとに 1 つ）
+* 各ブートディスクとルートディスクに 1 つの Azure Snapshot
+
+
+
+
+=== GCP
+
+* 起動データ用に 10 GB 標準永続ディスクを 1 台
+* ルートデータ用に 64 GB の標準パーシステントディスクを 1 台
+* NVRAM 用に 500GB の標準永続的ディスクを 1 本
+* コアを節約するための 216 GB 標準永続ディスク 1 台
+* 各 GCP スナップショット（起動ディスクとルート用） ディスク
+
+
+
+
+=== ディスクが存在する場所
+
+Cloud Manager は次のようにストレージを配置します。
+
+* ブートデータは、インスタンスまたは仮想マシンに接続されたディスクにあります。
++
+このディスクにはブートイメージが含まれており、 Cloud Volumes ONTAP では使用できません。
+
+* システム構成とログを含むルートデータは、 aggr0 にあります。
+* Storage Virtual Machine （ SVM ）ルートボリュームは aggr1 にあります。
+* データボリュームも aggr1 にあります。
+
+
+
+
+=== 暗号化
+
+ブートディスクとルートディスクは、これらのクラウドプロバイダではデフォルトで暗号化が有効になるため、 Azure と Google Cloud Platform では常に暗号化されます。
+
+キー管理サービス（ KMS ）を使用して AWS でデータ暗号化を有効にすると、 Cloud Volumes ONTAP のブートディスクとルートディスクも暗号化されます。これには、 HA ペアのメディエーターインスタンスのブートディスクが含まれます。ディスクは、作業環境の作成時に選択した CMK を使用して暗号化されます。

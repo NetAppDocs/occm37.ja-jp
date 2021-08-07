@@ -1,0 +1,179 @@
+---
+sidebar: sidebar 
+permalink: faq_cloud_compliance.html 
+keywords: faq, frequently asked questions, questions 
+summary: この FAQ は、質問に対する簡単な回答を探している場合に役立ちます。 
+---
+= Cloud Compliance についての FAQ です
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+この FAQ は、質問に対する簡単な回答を探している場合に役立ちます。
+
+
+
+== クラウドコンプライアンスとは
+
+Cloud Compliance は、ネットアップの新しいクラウドソリューションです。人工知能（ AI ）ベースのテクノロジを使用したクラウドコンプライアンスにより、組織はデータコンテキストを把握し、 AWS または Azure でホストされている Cloud Volumes ONTAP システム全体で機密データを特定できます。
+
+Cloud Compliance では、データプライバシーや機密性に関する新しいデータコンプライアンス規制（ GDPR 、 CCPA など）に対応するための事前定義されたパラメータ（機密情報の種類やカテゴリなど）が提供されます。
+
+
+
+== Cloud Compliance を使用すべき理由
+
+Cloud Compliance では、データを通じて次のことを支援できます。
+
+* データコンプライアンスやプライバシーの規制に準拠
+* データ保持ポリシーに準拠
+* GDPR 、 CCPA 、その他のデータプライバシー規制の要件に応じて、特定のデータを簡単に検索し、レポートを作成できます。
+
+
+
+
+== Cloud Compliance の一般的なユースケースを教えてください。
+
+* 個人識別情報（ PII ）を識別します。
+* GDPR および CCPA のプライバシー規制の要件に応じて、さまざまな機密情報の範囲を特定します。
+* データプライバシーに関する新しい規制や今後の規制に対応できます。
+
+
+https://cloud.netapp.com/cloud-compliance["Cloud Compliance のユースケースについて詳しくは、こちらをご覧ください"^]。
+
+
+
+== Cloud Compliance でスキャンできるデータの種類を教えてください。
+
+Cloud Compliance では、 NFS および CIFS プロトコル経由の非構造化データのスキャンがサポートされます。現在、 Cloud Compliance は、 Cloud Volumes ONTAP で管理されているデータをスキャンします。
+
+link:concept_cloud_compliance.html#how-scans-work["スキャンの仕組みを説明します"]。
+
+
+
+== サポートされているクラウドプロバイダを教えてください。
+
+Cloud Compliance は、 Cloud Manager の一部として機能し、現在は AWS と Azure をサポートしています。これにより、異なるクラウドプロバイダ間で統一されたプライバシー可視性を実現できます。Google Cloud Platform （ GCP ）のサポートがまもなく追加されます。
+
+
+
+== Cloud Compliance へのアクセス方法
+
+Cloud Compliance の運用と管理には Cloud Manager を使用します。Cloud Compliance 機能には、 Cloud Manager の * Compliance * タブからアクセスできます。
+
+
+
+== Cloud Compliance の仕組み
+
+Cloud Compliance では、 Cloud Manager システムと Cloud Volumes ONTAP インスタンスのほかに、もう 1 つの人工知能レイヤを導入します。次に、 Cloud Volumes ONTAP 上のデータをスキャンし、見つかったデータのインデックスを作成します。
+
+link:concept_cloud_compliance.html["Cloud Compliance の仕組みをご覧ください"]。
+
+
+
+== クラウドのコンプライアンスコストはいくらですか？
+
+クラウドコンプライアンスは Cloud Volumes ONTAP の一部として提供され、追加コストは不要です。機能をカスタマイズするには、将来的に追加のコストが必要になる可能性があります。
+
+
+NOTE: Cloud Compliance では、クラウドプロバイダにインスタンスを導入する必要があり、そのインスタンスをクラウドプロバイダが課金します。
+
+
+
+== Cloud Compliance はどのくらいの頻度でデータをスキャンしますか？
+
+データが頻繁に変更されるため、 Cloud Compliance はデータに影響を与えることなくデータを継続的にスキャンします。データの初回スキャンには時間がかかる場合がありますが、その後のスキャンでは差分変更のみがスキャンされるため、システムのスキャン時間が短縮されます。
+
+link:concept_cloud_compliance.html#how-scans-work["スキャンの仕組みを説明します"]。
+
+
+
+== Cloud Compliance はレポートを提供しますか。
+
+はい。Cloud Compliance から提供される情報は、組織内の他の関係者にも関係があるため、レポートを作成して分析情報を共有することができます。
+
+Cloud Compliance で使用できるレポートは次のとおりです。
+
+プライバシーリスクアセスメントレポート:: データからプライバシーに関する情報を収集し、プライバシーリスクスコアを取得します。 link:task_generating_compliance_reports.html["詳細はこちら。"]。
+Data Subject Access Request レポート:: データサブジェクトの特定の名前または個人 ID に関する情報を含むすべてのファイルのレポートを抽出できます。 link:task_responding_to_dsar.html["詳細はこちら。"]。
+特定の情報タイプに関するレポート:: 個人データや機密性の高い個人データを含む、特定されたファイルの詳細を含むレポートを利用できます。カテゴリおよびファイルタイプ別に分類されたファイルを表示することもできます。 link:task_controlling_private_data.html["詳細はこちら。"]。
+
+
+
+
+== クラウドコンプライアンスに必要なインスタンスまたは VM のタイプはどれですか？
+
+* Azure では、 Cloud Compliance は 512 GB ディスクの Standard_D16s_v3 VM で実行されます。
+* AWS では、クラウドコンプライアンスは m5.mcd インスタンスと 500GB io1 ディスクで実行します。
++
+m5.mcd を使用できない地域では、代わりに m4.mcd インスタンスに対して Cloud Compliance を実行します。
+
+
+
+link:concept_cloud_compliance.html["Cloud Compliance の仕組みをご覧ください"]。
+
+
+
+== スキャンのパフォーマンスは変化しますか？
+
+スキャンパフォーマンスは、クラウド環境のネットワーク帯域幅と平均ファイルサイズによって異なります。
+
+
+
+== Cloud Compliance を有効にする方法
+
+Cloud Compliance は、新しい作業環境の作成時に有効にすることができます。既存の作業環境で有効にするには、 * コンプライアンス * タブ（最初の活動化のみ）を使用するか、特定の作業環境を選択します。
+
+link:task_getting_started_compliance.html["開始方法をご確認ください"]。
+
+
+NOTE: Cloud Compliance をアクティブにすると、最初のスキャンがすぐに開始されます。コンプライアンスの結果はすぐ後に表示されます。
+
+
+
+== Cloud Compliance を無効にする方法
+
+個々の作業環境を選択したら、作業環境のページで Cloud Compliance を無効にすることができます。
+
+link:task_managing_compliance.html["詳細はこちら。"]。
+
+
+NOTE: Cloud Compliance インスタンスを完全に削除するには、クラウドプロバイダのポータルから Cloud Compliance インスタンスを手動で削除します。
+
+
+
+== Cloud Volumes ONTAP でデータ階層化が有効になっている場合はどうなりますか。
+
+コールドデータをオブジェクトストレージに階層化する Cloud Volumes ONTAP システムでは、クラウド準拠を有効にすることができます。データの階層化が有効になっている場合、 Cloud Compliance は、ディスクに格納されているすべてのデータと、オブジェクトストレージに階層化されたコールドデータをスキャンします。
+
+コンプライアンススキャンはコールドデータを加熱しません -- コールドデータを保存し ' オブジェクトストレージに階層化します
+
+
+
+== クラウドコンプライアンスを使用してオンプレミスの ONTAP ストレージをスキャンできますか。
+
+いいえCloud Compliance は、現在 Cloud Manager の一部として提供されており、 Cloud Volumes ONTAP をサポートしています。Cloud Volumes Service や Azure NetApp Files などのクラウドサービスを追加して、クラウドコンプライアンスをサポートすることを計画しています。 
+
+
+
+== Cloud Compliance から組織に通知を送信できますか？
+
+いいえ。ただし、組織内で共有できるステータスレポートはダウンロードできます。
+
+
+
+== 組織のニーズに合わせてサービスをカスタマイズできますか。
+
+Cloud Compliance は、設定不要でデータを分析します。これらの分析情報を抽出して、組織のニーズに活用できます。
+
+
+
+== クラウドコンプライアンス情報を特定のユーザに制限できますか。
+
+はい。 Cloud Compliance は Cloud Manager に完全に統合されています。Cloud Manager ユーザは、ワークスペースの権限に基づいて表示可能な作業環境の情報のみを表示できます。
+
+link:concept_cloud_compliance.html#user-access-to-compliance-information["詳細はこちら。"]。

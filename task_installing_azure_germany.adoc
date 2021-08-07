@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: task_installing_azure_germany.html 
+keywords: install, installation, installing, linux, installer, software, germany, azure, region 
+summary: Azure Marketplace は Azure ドイツリージョンでは利用できないため、ネットアップサポートサイトから Cloud Manager のインストーラをダウンロードし、このリージョン内の既存の Linux ホストにインストールする必要があります。 
+---
+= Azure ドイツリージョンへの Cloud Manager のインストール
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Azure Marketplace は Azure Germany 地域ではご利用いただけません。そのため、 Cloud Manager インストーラをネットアップのサポートサイトからダウンロードし、地域の既存の Linux ホストにインストールする必要があります。
+
+.手順
+. link:reference_networking_azure.html["Azure のネットワーク要件を確認します。"]。
+. link:reference_cloud_mgr_reqs.html["Cloud Manager のホスト要件を確認します。"]。
+. link:task_installing_linux.html["Cloud Manager をダウンロードしてインストールします。"]。
+. link:task_adding_azure_accounts.html["サービスプリンシパルを使用して Cloud Manager に Azure 権限を付与します"]。
+
+
+Cloud Manager は、他の地域と同様に、 Azure Germany 地域に Cloud Volumes ONTAP を導入する準備が整いました。ただし、最初に追加のセットアップを実行することもできます。
