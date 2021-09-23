@@ -1,0 +1,247 @@
+---
+sidebar:
+  entries:
+  - title: Cloud Manager 3.7 のドキュメント
+    url: "/index.html"
+  - title: リリースノート
+    entries:
+    - title: クラウドマネージャ
+      entries:
+      - title: 新機能
+        url: "/reference_new_occm.html"
+      - title: 既知の問題
+        url: "/reference_issues.html"
+      - title: 既知の制限
+        url: "/reference_limitations.html"
+    - title: Cloud Volumes ONTAP
+      url: https://docs.netapp.com/us-en/cloud-volumes-ontap/
+  - title: 概念
+    entries:
+    - title: 製品の概要
+      url: "/concept_overview.html"
+    - title: NetApp Cloud Central
+      url: "/concept_cloud_central.html"
+    - title: Cloud Central アカウント
+      url: "/concept_cloud_central_accounts.html"
+    - title: クラウドプロバイダアカウント
+      entries:
+      - title: AWS アカウント
+        url: "/concept_accounts_aws.html"
+      - title: Azure アカウント
+        url: "/concept_accounts_azure.html"
+      - title: GCP アカウント
+        url: "/concept_accounts_gcp.html"
+    - title: ストレージ
+      entries:
+      - title: ディスクとアグリゲート
+        url: "/concept_storage.html"
+      - title: データの階層化
+        url: "/concept_data_tiering.html"
+      - title: ストレージ管理
+        url: "/concept_storage_management.html"
+      - title: WORM ストレージ
+        url: "/concept_worm.html"
+    - title: ハイアベイラビリティペア
+      entries:
+      - title: AWS の HA ペア
+        url: "/concept_ha.html"
+      - title: Azure の HA ペア
+        url: "/concept_ha_azure.html"
+    - title: 評価中
+      url: "/concept_evaluating.html"
+    - title: ライセンス
+      url: "/concept_licensing.html"
+    - title: セキュリティ
+      url: "/concept_security.html"
+    - title: パフォーマンス
+      url: "/concept_performance.html"
+  - title: はじめに
+    entries:
+    - title: 導入の概要
+      url: "/reference_deployment_overview.html"
+    - title: AWS を始めましょう
+      url: "/task_getting_started_aws.html"
+    - title: Azure で始めましょう
+      url: "/task_getting_started_azure.html"
+    - title: GCP を始めましょう
+      url: "/task_getting_started_gcp.html"
+    - title: Cloud Manager をセットアップする
+      entries:
+      - title: Cloud Central アカウントをセットアップします
+        url: "/task_setting_up_cloud_central_accounts.html"
+      - title: AWS アカウントを追加
+        url: "/task_adding_aws_accounts.html"
+      - title: Azure アカウントを追加
+        url: "/task_adding_azure_accounts.html"
+      - title: GCP アカウントを追加します
+        url: "/task_adding_gcp_accounts.html"
+      - title: ネットアップサポートサイトのアカウントを追加してください
+        url: "/task_adding_nss_accounts.html"
+      - title: HTTPS 証明書をインストールします
+        url: "/task_installing_https_cert.html"
+      - title: AWS KMS を設定します
+        url: "/task_setting_up_kms.html"
+    - title: ネットワーク要件
+      entries:
+      - title: クラウドマネージャ
+        url: "/reference_networking_cloud_manager.html"
+      - title: Cloud Volumes ONTAP for AWS
+        url: "/reference_networking_aws.html"
+      - title: AWS 転送ゲートウェイを設定します
+        url: "/task_setting_up_transit_gateway.html"
+      - title: Cloud Volumes ONTAP for Azure
+        url: "/reference_networking_azure.html"
+      - title: Cloud Volumes ONTAP for GCP の略
+        url: "/reference_networking_gcp.html"
+    - title: 追加の導入オプション
+      entries:
+      - title: Cloud Manager ホストの要件
+        url: "/reference_cloud_mgr_reqs.html"
+      - title: Linux に Cloud Manager をインストール
+        url: "/task_installing_linux.html"
+      - title: AWS Marketplace から Cloud Manager を導入
+        url: "/task_launching_aws_mktp.html"
+      - title: Azure Marketplace から Cloud Manager を導入
+        url: "/task_launching_azure_mktp.html"
+      - title: Azure リージョンに Cloud Manager を導入
+        url: "/task_installing_azure_gov.html"
+      - title: Azure ドイツリージョンに Cloud Manager を導入
+        url: "/task_installing_azure_germany.html"
+      - title: AWS C2S で作業を開始する
+        url: https://docs.netapp.com/us-en/occm/media/c2s.pdf
+    - title: Cloud Manager を常時実行
+      url: "/concept_keep_up.html"
+  - title: Cloud Volumes ONTAP を導入します
+    entries:
+    - title: 作業を開始する前に
+      url: "/reference_before.html"
+    - title: Cloud Manager にログインします
+      url: "/task_logging_in.html"
+    - title: 構成を計画
+      url: "/task_planning_your_config.html"
+    - title: システム ID を確認します
+      url: "/task_finding_system_id.html"
+    - title: Flash Cache を有効にします
+      url: "/task_enabling_flash_cache.html"
+    - title: AWS で Cloud Volumes ONTAP を起動します
+      url: "/task_deploying_otc_aws.html"
+    - title: Azure で Cloud Volumes ONTAP を起動します
+      url: "/task_deploying_otc_azure.html"
+    - title: GCP で Cloud Volumes ONTAP を起動します
+      url: "/task_deploying_gcp.html"
+    - title: 従量課金制システムを登録
+      url: "/task_registering.html"
+    - title: Cloud Volumes ONTAP をセットアップする
+      url: "/task_setting_up_ontap_cloud.html"
+  - title: ストレージのプロビジョニング
+    entries:
+    - title: ボリューム、アグリゲート、および LUN を作成する
+      url: "/task_provisioning_storage.html"
+    - title: アクセス頻度の低いデータをオブジェクトストレージに階層化します
+      url: "/task_tiering.html"
+    - title: ONTAP を永続的ストレージとして使用する
+      url: "/task_connecting_kubernetes.html"
+    - title: NetApp Volume Encryption を使用してボリュームを暗号化
+      url: "/task_encrypting_volumes.html"
+    - title: 既存のストレージを管理
+      url: "/task_managing_storage.html"
+  - title: データのレプリケートと保護
+    entries:
+    - title: ONTAP クラスタを検出および管理する
+      url: "/task_discovering_ontap.html"
+    - title: システム間でデータをレプリケート
+      url: "/task_replicating_data.html"
+    - title: Amazon S3 にバックアップします
+      url: "/task_backup_to_s3.html"
+    - title: データを Amazon S3 に同期
+      url: "/task_syncing_s3.html"
+  - title: データプライバシーに関する分析情報を入手できます
+    entries:
+    - title: Cloud Compliance の詳細をご確認ください
+      url: "/concept_cloud_compliance.html"
+    - title: はじめに
+      url: "/task_getting_started_compliance.html"
+    - title: データの可視化と管理を実現
+      url: "/task_controlling_private_data.html"
+    - title: レポートを生成します
+      url: "/task_generating_compliance_reports.html"
+    - title: dsar に応答します
+      url: "/task_responding_to_dsar.html"
+    - title: クラウドコンプライアンスを無効化
+      url: "/task_managing_compliance.html"
+    - title: よく寄せられる質問
+      url: "/faq_cloud_compliance.html"
+  - title: Cloud Volumes ONTAP の管理
+    entries:
+    - title: Cloud Volumes ONTAP に接続します
+      url: "/task_connecting_to_otc.html"
+    - title: ソフトウェアを更新します
+      url: "/task_updating_ontap_cloud.html"
+    - title: システム設定を変更する
+      url: "/task_modifying_ontap_cloud.html"
+    - title: システムを停止して起動します
+      url: "/task_managing_state.html"
+    - title: AWS のコストを監視
+      url: "/task_monitoring_costs.html"
+    - title: ランサムウェアからの保護を強化
+      url: "/task_protecting_ransomware.html"
+    - title: 既存のシステムを追加
+      url: "/task_adding_ontap_cloud.html"
+    - title: システムを削除します
+      url: "/task_deleting_working_env.html"
+  - title: Cloud Manager の管理
+    entries:
+    - title: Cloud Manager を更新します
+      url: "/task_updating_cloud_manager.html"
+    - title: Cloud Central アカウントを管理します
+      url: "/task_managing_cloud_central_accounts.html"
+    - title: 作業環境を削除します
+      url: "/task_removing.html"
+    - title: プロキシを設定します
+      url: "/task_configuring_proxy.html"
+    - title: HTTPS 証明書を更新します
+      url: "/task_renewing_cert.html"
+    - title: Cloud Manager をリストア
+      url: "/task_restoring.html"
+    - title: Cloud Manager をアンインストールします
+      url: "/task_uninstalling.html"
+  - title: ファイルサービス用のボリュームをプロビジョニングしてください
+    entries:
+    - title: Azure NetApp Files の特長
+      url: "/task_manage_anf.html"
+    - title: Cloud Volumes Service for AWS
+      url: "/task_manage_cvs_aws.html"
+  - title: API と自動化
+    entries:
+    - title: API 開発者ガイド
+      url: https://docs.netapp.com/us-en/occm/api.html
+    - title: 自動化のサンプル
+      url: "/reference_infrastructure_as_code.html"
+  - title: 参照
+    entries:
+    - title: Cloud Central の統合に関する FAQ
+      url: "/reference_integration_faq.html"
+    - title: Cloud Volumes ONTAP でサポートされる構成
+      url: https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html
+    - title: サポートされている地域
+      url: https://cloud.netapp.com/cloud-volumes-global-regions
+    - title: AWS のセキュリティグループルール
+      url: "/reference_security_groups.html"
+    - title: Azure のセキュリティグループルール
+      url: "/reference_security_groups_azure.html"
+    - title: GCP のファイアウォールルール
+      url: "/reference_firewall_rules_gcp.html"
+    - title: AWS Marketplace ページ
+      url: "/reference_aws_marketplace.html"
+    - title: 権限
+      url: "/reference_permissions.html"
+    - title: デフォルト設定
+      url: "/reference_default_configs.html"
+    - title: ユーザロール
+      url: "/reference_user_roles.html"
+    - title: 関連リンク
+      url: "/reference_additional_info.html"
+  - title: 以前のバージョン
+    url: "/reference_earlier_versions.html"
+  - title: 法的通知
+    url: "/reference_legal_notices.html"
