@@ -6,6 +6,7 @@ summary: NetApp Cloud Central を使用して AWS で Cloud Manager を起動す
 ---
 = AWS Marketplace からの Cloud Manager の起動
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

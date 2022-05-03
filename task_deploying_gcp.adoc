@@ -6,6 +6,7 @@ summary: GCP では、作業環境を作成することで、シングルノー�
 ---
 = GCP での Cloud Volumes ONTAP の起動
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -156,7 +157,7 @@ image:screenshot_cot_vol.gif["スクリーンショット： Cloud Volumes ONTAP
 |===
 . * 使用状況プロファイル、ディスクタイプ、階層化ポリシー * ：必要に応じて、 Storage Efficiency 機能を有効にして階層化ポリシーを変更するかどうかを選択します。
 +
-詳細については、を参照してください link:task_planning_your_config.html#choosing-a-volume-usage-profile["ボリューム使用率プロファイルについて"] および 。
+詳細については、を参照してください link:task_planning_your_config.html#choosing-a-volume-usage-profile["ボリューム使用率プロファイルについて"] および link:concept_data_tiering.html["データ階層化の概要"]。
 
 . * データ階層化用 Google Cloud Platform アカウント * ： Google Cloud Platform アカウントに相互運用可能なストレージアクセスキーを提供して、データ階層化を設定します。データ階層化を無効にするには、 * Skip * をクリックします。
 +

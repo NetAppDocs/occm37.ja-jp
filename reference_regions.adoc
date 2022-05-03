@@ -6,6 +6,7 @@ summary: Cloud Manager および Cloud Volumes ONTAP は、多数の AWS リー�
 ---
 = サポートされている地域
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

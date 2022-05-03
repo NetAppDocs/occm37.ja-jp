@@ -7,6 +7,7 @@ translate: false
 ---
 = Azure のセキュリティグループルール
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

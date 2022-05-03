@@ -6,6 +6,7 @@ summary: クラウドマネージャは、 NetApp Cloud Central を使用して 
 ---
 = Azure Marketplace から Cloud Manager を導入する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -15,7 +16,7 @@ summary: クラウドマネージャは、 NetApp Cloud Central を使用して 
 [role="lead"]
 を使用して Azure に Cloud Manager を導入することを推奨します https://cloud.netapp.com["NetApp Cloud Central"^]必要に応じて、 Azure Marketplace から導入することもできます。
 
-Cloud Manager の導入手順については、を参照してください link:task_installing_azure_gov.html["Azure US Government リージョン"] およびインチ 。
+Cloud Manager の導入手順については、を参照してください link:task_installing_azure_gov.html["Azure US Government リージョン"] およびインチ link:task_installing_azure_germany.html["Azure ドイツ地域"]。
 
 
 TIP: Azure Marketplace から Cloud Manager を導入した場合でも、 Cloud Manager は NetApp Cloud Central と統合されます。 link:concept_cloud_central.html["統合の詳細については、こちらをご覧ください。"]。

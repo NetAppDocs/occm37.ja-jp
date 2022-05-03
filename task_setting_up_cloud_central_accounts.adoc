@@ -6,6 +6,7 @@ summary: 各 Cloud Manager システムは、 NetApp Cloud Central アカウン�
 ---
 = Cloud Central アカウントでのワークスペースとユーザのセットアップ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

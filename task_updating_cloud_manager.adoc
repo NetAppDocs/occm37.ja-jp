@@ -6,6 +6,7 @@ summary: Cloud Manager は、最新バージョンにアップデートするこ
 ---
 = Cloud Manager を更新しています
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

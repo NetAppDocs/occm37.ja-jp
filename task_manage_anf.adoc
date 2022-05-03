@@ -6,6 +6,7 @@ summary: Azure NetApp Files の NFS ボリュームを Cloud Manager から直�
 ---
 = Azure NetApp Files のボリュームの管理
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

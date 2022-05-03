@@ -6,6 +6,7 @@ summary: 各 Cloud Manager システムは、 NetApp Cloud Central アカウン�
 ---
 = Cloud Central アカウント
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -46,7 +47,7 @@ NOTE: Cloud Central アカウントサービスに接続するためには、 Cl
 
 Cloud Manager の ［ アカウント設定 ］ ウィジェットを使用すると、アカウント管理者は Cloud Central アカウントを管理できます。アカウントを作成したばかりの場合は、最初から作成します。アカウントをすでに設定している場合は、アカウントに関連付けられているユーザ、ワークスペース、サービスコネクタが _ALL_ と表示されます。
 
-ユーザ::
+ユーザ:: これらは、 Cloud Central アカウントに関連付けられている NetApp Cloud Central ユーザです。ユーザーをアカウントに関連付け、そのアカウント内の 1 つ以上のワークスペースを使用すると、ユーザーは Cloud Manager で作業環境を作成して管理できます。
 +
 --
 ユーザを関連付けると、ユーザにロールが割り当てられます。
@@ -56,7 +57,7 @@ Cloud Manager の ［ アカウント設定 ］ ウィジェットを使用す�
 
 
 --
-ワークスペース::
+ワークスペース:: Cloud Manager では、ワークスペースによって、いくつかの _ 作業環境 _ が他の作業環境から分離されます。アカウント管理者がそのワークスペースに管理者を関連付けないと、ワークスペース管理者はワークスペース内の作業環境にアクセスできません。
 +
 --
 稼働環境はストレージシステムを表します。
@@ -67,7 +68,7 @@ Cloud Manager の ［ アカウント設定 ］ ウィジェットを使用す�
 
 
 --
-サービスコネクタ::
+サービスコネクタ:: Service Connector は Cloud Manager の一部です。クラウドマネージャソフトウェアの多く（ユーザインターフェイスなど）が実行されますが、接続先のクラウドセントラルサービス（ Auth0 アカウントと Cloud Central アカウント）がいくつかあります。Service Connector は、クラウドプロバイダに導入された仮想マシンインスタンス、または設定したオンプレミスホストで実行されます。
 +
 --
 Service Connector は、複数の NetApp クラウドデータサービスで使用できます。たとえば、 Cloud Manager 用の Service Connector がすでにある場合は、 Cloud Tiering Service のセットアップ時にそのコネクタを選択できます。

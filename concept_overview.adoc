@@ -6,6 +6,7 @@ summary: Cloud Manager を使用すると、 Cloud Volumes ONTAP を導入でき
 ---
 = Cloud Manager と Cloud Volumes ONTAP の概要
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

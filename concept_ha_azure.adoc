@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP ハイアベイラビリティ（ HA ）ペアは�
 ---
 = Azure のハイアベイラビリティペア
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -27,7 +28,7 @@ Cloud Manager で導入される Azure コンポーネントは次のとおり�
 
 Azure Standard Load Balancer の略:: ロードバランサは、 Cloud Volumes ONTAP HA ペアへの着信トラフィックを管理します。
 可用性セット:: 可用性セットは、ノードが異なる障害になっていることを確認し、ドメインを更新します。
-ディスク::
+ディスク:: お客様のデータは Premium Storage ページの BLOB にあります。各ノードがもう一方のノードのストレージにアクセスできます。ブートデータ、ルートデータ、コアデータには、追加のストレージも必要です。
 +
 --
 * ブートボリューム用に 90GB の Premium SSD ディスクを 2 本（各ノードに 1 本）

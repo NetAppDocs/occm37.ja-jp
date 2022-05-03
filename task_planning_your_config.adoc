@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP を導入する場合は、ワークロード要件
 ---
 = Cloud Volumes ONTAP 構成を計画
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -109,7 +110,7 @@ Cloud Volumes ONTAP システムのサイジングを行うことで、パフォ
 
 --
 EBS ディスクタイプ:: 汎用 SSD は、 Cloud Volumes ONTAP で最も一般的なディスクタイプです。EBS ディスクのユースケースについては、を参照してください http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["AWS ドキュメント：「 EBS Volume Types"^]。
-EBS ディスクサイズ::
+EBS ディスクサイズ:: Cloud Volumes ONTAP システムを起動するときに初期ディスクサイズを選択する必要があります。その後、次の操作を実行できます link:concept_storage_management.html["システムの容量を Cloud Manager で管理できます"]必要に応じて link:task_provisioning_storage.html#creating-aggregates["アグリゲートを自分で作成する"]、次の点に注意してください。
 +
 --
 * アグリゲート内のディスクはすべて同じサイズである必要があります。
@@ -219,7 +220,7 @@ AWS で Cloud Volumes ONTAP を起動する場合は、 VPC ネットワーク�
 
 Cloud Volumes ONTAP システムのサイジングを行うことで、パフォーマンスと容量の要件を満たすのに役立ちます。VM タイプ、ディスクタイプ、およびディスクサイズを選択する際には、次の点に注意してください。
 
-仮想マシンのタイプ::
+仮想マシンのタイプ:: でサポートされている仮想マシンタイプを確認します http://docs.netapp.com/cloud-volumes-ontap/us-en/index.html["Cloud Volumes ONTAP リリースノート"^] サポートされている各 VM タイプの詳細を確認します。各 VM タイプがサポートするデータディスクの数には制限があることに注意してください。
 +
 --
 * https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general#dsv2-series["Azure のドキュメント：「汎用仮想マシンのサイズ"^]
@@ -227,7 +228,7 @@ Cloud Volumes ONTAP システムのサイジングを行うことで、パフォ
 
 
 --
-Azure のディスクタイプ::
+Azure のディスクタイプ:: Cloud Volumes ONTAP 用のボリュームを作成する場合は、 ONTAP がディスクとして使用する基盤となるクラウドストレージを選択する必要があります。
 +
 --
 HA システムでは、 Premium ページ BLOB を使用します。一方、シングルノードシステムでは、次の 2 種類の Azure Managed Disks を使用できます。
@@ -241,7 +242,7 @@ HA システムでは、 Premium ページ BLOB を使用します。一方、�
 
 
 --
-Azure のディスクサイズ::
+Azure のディスクサイズ:: Cloud Volumes ONTAP インスタンスを起動するときは、アグリゲートのデフォルトのディスクサイズを選択する必要があります。Cloud Manager では、このディスクサイズを初期アグリゲートに使用します。また、簡易プロビジョニングオプションを使用した場合に作成される追加のアグリゲートにも使用します。別のディスクサイズを使用するアグリゲートを作成できます デフォルトでは、です link:task_provisioning_storage.html#creating-aggregates["高度な割り当てオプションを使用する"]。
 +
 --
 
@@ -300,7 +301,7 @@ Cloud Volumes ONTAP を Azure に導入する場合は、仮想ネットワー�
 
 Cloud Volumes ONTAP システムのサイジングを行うことで、パフォーマンスと容量の要件を満たすのに役立ちます。マシンタイプ、ディスクタイプ、およびディスクサイズを選択する際には、次の点に注意してください。
 
-マシンのタイプ::
+マシンのタイプ:: でサポートされているマシンタイプを確認します http://docs.netapp.com/cloud-volumes-ontap/us-en/index.html["Cloud Volumes ONTAP リリースノート"^] 次に、サポートされている各マシンタイプについて Google の詳細を確認します。ワークロードの要件を、マシンタイプの vCPU とメモリの数と一致させます。各 CPU コアは、ネットワークパフォーマンスを向上させることに注意してください。
 +
 --
 詳細については、以下を参照してください。
@@ -310,13 +311,13 @@ Cloud Volumes ONTAP システムのサイジングを行うことで、パフォ
 
 
 --
-GCP ディスクタイプ::
+GCP ディスクタイプ:: Cloud Volumes ONTAP 用のボリュームを作成する際には、 Cloud Volumes ONTAP がディスクに使用する基盤となるクラウドストレージを選択する必要があります。ディスクタイプには、 _Zonal SSD persistent disks _ または _Zonal standard persistent disks _ を指定できます。
 +
 --
 SSD 永続ディスクはランダム IOPS の高い処理速度を必要とするワークロードに最適ですが、標準的な永続ディスクは経済的で、シーケンシャル読み取り / 書き込み処理にも対応できます。詳細については、を参照してください https://cloud.google.com/compute/docs/disks/#pdspecs["Google Cloud のドキュメント：「ゾーン永続ディスク（標準および SSD ）」"^]。
 
 --
-GCP ディスクサイズ::
+GCP ディスクサイズ:: Cloud Volumes ONTAP システムを導入する際には、初期ディスクサイズを選択する必要があります。そのあと、システムの容量を Cloud Manager で管理できるようになりますが、アグリゲートを手動で作成する場合は、次の点に注意してください。
 +
 --
 * アグリゲート内のディスクはすべて同じサイズである必要があります。

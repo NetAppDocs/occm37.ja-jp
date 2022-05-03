@@ -6,6 +6,7 @@ summary: 作業環境を NetApp Cloud Sync と統合することにより、 ONT
 ---
 = Amazon S3 にデータを同期しています
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

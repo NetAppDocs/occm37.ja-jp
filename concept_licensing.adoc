@@ -6,6 +6,7 @@ summary: 各クラウドボリューム ONTAP BYOL システムには、アク�
 ---
 = ライセンス
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

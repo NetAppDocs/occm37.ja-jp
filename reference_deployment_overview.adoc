@@ -7,6 +7,7 @@ summary: 開始する前に、 Cloud Manager および Cloud Volumes ONTAP を�
 = 導入の概要
 :toc: macro
 :hardbreaks:
+:allow-uri-read: 
 :toc: 
 :nofooter: 
 :icons: font
@@ -100,7 +101,7 @@ Cloud Manager のインストール後に、クラウドプロバイダアカウ
 
 Cloud Manager を起動して実行したら、クラウドプロバイダで Cloud Volumes ONTAP の導入を開始できます。
 
-link:task_getting_started_aws.html["AWS の概要"]、 および  Cloud Volumes ONTAP を短時間で起動して実行するための手順を説明します。その他のヘルプについては、次を参照してください。
+link:task_getting_started_aws.html["AWS の概要"]、 link:task_getting_started_azure.html["Azure の導入を開始します"]および link:task_getting_started_gcp.html["GCP の概要"] Cloud Volumes ONTAP を短時間で起動して実行するための手順を説明します。その他のヘルプについては、次を参照してください。
 
 * https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_aws_97.html["AWS の Cloud Volumes ONTAP 9.7 でサポートされている構成"^]
 * https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_azure_97.html["Cloud Volumes ONTAP 9.7 で Azure でサポートされる構成"^]

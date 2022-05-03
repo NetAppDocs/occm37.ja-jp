@@ -6,6 +6,7 @@ summary: Cloud Manager にはアンインストールスクリプトが含まれ
 ---
 = Cloud Manager をアンインストールしています
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

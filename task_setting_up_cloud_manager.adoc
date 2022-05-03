@@ -6,6 +6,7 @@ summary: Cloud Manager を導入した直後に、 Cloud Volumes ONTAP システ
 ---
 = Cloud Manager のセットアップ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

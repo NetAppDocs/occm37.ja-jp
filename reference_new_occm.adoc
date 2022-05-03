@@ -6,6 +6,7 @@ summary: 通常、 Cloud Manager では毎月新しいリリースが導入さ�
 ---
 = Cloud Manager 3.7 の新機能
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -17,8 +18,8 @@ summary: 通常、 Cloud Manager では毎月新しいリリースが導入さ�
 
 
 TIP: 以前のリリースをお探しですか？link:https://docs.netapp.com/us-en/occm36/reference_new_occm.html["3.6 の新機能"^]
-
-
+link:https://docs.netapp.com/us-en/occm35/reference_new_occm.html["3.5 の新機能"^]
+link:https://docs.netapp.com/us-en/occm34/reference_new_occm.html["3.4 の新機能"^]
 
 
 
@@ -141,19 +142,19 @@ link:task_manage_anf.html["開始方法をご確認ください"]。
 
 Cloud Manager 3.7.4 では、 Cloud Volumes ONTAP for Google Cloud Platform の次の機能が拡張されました。
 
-GCP Marketplace での従量課金制サブスクリプション::
+GCP Marketplace での従量課金制サブスクリプション:: Google Cloud Platform Marketplace で Cloud Volumes ONTAP に登録すれば、 Cloud Volumes ONTAP の料金を支払うことができます。
 +
 --
 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager["Google Cloud Platform Marketplace ： Cloud Manager for Cloud Volumes ONTAP"^]
 
 --
-共有 VPC::
+共有 VPC:: Cloud Manager と Cloud Volumes ONTAP が Google Cloud Platform の共有 VPC でサポートされるようになりました。
 +
 --
 共有 VPC を使用すると、複数のプロジェクトの仮想ネットワークを設定し、一元管理できます。共有 VPC ネットワークを _host project_ でセットアップし、サービス project_ に Cloud Manager と Cloud Volumes ONTAP の仮想マシンインスタンスを導入できます。 https://cloud.google.com/vpc/docs/shared-vpc["Google Cloud のドキュメント：「 Shared VPC Overview"^]。
 
 --
-複数の Google Cloud プロジェクト::
+複数の Google Cloud プロジェクト:: Cloud Volumes ONTAP を Cloud Manager と同じプロジェクトに含める必要はなくなりました。Cloud Manager サービスアカウントとロールを追加のプロジェクトに追加し、 Cloud Volumes ONTAP を導入するプロジェクトから選択できます。
 +
 --
 image:screenshot_gcp_project.gif["Working Environment ウィザードでのプロジェクト選択オプションを示すスクリーンショット。"]
@@ -161,7 +162,7 @@ image:screenshot_gcp_project.gif["Working Environment ウィザードでのプ�
 Cloud Manager サービスアカウントの設定の詳細については、 link:task_getting_started_gcp.html#service-account["このページの手順 4b を参照してください"]。
 
 --
-Cloud Manager API を使用する場合、お客様が管理する暗号化キー::
+Cloud Manager API を使用する場合、お客様が管理する暗号化キー:: Google Cloud Storage では常にデータが暗号化されてからディスクに書き込まれますが、 Cloud Manager API を使用して、 _cuser-managed 暗号化キー _ を使用する新しい Cloud Volumes ONTAP システムを作成できます。これらは、 Cloud Key Management Service を使用して GCP で生成および管理するキーです。
 +
 --
 を参照してください link:api.html#_creating_systems_in_gcp["API 開発者ガイド"^] "GcpEncryption" パラメータの使用方法の詳細については、を参照してください。

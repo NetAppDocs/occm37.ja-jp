@@ -6,6 +6,7 @@ summary: Cloud Manager を使用して Cloud Volumes ONTAP システムを作成
 ---
 = Cloud Volumes ONTAP システムを作成する前に
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: Cloud Manager システムに接続されている任意の Web ブラ�
 ---
 = Cloud Manager にログインしています
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

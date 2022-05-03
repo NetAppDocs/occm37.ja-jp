@@ -6,6 +6,7 @@ summary: AWS または Azure の Cloud Volumes ONTAP システムで Cloud Compl
 ---
 = 『 Getting started with Cloud Compliance for Cloud Volumes ONTAP 』
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -71,7 +72,7 @@ Cloud Compliance が有効になったので、ボリュームにアクセスで
 
 Cloud Compliance を有効にする前に、次の前提条件を確認し、サポートされている構成であることを確認してください。Cloud Compliance を有効にしたあとは、コンポーネント間の接続を確認する必要があります。これについては以下で説明します。
 
-アウトバウンドインターネットアクセスを有効にします::
+アウトバウンドインターネットアクセスを有効にします:: Cloud Compliance にはアウトバウンドのインターネットアクセスが必要です。仮想ネットワークでインターネットアクセスにプロキシサーバを使用している場合は、 Cloud Compliance インスタンスがアウトバウンドのインターネットアクセスを使用して次のエンドポイントに接続していることを確認します。
 +
 --
 [cols="43,57"]
@@ -94,7 +95,7 @@ Cloud Compliance を有効にする前に、次の前提条件を確認し、サ
 | ¥ https://cognito-idp.us-east-1.amazonaws.com ¥ https://cognito-identity.us-east-1.amazonaws.com | Cloud Compliance でマニフェストとテンプレートにアクセスしてダウンロードしたり、ログと指標を送信したりできます。 
 |===
 --
-Web ブラウザから Cloud Compliance への接続を確認::
+Web ブラウザから Cloud Compliance への接続を確認:: Cloud Compliance インスタンスは、プライベート IP アドレスを使用して、インデックス付きデータがインターネットにアクセスできないようにします。そのため、 Cloud Manager へのアクセスに使用する Web ブラウザは、そのプライベート IP アドレスに接続する必要があります。この接続は、 AWS または Azure への直接接続（ VPN など）、または Cloud Compliance インスタンスと同じネットワーク内にあるホストから確立できます。
 +
 --
 
@@ -120,7 +121,7 @@ image:screenshot_cloud_compliance.gif["作業環境ウィザードのサービ�
 
 . ウィザードの各ページを設定し、システムを導入します。
 +
-ヘルプについては、を参照してください link:task_deploying_otc_aws.html["AWS での Cloud Volumes ONTAP の起動"] および 。
+ヘルプについては、を参照してください link:task_deploying_otc_aws.html["AWS での Cloud Volumes ONTAP の起動"] および link:task_deploying_otc_azure.html["Azure で Cloud Volumes ONTAP を起動します"]。
 
 
 

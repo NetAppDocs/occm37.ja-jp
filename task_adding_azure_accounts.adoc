@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP を別々の Azure アカウントに導入する�
 ---
 = Azure アカウントを設定して Cloud Manager に追加
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

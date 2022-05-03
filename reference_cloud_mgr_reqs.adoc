@@ -6,6 +6,7 @@ summary: 独自のホストに Cloud Manager をインストールする場合�
 ---
 = Cloud Manager ホストの要件
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -59,7 +60,7 @@ CPU:: 2.27 GHz 以上（ 2 コア
 RAM:: 4 GB
 空きディスク容量:: 50 GB
 アウトバウンドインターネットアクセス:: Cloud Manager をインストールする場合、および Cloud Manager を使用して Cloud Volumes ONTAP を導入する場合は、アウトバウンドインターネットアクセスが必要です。エンドポイントのリストについては、を参照してください link:reference_networking_cloud_manager.html["Cloud Manager のネットワーク要件"]。
-ポート::
+ポート:: 次のポートを使用できる必要があります。
 +
 --
 * HTTP アクセスの場合は 80

@@ -6,6 +6,7 @@ summary: AWS または Microsoft Azure に Cloud Volumes ONTAP システムを�
 ---
 = Cloud Manager のネットワーク要件
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

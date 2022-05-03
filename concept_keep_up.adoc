@@ -6,6 +6,7 @@ summary: Cloud Manager は常時実行されている必要があります。
 ---
 = Cloud Manager を起動して実行します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

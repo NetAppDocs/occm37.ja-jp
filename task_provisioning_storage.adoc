@@ -6,6 +6,7 @@ summary: ボリュームとアグリゲートを管理することで、 Cloud V
 ---
 = ストレージのプロビジョニング
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

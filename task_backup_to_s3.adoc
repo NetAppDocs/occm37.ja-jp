@@ -6,6 +6,7 @@ summary: S3 へのバックアップは、クラウドデータを完全に管�
 ---
 = Amazon S3 へのデータのバックアップ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -92,7 +93,7 @@ image:screenshot_backup_to_s3_restore_icon.gif["ボリュームを選択した�
 S3 へのボリュームのバックアップを開始する前に、次の要件を読み、サポートされている構成になっていることを確認してください。
 
 サポートされている ONTAP のバージョン:: S3 へのバックアップは、 Cloud Volume ONTAP 9.4 以降でサポートされます。
-サポートされている AWS リージョン::
+サポートされている AWS リージョン:: 次の AWS リージョンでは、 Cloud Volumes ONTAP で S3 へのバックアップがサポートされます。
 +
 --
 * 米国東部（ N（バージニア州）
@@ -103,7 +104,7 @@ S3 へのボリュームのバックアップを開始する前に、次の要�
 
 
 --
-AWS 権限が必要です::
+AWS 権限が必要です:: Cloud Manager に権限を提供する IAM ロールには次の権限が必要です。
 +
 --
 [source, json]
@@ -126,13 +127,13 @@ AWS サブスクリプションの要件:: 3.7.3 リリースから、 AWS Marke
 
 
 --
-アウトバウンドインターネットアクセス::
+アウトバウンドインターネットアクセス:: 次のエンドポイントに Cloud Manager からアクセスできることを確認してください： https://w86yt021u5.execute-api.us-east-1.amazonaws.com/production/whitelist
 +
 --
 Cloud Manager がこのエンドポイントにアクセスし、 S3 へのバックアップで許可するユーザのリストに AWS アカウント ID を追加します。
 
 --
-インターフェイス VPC エンドポイント::
+インターフェイス VPC エンドポイント:: Backup to S3 機能を有効にすると、 Cloud Volumes ONTAP が実行されている VPC にインターフェイス VPC エンドポイントが Cloud Manager によって作成されます。この _ バックアップエンドポイント _ は、 S3 へのバックアップが実行されている NetApp VPC に接続します。ボリュームをリストアすると、 Cloud Manager によって追加のインターフェイス VPC エンドポイント - - The _ restore endpoint_ が作成されます。
 +
 --
 VPC 内の他の Cloud Volumes ONTAP システムでは、これらの 2 つの VPC エンドポイントを使用します。

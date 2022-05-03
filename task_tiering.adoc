@@ -6,6 +6,7 @@ summary: ホットデータ用の SSD または HDD のパフォーマンス階�
 ---
 = 使用頻度の低いデータを低コストのオブジェクトストレージに階層化
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

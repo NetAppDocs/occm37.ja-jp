@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP システムでデータ階層化を有効にする
 ---
 = GCP アカウントのセットアップと Cloud Manager への追加
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

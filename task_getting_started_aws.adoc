@@ -7,6 +7,7 @@ summary: Cloud Volumes ONTAP in AWS の使用を開始するには、いくつ�
 ---
 = AWS で Cloud Volumes ONTAP を使用するための準備
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -22,7 +23,7 @@ Cloud Volumes ONTAP の使用を開始するには、 AWS をセットアップ�
 
 . Cloud Manager と Cloud Volumes ONTAP が複数のエンドポイントに接続できるように、ターゲット vPC からのアウトバウンドインターネットアクセスを有効にします。
 +
-Cloud Manager ではアウトバウンドのインターネットアクセスなしで Cloud Volumes ONTAP を導入できないため、この手順は重要です。アウトバウンド接続を制限する必要がある場合は、のエンドポイントのリストを参照してください link:reference_networking_cloud_manager.html#outbound-internet-access["クラウドマネージャ"] および 。
+Cloud Manager ではアウトバウンドのインターネットアクセスなしで Cloud Volumes ONTAP を導入できないため、この手順は重要です。アウトバウンド接続を制限する必要がある場合は、のエンドポイントのリストを参照してください link:reference_networking_cloud_manager.html#outbound-internet-access["クラウドマネージャ"] および link:reference_networking_aws.html#general-aws-networking-requirements-for-cloud-volumes-ontap["Cloud Volumes ONTAP"]。
 
 . S3 サービスへの vPC エンドポイントをセットアップします。
 +

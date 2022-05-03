@@ -6,6 +6,7 @@ summary: Cloud Compliance は、 AWS と Azure での Cloud Volumes ONTAP 向け
 ---
 = Cloud Compliance の詳細をご確認ください
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

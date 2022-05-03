@@ -7,6 +7,7 @@ summary: Cloud Volumes ONTAP in Azure を使用するには、簡単な手順を
 ---
 = Azure での Cloud Volumes ONTAP の導入
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -14,7 +15,7 @@ summary: Cloud Volumes ONTAP in Azure を使用するには、簡単な手順を
 
 
 [role="lead"]
-Cloud Volumes ONTAP の利用を開始するには、 Azure をセットアップし、 NetApp Cloud Central から Cloud Manager ソフトウェアを導入します。Cloud Manager の導入手順については、を参照してください link:task_installing_azure_gov.html["Azure US Government リージョン"] およびインチ 。
+Cloud Volumes ONTAP の利用を開始するには、 Azure をセットアップし、 NetApp Cloud Central から Cloud Manager ソフトウェアを導入します。Cloud Manager の導入手順については、を参照してください link:task_installing_azure_gov.html["Azure US Government リージョン"] およびインチ link:task_installing_azure_germany.html["Azure ドイツ地域"]。
 
 
 
@@ -24,7 +25,7 @@ Cloud Volumes ONTAP の利用を開始するには、 Azure をセットアッ�
 Cloud Manager と Cloud Volumes ONTAP が複数のエンドポイントに接続できるように、ターゲット Vnet からアウトバウンドインターネットアクセスを有効にします。
 
 [role="quick-margin-para"]
-この手順は重要です。 Cloud Manager では、アウトバウンドインターネットアクセスがないと Cloud Volumes ONTAP を導入できないためです。アウトバウンド接続を制限する必要がある場合は、のエンドポイントのリストを参照してください link:reference_networking_cloud_manager.html#outbound-internet-access["クラウドマネージャ"] および 。
+この手順は重要です。 Cloud Manager では、アウトバウンドインターネットアクセスがないと Cloud Volumes ONTAP を導入できないためです。アウトバウンド接続を制限する必要がある場合は、のエンドポイントのリストを参照してください link:reference_networking_cloud_manager.html#outbound-internet-access["クラウドマネージャ"] および link:reference_networking_azure.html["Cloud Volumes ONTAP"]。
 
 
 

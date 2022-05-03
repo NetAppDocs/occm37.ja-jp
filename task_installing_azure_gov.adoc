@@ -6,6 +6,7 @@ summary: Azure Government Marketplace から Cloud Manager を導入し、 Cloud
 ---
 = Azure US Government リージョンでの Cloud Manager の導入
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

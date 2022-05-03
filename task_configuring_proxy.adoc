@@ -6,6 +6,7 @@ summary: Cloud Manager を初めて導入するときに、システムにイン
 ---
 = プロキシサーバを使用するように Cloud Manager を設定しています
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

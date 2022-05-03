@@ -6,6 +6,7 @@ summary: 初期セットアップの実行後、ユーザ、ワークスペー�
 ---
 = Cloud Central アカウントでのワークスペースとユーザの管理
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

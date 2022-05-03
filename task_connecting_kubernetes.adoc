@@ -7,6 +7,7 @@ summary: Cloud Manager では、 Kubernetes クラスタへの NetApp Trident �
 ---
 = Kubernetes 用の永続的ストレージとしての ONTAP の使用
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -16,7 +17,7 @@ summary: Cloud Manager では、 Kubernetes クラスタへの NetApp Trident �
 [role="lead"]
 Cloud Manager では、の導入を自動化できます https://netapp-trident.readthedocs.io/en/stable-v18.10/introduction.html["NetApp Trident"^] Kubernetes クラスタでは、コンテナ用の永続的ストレージとして ONTAP を使用できます。これは、 Cloud Volumes ONTAP クラスタとオンプレミスの ONTAP クラスタで機能します。
 
-これらの手順を完了する前に、を実行する必要があります link:reference_before.html["Cloud Volumes ONTAP システムを作成します"] または  をクリックします。
+これらの手順を完了する前に、を実行する必要があります link:reference_before.html["Cloud Volumes ONTAP システムを作成します"] または link:task_discovering_ontap.html["オンプレミスの ONTAP クラスタを検出"] をクリックします。
 
 を使用して Kubernetes クラスタを導入する場合 https://cloud.netapp.com/kubernetes-service["NetApp Kubernetes Service の略"^]を使用すると、 Cloud Manager は NetApp Cloud Central アカウントからクラスタを自動的に検出できます。その場合は、最初の 2 つの手順をスキップし、手順 3 から始めます。
 

@@ -6,6 +6,7 @@ summary: Cloud Manager では、オンプレミス環境、ネットアップの
 ---
 = ONTAP クラスタの検出と管理
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

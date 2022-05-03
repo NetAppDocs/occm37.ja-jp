@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP システムが正常に動作するように、 Go
 ---
 = Cloud Volumes ONTAP in GCP のネットワーク要件
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -15,7 +16,7 @@ summary: Cloud Volumes ONTAP システムが正常に動作するように、 Go
 [role="lead"]
 Cloud Volumes ONTAP システムが正常に動作するように、 Google Cloud Platform ネットワークをセットアップします。
 
-共有 VPC::
+共有 VPC:: Cloud Manager と Cloud Volumes ONTAP は、 Google Cloud Platform の共有 VPC でサポートされています。
 +
 --
 共有 VPC を使用すると、複数のプロジェクトの仮想ネットワークを設定し、一元管理できます。ホストプロジェクト _ で共有 VPC ネットワークをセットアップし、サービスプロジェクト _ で Cloud Manager と Cloud Volumes ONTAP の仮想マシンインスタンスを導入できます。 https://cloud.google.com/vpc/docs/shared-vpc["Google Cloud のドキュメント：「 Shared VPC Overview"^]。
@@ -27,7 +28,7 @@ Compute.firewall.* compute.networks.* compute.subnetworks 。 *
 Cloud Manager は、ホストプロジェクトのファイアウォール、 VPC 、およびサブネットを照会するためにこれらの権限を必要とします。
 
 --
-Cloud Volumes ONTAP 用のアウトバウンドインターネットアクセス::
+Cloud Volumes ONTAP 用のアウトバウンドインターネットアクセス:: Cloud Volumes ONTAP では、ネットアップ AutoSupport にメッセージを送信するためにアウトバウンドインターネットアクセスが必要です。ネットアップ AutoSupport は、ストレージの健全性をプロアクティブに監視します。
 +
 --
 Cloud Volumes ONTAP が AutoSupport メッセージを送信できるように、ルーティングポリシーとファイアウォールポリシーで次のエンドポイントへの HTTP / HTTPS トラフィックを許可する必要があります。
@@ -37,7 +38,7 @@ Cloud Volumes ONTAP が AutoSupport メッセージを送信できるように�
 
 
 --
-IP アドレスの数::
+IP アドレスの数:: Cloud Manager は、 GCP の Cloud Volumes ONTAP に 5 つの IP アドレスを割り当てます。
 +
 --
 Cloud Manager では、 GCP の Cloud Volumes ONTAP 用の SVM 管理 LIF は作成されません。
@@ -47,13 +48,13 @@ TIP: LIF は、物理ポートに関連付けられた IP アドレスです。S
 
 --
 ファイアウォールルール:: ファイアウォールルールを作成する必要はありません。ファイアウォールルールは Cloud Manager で自動的に作成されます。自分で使用する必要がある場合は、を参照してください link:reference_firewall_rules_gcp.html["GCP ファイアウォールルール"]。
-の Cloud Volumes ONTAP から Google Cloud Storage への接続 データ階層化::
+の Cloud Volumes ONTAP から Google Cloud Storage への接続 データ階層化:: コールドデータを Google Cloud Storage バケットに階層化する場合は、 Cloud Volumes ONTAP が配置されているサブネットをプライベート Google アクセス用に構成する必要があります。手順については、を参照してください https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud のドキュメント：「 Configuring Private Google Access"^]。
 +
 --
 Cloud Manager でデータの階層化を設定するための追加の手順については、を参照してください link:task_tiering.html["コールドデータを低コストのオブジェクトストレージに階層化する"]。
 
 --
-他のネットワーク内の ONTAP システムへの接続::
+他のネットワーク内の ONTAP システムへの接続:: GCP 内の Cloud Volumes ONTAP システムと他のネットワーク内の ONTAP システムの間でデータをレプリケートするには、 VPC と他のネットワーク（たとえば社内ネットワーク）の間に VPN 接続が必要です。
 +
 --
 手順については、を参照してください https://cloud.google.com/vpn/docs/concepts/overview["Google Cloud のドキュメント：「 Cloud VPN Overview"^]。

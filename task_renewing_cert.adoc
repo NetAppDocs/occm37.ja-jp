@@ -6,6 +6,7 @@ summary: Cloud Manager Web コンソールへの安全なアクセスを確保�
 ---
 = Cloud Manager の HTTPS 証明書を更新します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

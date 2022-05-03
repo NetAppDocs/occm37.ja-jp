@@ -5,6 +5,7 @@ summary: Cloud Manager と Cloud Volumes ONTAP のドキュメントポータル
 ---
 = Cloud Manager および Cloud Volumes ONTAP のドキュメント
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
