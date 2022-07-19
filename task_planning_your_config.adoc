@@ -85,8 +85,8 @@ NetApp Storage Efficiency 機能には、次のようなメリットがありま
 
 システムのサイズを決定し、入力する必要があるネットワーク情報を確認して、 AWS に Cloud Volumes ONTAP を導入する計画を立てます。
 
-* <<Sizing your system in AWS>>
-* <<AWS network information worksheet>>
+*  your system in AWS
+*  network information worksheet
 
 
 
@@ -210,8 +210,8 @@ AWS で Cloud Volumes ONTAP を起動する場合は、 VPC ネットワーク�
 
 システムのサイズを決定し、入力する必要があるネットワーク情報を確認して、 Azure への Cloud Volumes ONTAP の導入を計画します。
 
-* <<Sizing your system in Azure>>
-* <<Azure network information worksheet>>
+*  your system in Azure
+*  network information worksheet
 
 
 
@@ -291,8 +291,8 @@ Cloud Volumes ONTAP を Azure に導入する場合は、仮想ネットワー�
 
 システムのサイズを決定し、入力する必要があるネットワーク情報を確認して、 Google Cloud Platform への Cloud Volumes ONTAP の導入を計画します。
 
-* <<Sizing your system in GCP>>
-* <<GCP network information worksheet>>
+*  your system in GCP
+*  network information worksheet
 
 
 

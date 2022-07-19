@@ -29,9 +29,9 @@ summary: ホットデータ用の SSD または HDD のパフォーマンス階�
 
 ==== Cloud Volumes ONTAP とオブジェクトストレージ間の接続を確認します
 
-* AWS では、 S3 への VPC エンドポイントが必要です。 <<Requirements for tiering data in AWS,詳細はこちら。>>。
-* Azure では、 Cloud Manager に必要な権限が付与されていれば何も実行する必要はありません。 <<Requirements for tiering data in Microsoft Azure,詳細はこちら。>>。
-* GCP の場合、 Cloud Manager に GCP アカウントを追加し、プライベート Google アクセス用のサブネットを設定する必要があります。 <<Requirements for tiering data in Google Cloud Platform,詳細はこちら。>>。
+* AWS では、 S3 への VPC エンドポイントが必要です。  for tiering data in AWS,詳細はこちら。。
+* Azure では、 Cloud Manager に必要な権限が付与されていれば何も実行する必要はありません。  for tiering data in Microsoft Azure,詳細はこちら。。
+* GCP の場合、 Cloud Manager に GCP アカウントを追加し、プライベート Google アクセス用のサブネットを設定する必要があります。  for tiering data in Google Cloud Platform,詳細はこちら。。
 
 
 

@@ -28,7 +28,7 @@ image:diagram_permissions_initial_aws.png["AWS アカウントに Cloud Central 
 
 Cloud Manager は、新しい作業環境を作成するときに、デフォルトでこのクラウドプロバイダアカウントを選択します。
 
-image:screenshot_accounts_select_aws.gif["Details & Credentials ページに Switch Account オプションを示すスクリーンショット。"]
+image:screenshot_accounts_select_aws.gif["Details  Credentials ページに Switch Account オプションを示すスクリーンショット。"]
 
 
 
