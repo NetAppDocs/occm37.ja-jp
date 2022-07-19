@@ -55,7 +55,7 @@ Cloud Manager の S3 への同期機能または一般的なクラウド同期�
 
 Cloud Manager から Amazon S3 へボリュームを直接同期する場合は、作業環境と Cloud Sync サービスを統合する必要があります。
 
-video::3hOtLs70_xE[youtube, width=848,height=480]
+video::3hOtLs70_xE[youtube,width=848,height=480]
 .手順
 . 作業環境を開き、 * S3 への同期 * をクリックします。
 . 「 * Sync * 」をクリックし、画面の指示に従ってデータを S3 に同期します。
