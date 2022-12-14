@@ -16,7 +16,7 @@ Cloud Manager を使用すると、 NetApp Cloud Volumes ONTAP を導入して�
 
 
 
-== 新機能をご紹介します
+== 最新情報をご確認ください
 
 * link:reference_new_occm.html["Cloud Manager の新機能"]
 * https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_97.html["Cloud Volumes ONTAP の新機能"^]

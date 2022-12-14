@@ -108,6 +108,7 @@ image:screenshot_set_up_cloud_manager.gif["Cloud Manager のセットアップ�
 
 
 
+.完了後
 Cloud Manager がクラウドプロバイダに Cloud Volumes ONTAP を導入できるように、権限を設定します。
 
 * AWS link:task_adding_aws_accounts.html["AWS アカウントをセットアップして、に追加します Cloud Manager の略"]。

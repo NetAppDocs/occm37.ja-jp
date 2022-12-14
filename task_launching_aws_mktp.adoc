@@ -19,6 +19,7 @@ summary: NetApp Cloud Central を使用して AWS で Cloud Manager を起動す
 
 TIP: AWS Marketplace から Cloud Manager を起動しても、 Cloud Manager は NetApp Cloud Central と統合されたままです。 link:concept_cloud_central.html["統合の詳細については、こちらをご覧ください。"]。
 
+.このタスクについて
 以下の手順では、 EC2 コンソールからインスタンスを起動する方法について説明します。このコンソールでは、 IAM ロールを Cloud Manager インスタンスに関連付けることができます。これは、 * ウェブサイトからの起動 * アクションを使用しては実行できません。
 
 .手順
@@ -74,4 +75,5 @@ image:screenshot_set_up_cloud_manager.gif["Cloud Manager のセットアップ�
 
 
 
+.結果
 Cloud Manager のインストールとセットアップが完了しました。

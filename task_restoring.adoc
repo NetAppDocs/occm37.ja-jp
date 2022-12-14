@@ -45,4 +45,5 @@ link:reference_deployment_overview.html["導入オプション"]
 
 
 
+.結果
 これで、アカウント、設定、作業環境を使用して Cloud Manager の設定がリストアされます。

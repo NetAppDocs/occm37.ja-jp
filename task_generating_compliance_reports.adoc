@@ -40,6 +40,7 @@ image:screenshot_privacy_risk_assessment.gif["Cloud Manager の Compliance タ�
 
 
 
+.結果
 Cloud Compliance によって PDF レポートが生成され、必要に応じて他のグループに送信して確認できます。
 
 

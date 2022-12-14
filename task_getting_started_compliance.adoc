@@ -24,8 +24,9 @@ AWS または Azure で Cloud Compliance for Cloud Volumes ONTAP を使用する
 
 
 
-==== 構成が要件を満たしていることを確認します
+==== image:number1.png["番号 1"] 構成が要件を満たしていることを確認します
 
+[role="quick-margin-list"]
 * Cloud Compliance インスタンスにアウトバウンドのインターネットアクセスが設定されていることを確認します。
 +
 Cloud Manager は、要求に応じて最初の Cloud Volumes ONTAP システムと同じ VPC または VNet にインスタンスを導入します。
@@ -36,19 +37,21 @@ Cloud Manager は、要求に応じて最初の Cloud Volumes ONTAP システム
 
 
 
-==== Cloud Volumes ONTAP でクラウドへのコンプライアンスを有効化
+==== image:number2.png["番号2."] Cloud Volumes ONTAP でクラウドへのコンプライアンスを有効化
 
+[role="quick-margin-list"]
 * 新しい作業環境：作業環境の作成時に必ずクラウドへのコンプライアンスを有効にしてください（デフォルトで有効になっています）。
 * 既存の作業環境： * コンプライアンス * をクリックし、必要に応じて作業環境のリストを編集し、 * コンプライアンスダッシュボードを表示 * をクリックします。
 
 
 
 
-==== ボリュームへのアクセスを確認
+==== image:number3.png["番号3."] ボリュームへのアクセスを確認
 
 [role="quick-margin-para"]
 Cloud Compliance が有効になったので、ボリュームにアクセスできることを確認します。
 
+[role="quick-margin-list"]
 * クラウドコンプライアンスインスタンスには、各 Cloud Volumes ONTAP サブネットへのネットワーク接続が必要です。
 * Cloud Volumes ONTAP のセキュリティグループは、クラウドコンプライアンスインスタンスからのインバウンド接続を許可する必要があります。
 * NFS ボリュームのエクスポートポリシーで、 Cloud Compliance インスタンスからのアクセスを許可する必要があります。
@@ -60,8 +63,9 @@ Cloud Compliance が有効になったので、ボリュームにアクセスで
 
 
 
-==== Cloud Manager と Cloud Compliance の間の接続を確認
+==== image:number4.png["番号4."] Cloud Manager と Cloud Compliance の間の接続を確認
 
+[role="quick-margin-list"]
 * Cloud Manager のセキュリティグループは、 Cloud Compliance インスタンスとの間のポート 80 経由のインバウンドおよびアウトバウンドのトラフィックを許可する必要があります。
 * AWS ネットワークでインターネットアクセスに NAT やプロキシを使用しない場合、 Cloud Manager のセキュリティグループは、 Cloud Compliance インスタンスからの TCP ポート 3128 経由のインバウンドトラフィックを許可する必要があります。
 
@@ -125,6 +129,7 @@ image:screenshot_cloud_compliance.gif["作業環境ウィザードのサービ�
 
 
 
+.結果
 Cloud Volumes ONTAP システムでクラウドコンプライアンスが有効になっています。Cloud Compliance を初めて有効にした場合は、 Cloud Manager によってクラウドプロバイダに Cloud Compliance インスタンスが導入されます。インスタンスが使用可能になると、作成した各ボリュームにインスタンスが書き込まれた時点でデータのスキャンが開始されます。
 
 
@@ -156,6 +161,7 @@ image:screenshot_enable_compliance.gif["作業環境を選択した後に作業�
 
 
 
+.結果
 Cloud Compliance を初めて有効にした場合は、 Cloud Manager によってクラウドプロバイダに Cloud Compliance インスタンスが導入されます。
 
 Cloud Compliance は、それぞれの作業環境でデータのスキャンを開始します。データは、 Cloud Compliance の初期スキャンが完了するとすぐに Compliance ダッシュボードに表示されます。所要時間はデータ量によって異なります。数分から数時間かかる場合もあります。

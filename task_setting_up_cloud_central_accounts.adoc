@@ -34,6 +34,7 @@ image:screenshot_account_settings_menu.gif["Cloud Manager の上部のバナー�
 . ワークスペースの名前を入力し、 * 追加 * をクリックします。
 
 
+.完了後
 ユーザーとサービスコネクタをワークスペースに関連付けることができるようになりました。
 
 
@@ -59,6 +60,7 @@ image:screenshot_associate_user.gif["ロールと関連するワークスペー�
 . [ ユーザーの関連付け ] をクリックします。
 
 
+.結果
 ユーザには、 NetApp Cloud Central の「 Account Association 」というタイトルの E メールが送信されます。 E メールには、 Cloud Manager にアクセスするために必要な情報が記載されています。
 
 
@@ -77,6 +79,7 @@ image:screenshot_associate_user_workspace.gif["ユーザテーブルでユーザ
 . 1 つ以上のワークスペースを選択し、 * 適用 * をクリックします。
 
 
+.結果
 サービスコネクタもワークスペースに関連付けられていれば、ユーザは Cloud Manager からこれらのワークスペースにアクセスできるようになりました。
 
 
@@ -96,4 +99,5 @@ link:concept_cloud_central_accounts.html#users-workspaces-and-service-connectors
 . 1 つ以上のワークスペースを選択し、 * 適用 * をクリックします。
 
 
+.結果
 ワークスペース管理者は、ユーザーがワークスペースにも関連付けられている限り、関連付けられたワークスペースにアクセスできるようになりました。

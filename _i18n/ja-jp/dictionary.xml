@@ -417,7 +417,6 @@
   <block id="3f2391bf0bf195baa38844264d82deec" category="inline-image-macro">新しい Azure NetApp Files ボリュームの [ 場所とエクスポートポリシー ] ページのスクリーンショット</block>
   <block id="275ef20320dc0df7a60a8f6b71daf5c0" category="paragraph"><block ref="4273a1c1436b84dd20765361e2df5522" category="inline-image-macro-rx" type="image"></block></block>
   <block id="05ff9017ade4661d59fe98b0a98d68de" category="list-text">[Go*] をクリックします。</block>
-  <block id="37a8ea88d3576c29189c2e66216954a3" category="section-title">ボリュームのマウントパスを取得しています</block>
   <block id="ab6fa71f7fae22c4abd40243e67181c3" category="paragraph">Linux マシンにボリュームをマウントできるように、ボリュームのマウントパスをコピーします。</block>
   <block id="29abcdf350daebca41f2a079a6057c87" category="list-text">ボリュームにカーソルを合わせて、メニューをクリックします。</block>
   <block id="b6099a382bf4eea7ff4c99e8e377cb11" category="inline-image-macro">右上にあるボリュームとメニューを示すスクリーンショット。</block>
@@ -585,7 +584,6 @@
   <block id="cb5a77137c556beb113a10125d01c7a6" category="paragraph">すべてのバックアップ処理とリストア処理には Cloud Manager を使用する必要があります。ONTAP または Amazon S3 から直接操作を実行した場合、サポートされない構成になります。</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="section-title">クイックスタート</block>
   <block id="2433628c53fed80ea9d352a1bcd9ce45" category="paragraph">これらの手順を実行してすぐに作業を開始するか、残りのセクションまでスクロールして詳細を確認してください。</block>
-  <block id="b70f6a951e89b0cf19d78de39f9fd2ce" category="section-title">構成がサポートされていることを確認します</block>
   <block id="ad817a18d31f7a53702bd26570845b05" category="paragraph">次の点を確認します。</block>
   <block id="5516d50b3484470aee4219fe29a0c5a9" category="list-text">Cloud Volumes ONTAP 9.4 以降はサポート対象の AWS リージョンで実行されています： Nバージニア、オレゴン、アイルランド、フランクフルト、シドニー</block>
   <block id="5a9aa80bfb9c93fe3026461a4217bb24" category="inline-link">Cloud Manager Marketplace のサービス</block>
@@ -596,16 +594,13 @@
   <block id="418c6ffbb6f44370bf5fceb394aeb89b" category="paragraph">\ https://w86yt021u5.execute-api.us-east-1.amazonaws.com/production/whitelist</block>
   <block id="ad4c0ad9c2f9bc5c665a9acf1dfb46f6" category="list-text">Cloud Manager では、 VPC に最大 2 つのインターフェイス VPC エンドポイントを割り当てることができます（ VPC あたりの AWS の上限は 20 ）。</block>
   <block id="7273eca4a76cbf4f4dd893c19b6cd48d" category="list-text">Cloud Manager に、最新のでリストされている VPC エンドポイントの権限を使用する権限があります<block ref="f799ed91ee819e95a0cab4701802c726" category="inline-link-rx"></block>：</block>
-  <block id="b2ddd19ff2854435a43d263c32de733c" category="section-title">新規または既存のシステムで S3 へのバックアップを有効にします</block>
   <block id="580486b4241b5757d5db24d655796e78" category="list-text">新しいシステム： S3 へのバックアップ機能は、作業環境ウィザードではデフォルトで有効になっています。このオプションは必ず有効にしておいてください。</block>
   <block id="207b7f74f4e39a12e22d2776ce74bc23" category="list-text">既存システム：作業環境を開き、バックアップ設定アイコンをクリックしてバックアップを有効にします。</block>
   <block id="99e2988591ca3dc92116874dd0102c1f" category="inline-image-macro">作業環境を開いたあとに使用できる S3 へのバックアップアイコンのスクリーンショット。</block>
   <block id="42afbc98ba58f1922f8dd659716ab439" category="paragraph"><block ref="42afbc98ba58f1922f8dd659716ab439" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fa7975a2f4393e660a83db34050bf064" category="section-title">必要に応じて、バックアップポリシーを変更します</block>
   <block id="195b3defcff10891ebb400aaeadf31db" category="paragraph">デフォルトポリシーでは、毎日ボリュームがバックアップされ、各ボリュームのバックアップコピーが 30 個保持されます。必要に応じて、保持するバックアップコピーの数を変更できます。</block>
   <block id="addb422c7287b63d466baf8e9ec03f2b" category="inline-image-macro">S3 へのバックアップ設定を示すスクリーンショット。機能を有効または無効にして、バックアップの保持を選択できます。</block>
   <block id="8d82669b8bb69cd10bcc3c4e05fd7eb6" category="paragraph"><block ref="8d82669b8bb69cd10bcc3c4e05fd7eb6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="813dc01dbd6a87212ea12478d22b116a" category="section-title">必要に応じて、データをリストアします</block>
   <block id="4f4aa893cd0b2dc4fbf67c54cf4ea9be" category="paragraph">Cloud Manager の上部で、 * Backup &amp; Restore * をクリックし、ボリュームを選択してバックアップを選択し、バックアップから新しいボリュームにデータをリストアします。</block>
   <block id="e73b6f86fed29437a1aff0fcd7855fdd" category="inline-image-macro">ボリュームを選択したあとのバックアップのリストアアイコンのスクリーンショット。</block>
   <block id="64ba49ffeb3c11e2c16eee272880a790" category="paragraph"><block ref="64ba49ffeb3c11e2c16eee272880a790" category="inline-image-macro-rx" type="image"></block></block>
@@ -1301,7 +1296,6 @@
   <block id="2079bc33153a98975920a0db7f19f315" category="summary">AWS および Azure の一部の Cloud Volumes ONTAP 構成にはローカルの NVMe ストレージが含まれています。このストレージは、 Cloud Volumes ONTAP がパフォーマンスを向上させるために Flash Cache として使用します。</block>
   <block id="1cc8255ff342b8eb4badebf4c9b37443" category="doc">Cloud Volumes ONTAP で Flash Cache を有効にしています</block>
   <block id="f1826d507ec43590779916360d0985cf" category="paragraph">AWS および Azure の一部の Cloud Volumes ONTAP 構成にはローカルの NVMe ストレージが含まれています。このストレージは、 Cloud Volumes ONTAP でパフォーマンスを向上させるために _Flash Cache _ として使用されます。</block>
-  <block id="e0c8b3ee252e2f32575e8c863dbc2dd2" category="section-title">Flash Cache とは</block>
   <block id="c96e551f253c0da767556854da421c51" category="paragraph">Flash Cache は、最近読み取られたユーザデータとネットアップのメタデータをリアルタイムでインテリジェントにキャッシングすることで、データへのアクセスを高速化します。データベース、 E メール、ファイルサービスなど、ランダムリードが大量に発生するワークロードに効果的です。</block>
   <block id="341cc964e0c52fec40f9705182116dda" category="list-text">Flash Cache のパフォーマンス向上を利用するには、すべてのボリュームで圧縮を無効にする必要があります。</block>
   <block id="444f10b28a63ab25d9664d0647602d07" category="list-text">再起動後のキャッシュの再ウォームアップは、 Cloud Volumes ONTAP ではサポートされていません。</block>
@@ -1550,22 +1544,18 @@
   <block id="60ecf384cb9af6dcc4b34eefeea51983" category="inline-link-macro">Azure US Government リージョン</block>
   <block id="3771bed548b02bcff99d781b6868ab13" category="inline-link-macro">Azure ドイツ地域</block>
   <block id="3a32d557503f5052920d016bfbf3fa43" category="paragraph">Cloud Volumes ONTAP の利用を開始するには、 Azure をセットアップし、 NetApp Cloud Central から Cloud Manager ソフトウェアを導入します。Cloud Manager の導入手順については、を参照してください <block ref="da7f489839113ef2991f8fcc148cc547" category="inline-link-macro-rx"></block> およびインチ <block ref="1e349e6e8f72c1a1fe1f77ef3a422193" category="inline-link-macro-rx"></block>。</block>
-  <block id="4e85b7aafac6d2da235acd904c8d01ca" category="section-title">ネットワークをセットアップします</block>
   <block id="2166ecbf4859162bda081330f902ad53" category="paragraph">Cloud Manager と Cloud Volumes ONTAP が複数のエンドポイントに接続できるように、ターゲット Vnet からアウトバウンドインターネットアクセスを有効にします。</block>
   <block id="315474a8ef79b74899073fc979f12da4" category="inline-link-macro">クラウドマネージャ</block>
   <block id="117bdbda976fe8b3212bc3b6327a0a1b" category="inline-link-macro">Cloud Volumes ONTAP</block>
   <block id="276a89edea106f206e74969bd2f976bb" category="paragraph">この手順は重要です。 Cloud Manager では、アウトバウンドインターネットアクセスがないと Cloud Volumes ONTAP を導入できないためです。アウトバウンド接続を制限する必要がある場合は、のエンドポイントのリストを参照してください <block ref="258d0bfeed07e9f3f800353fd17d365f" category="inline-link-macro-rx"></block> および <block ref="79a77371eaced9bdf59c560110560e49" category="inline-link-macro-rx"></block>。</block>
-  <block id="408bb88553711d2fd59ba113d098f8dd" category="section-title">必要な Azure 権限を指定します</block>
   <block id="3f19c3e0aa6f5f945c948f6796417dfc" category="paragraph">NetApp Cloud Central から Cloud Manager を導入する場合は、 Cloud Manager 仮想マシンを導入する権限を持つ Azure アカウントを使用する必要があります。</block>
   <block id="c4a2429a67db9d91e1319fb991f0f462" category="list-text">をダウンロードします<block ref="b53bbbe2ee3ee99c628f8f7ef4fae3a1" category="inline-link-rx"></block>。</block>
   <block id="7933f6d359b0a3ae0e533f710648404c" category="list-text">「割り当て可能スコープ」フィールドに Azure サブスクリプション ID を追加して、 JSON ファイルを変更します。</block>
   <block id="871b413c8522ea45e3d21ae0e2f40074" category="list-text">JSON ファイルを使用して、 Azure で _Azure SetupAsService_という 名前のカスタムロールを作成します。</block>
   <block id="2fe1c0d3354acc0e681995cd79e53f0f" category="paragraph">例： * AZ ロール定義 create - ロール定義 C ： \Policy_For _Setup_as-a-Service _Azure.json *</block>
   <block id="4779e0ce2292186f4639cbe35ae58f72" category="list-text">Azure ポータルから、 Cloud Central から Cloud Manager を導入するユーザにカスタムロールを割り当てます。</block>
-  <block id="8a150b1735194cf0c703f98bd7de9682" category="section-title">NetApp Cloud Central から Cloud Manager を起動します</block>
   <block id="8ee8d65142a1b5ef6e397b75587b4e61" category="inline-link">Cloud Central にアクセスできます</block>
   <block id="5cad3979e55c4e95947e4d99523e9d84" category="paragraph">Cloud Volumes ONTAP の導入と管理には、 Cloud Manager ソフトウェアが必要です。から Cloud Manager インスタンスを起動するには数分かかります<block ref="dd2262940c431e31dfcd64b1f8a27d38" category="inline-link-rx"></block>。</block>
-  <block id="161814f2b49992da7596b7b7fc9f77ae" category="section-title">Cloud Manager を使用して Cloud Volumes ONTAP を起動します</block>
   <block id="e8d9c9558f90fed7859f1bef1e630707" category="paragraph">Cloud Manager の準備ができたら、 [ 作成 ] をクリックし、導入するシステムのタイプを選択して、ウィザードの手順を完了します。25 分経過すると、最初の Cloud Volumes ONTAP システムが起動して実行されます。</block>
   <block id="d3d4bcd36068d41a0acad7e8aad646db" category="list-text"><block ref="d3d4bcd36068d41a0acad7e8aad646db" category="inline-link-macro-rx"></block></block>
   <block id="68c6c2c5de419c8404d4ed1e18e0676d" category="inline-link-macro">Cloud Manager のネットワーク要件</block>
@@ -2516,7 +2506,6 @@
   <block id="d4155fd051b455aca71bdd1478b9573f" category="paragraph">GCP に Cloud Volumes ONTAP を導入するには、 Cloud Manager が Google Cloud Platform にインストールされている必要があります。</block>
   <block id="a681991b631a5acb29733a0b7730e52d" category="paragraph">Cloud Manager と Cloud Volumes ONTAP が複数のエンドポイントに接続できるように、ターゲット vPC からのアウトバウンドインターネットアクセスを有効にします。</block>
   <block id="ae13ab3182004ab975178282e8bafb5f" category="paragraph">Cloud Manager ではアウトバウンドのインターネットアクセスなしで Cloud Volumes ONTAP を導入できないため、この手順は重要です。アウトバウンド接続を制限する必要がある場合は、のエンドポイントのリストを参照してください <block ref="258d0bfeed07e9f3f800353fd17d365f" category="inline-link-macro-rx"></block> および <block ref="fae9a20d884d35f17af4227c6769a5b8" category="inline-link-macro-rx"></block>。</block>
-  <block id="836685a14473b34c338e3ee28c00de7f" category="section-title">GCP の権限とプロジェクトを設定します</block>
   <block id="9776b08e93c765756b313f5bf3d9151a" category="paragraph">2 組の権限が設定されていることを確認します。</block>
   <block id="5f1026af7536884d83c5761dd874ab44" category="inline-link">GCP 向けの Cloud Central ポリシー</block>
   <block id="b31ff10c44cf52133d5f648ec26cd22e" category="list-text">Cloud Manager を導入する GCP ユーザがであることを確認します NetApp Cloud Central には、にアクセス許可が含まれています<block ref="ea1c9857ecfebae84c6d5bb1c50a29bc" category="inline-link-rx"></block>。</block>
@@ -2531,7 +2520,6 @@
   <block id="c30c9ad6a6f620b9a2a07c6f14399a1e" category="list-text"><block ref="63a6eacd526447284dd7555861e56994" category="inline-link-rx"></block>。</block>
   <block id="37a4b78df3288cf5c1bd086a6d1d5f9f" category="inline-link">クラウドでサービスアカウントを追加してアクセスを許可します そのプロジェクトに対するマネージャの役割</block>
   <block id="24e3dee161bfcb834ffc481206a123e7" category="list-text">Cloud Volumes ONTAP を他のプロジェクトに導入する場合は、<block ref="7fd81496d9765541412df8e9d20889a5" category="inline-link-rx"></block>。プロジェクトごとにこの手順を繰り返す必要があります。</block>
-  <block id="b2640d276819894e87137588e21cb75b" category="section-title">データ階層化用の GCP をセットアップします</block>
   <block id="a442ff694a0aec8e606fe974a1569043" category="paragraph">Cloud Volumes ONTAP 9.7 から低コストのオブジェクトストレージ（ Google Cloud Storage バケット）にコールドデータを階層化するには、次の 2 つの要件を満たす必要があります。</block>
   <block id="41d9e1257b3e21add2e59d038938ea94" category="inline-link">サービスアカウントを作成します</block>
   <block id="534c6957312dc1c4d65e8e8955e45588" category="list-text"><block ref="919f5da2e9d66e8d4d72efd441aaae3d" category="inline-link-rx"></block> 事前定義された Storage Admin ロールと Cloud Manager サービスアカウントをユーザとして使用する必要があります。</block>
@@ -2540,14 +2528,12 @@
   <block id="d2907cc9adcfbea41e4dd52371c016a4" category="list-text"><block ref="2435466b99ebb077da49570ea0f39e4b" category="inline-link-rx"></block>。</block>
   <block id="5a322eb6d2a1a2e7f2e8cd15ff3722a8" category="inline-link-macro">その後、以下の手順を実行します</block>
   <block id="e7fabe64fbde57cc4faeaddb0ff9f88d" category="paragraph">Cloud Volumes ONTAP 9.6 でデータ階層化を使用する場合は、 <block ref="874ae6ad6daa0045da93ad9178b96693" category="inline-link-macro-rx"></block>。</block>
-  <block id="3824876226172edfe0f17e8022b60fda" category="section-title">Google Cloud API を有効にします</block>
   <block id="e478bf49f8034f2197e96520fa338da6" category="inline-link">プロジェクトで次の Google Cloud API を有効にします</block>
   <block id="2cccfc516c376eec029002f805976371" category="paragraph"><block ref="dc5737502524148f78bf03ba18318700" category="inline-link-rx"></block>。これらの API は、 Cloud Manager と Cloud Volumes ONTAP の導入に必要です。</block>
   <block id="d82c8fcef9b6dd8fb6808c96dcbc5bb5" category="list-text">Cloud Deployment Manager V2 API</block>
   <block id="9e636409b20980fb5089c87705851b4d" category="list-text">Cloud Resource Manager API の略</block>
   <block id="1101b09020ade12e90a562489e315c8d" category="list-text">Compute Engine API</block>
   <block id="83e18a385cbb3846ca3c76899207aedc" category="list-text">Stackdriver Logging API のことです</block>
-  <block id="f4c00c2164e413b88032a7e12507d5e3" category="section-title">GCP Marketplace から登録します</block>
   <block id="7bec88f466ae34c19e5888a8f88a760b" category="inline-link">GCP Marketplace から Cloud Volumes ONTAP に登録します</block>
   <block id="d1a65a4bbf225b6585598c328e7788a2" category="paragraph"><block ref="13341228176eee7627f01e15afd30b70" category="inline-link-rx"></block> 無償トライアルの終了後にサービスを中断しないようにするため。作成した Cloud Volumes ONTAP PAYGO システムごとに、このサブスクリプションから課金されます。</block>
   <block id="e004a4e8251ac41dee6d3235a791dd8d" category="paragraph">Cloud Volumes ONTAP の導入と管理には、 Cloud Manager ソフトウェアが必要です。から GCP で Cloud Manager インスタンスを起動するには数分かかります<block ref="dd2262940c431e31dfcd64b1f8a27d38" category="inline-link-rx"></block>。</block>
@@ -2617,22 +2603,18 @@
   <block id="d1a3e1bc552585f5961691bae3d30c96" category="summary">AWS または Azure の Cloud Volumes ONTAP システムで Cloud Compliance を使用するには、いくつかの手順を実行します。</block>
   <block id="f17008b61c3f1027c7e772a9c94418a5" category="doc">『 Getting started with Cloud Compliance for Cloud Volumes ONTAP 』</block>
   <block id="13f5a43a4f8f09fc5bcb0e5e59f46b9c" category="paragraph">AWS または Azure で Cloud Compliance for Cloud Volumes ONTAP を使用するには、いくつかの手順を実行します。</block>
-  <block id="4502190d2799ad6996511888d29b6f5d" category="section-title">構成が要件を満たしていることを確認します</block>
   <block id="9d3b514098a542f62dc2679ea96b2525" category="list-text">Cloud Compliance インスタンスにアウトバウンドのインターネットアクセスが設定されていることを確認します。</block>
   <block id="f0b0017645f7e05554b4600a9f75eeb4" category="paragraph">Cloud Manager は、要求に応じて最初の Cloud Volumes ONTAP システムと同じ VPC または VNet にインスタンスを導入します。</block>
   <block id="746676655227d479ea2992d569504032" category="list-text">ユーザが、 AWS または Azure に直接接続されているホスト、または Cloud Compliance インスタンスと同じネットワーク内のホストから Cloud Manager のインターフェイスにアクセスできることを確認します（インスタンスにはプライベート IP アドレスが割り当てられます）。</block>
   <block id="b5a8dfb009cb24f36d8847ba3fc0859c" category="list-text">Cloud Compliance インスタンスの実行を継続できることを確認します。</block>
-  <block id="7e3383d9809fef6526a4a6b75e6aa2ab" category="section-title">Cloud Volumes ONTAP でクラウドへのコンプライアンスを有効化</block>
   <block id="1d758bd758be021e9b52fb9553ad3484" category="list-text">新しい作業環境：作業環境の作成時に必ずクラウドへのコンプライアンスを有効にしてください（デフォルトで有効になっています）。</block>
   <block id="d00e4424ab5c721196ba91a19f866c29" category="list-text">既存の作業環境： * コンプライアンス * をクリックし、必要に応じて作業環境のリストを編集し、 * コンプライアンスダッシュボードを表示 * をクリックします。</block>
-  <block id="40733d51554cd03755a3c45936e9ba72" category="section-title">ボリュームへのアクセスを確認</block>
   <block id="cb69f1cc4d6db8aa9d9848f2243024a2" category="paragraph">Cloud Compliance が有効になったので、ボリュームにアクセスできることを確認します。</block>
   <block id="d431a46c3d467bfcfd1554a38e2fc47b" category="list-text">クラウドコンプライアンスインスタンスには、各 Cloud Volumes ONTAP サブネットへのネットワーク接続が必要です。</block>
   <block id="7c7226e9a80bf0a4032888ef63440547" category="list-text">Cloud Volumes ONTAP のセキュリティグループは、クラウドコンプライアンスインスタンスからのインバウンド接続を許可する必要があります。</block>
   <block id="d3ce81b5037496c4ee726255e7372eab" category="list-text">NFS ボリュームのエクスポートポリシーで、 Cloud Compliance インスタンスからのアクセスを許可する必要があります。</block>
   <block id="b1c46e2accf63f430648a32bfa04dfe5" category="list-text">CIFS ボリュームをスキャンするには、 Cloud Compliance で Active Directory のクレデンシャルが必要です。</block>
   <block id="da8ebd902a225bf77a3cb7bfbd54f432" category="paragraph">コンプライアンス * &gt; * CIFS スキャンステータス * &gt; * CIFS クレデンシャルの編集 * をクリックし、クレデンシャルを入力します。クレデンシャルは読み取り専用ですが、管理者のクレデンシャルを指定することで、 Cloud Compliance は昇格された権限が必要なデータを確実に読み取ることができます。</block>
-  <block id="70b2c58e0988efefa11f0ecd645d2988" category="section-title">Cloud Manager と Cloud Compliance の間の接続を確認</block>
   <block id="c63e7d604dcff6e3da6acd28243b6d37" category="list-text">Cloud Manager のセキュリティグループは、 Cloud Compliance インスタンスとの間のポート 80 経由のインバウンドおよびアウトバウンドのトラフィックを許可する必要があります。</block>
   <block id="e1048f25b07c70fc018f8a69e9177231" category="list-text">AWS ネットワークでインターネットアクセスに NAT やプロキシを使用しない場合、 Cloud Manager のセキュリティグループは、 Cloud Compliance インスタンスからの TCP ポート 3128 経由のインバウンドトラフィックを許可する必要があります。</block>
   <block id="636fc171536ff74e5a90b2da701bb09c" category="section-title">前提条件の確認</block>
@@ -2894,7 +2876,6 @@
   <block id="28b05291adad7c873ac102ba84821b36" category="summary">Cloud Manager と Cloud Volumes ONTAP のドキュメントポータルへようこそ。</block>
   <block id="684c574c7f4f96c8a8169a7ac2bda18e" category="doc">Cloud Manager および Cloud Volumes ONTAP のドキュメント</block>
   <block id="8c4a0d57689d740644da872a9872fa0e" category="paragraph">Cloud Manager を使用すると、 NetApp Cloud Volumes ONTAP を導入して管理できます。 NetApp Cloud Volumes ONTAP は、クラウドベースのワークロードを保護、可視化、制御するデータ管理ソリューションです。</block>
-  <block id="1fde0727b387439572ade83eecff4f68" category="section-title">新機能をご紹介します</block>
   <block id="dcc605ce865f82b52df30a38895a0a28" category="inline-link-macro">Cloud Manager の新機能</block>
   <block id="edb072b4e9ed25ee40010488a956934f" category="list-text"><block ref="edb072b4e9ed25ee40010488a956934f" category="inline-link-macro-rx"></block></block>
   <block id="dd47c5ffc608943bbe951c1bc249e4a3" category="inline-link">Cloud Volumes ONTAP の新機能</block>
@@ -2933,22 +2914,18 @@
   <block id="1cc79921da24f4e844cf18f8564b7636" category="paragraph">これらの手順を完了する前に、を実行する必要があります <block ref="bc2e521f9ec1051eaaefc7b7ab032f58" category="inline-link-macro-rx"></block> または <block ref="77a4b0dd95900c58fb7d7d616b0fc39e" category="inline-link-macro-rx"></block> をクリックします。</block>
   <block id="234670c6936863be5df76e89d43f6839" category="inline-link">NetApp Kubernetes Service の略</block>
   <block id="a14d72ed5dcd2af3c8de2d38e1cce7f4" category="paragraph">を使用して Kubernetes クラスタを導入する場合<block ref="4039676aa53969da934d824de6b5ae64" category="inline-link-rx"></block>を使用すると、 Cloud Manager は NetApp Cloud Central アカウントからクラスタを自動的に検出できます。その場合は、最初の 2 つの手順をスキップし、手順 3 から始めます。</block>
-  <block id="66fd4a5928a9410b6d0484b91e95ec73" category="section-title">ネットワーク接続を確認</block>
   <block id="54ec996700c1afa8a5307bd5288a75c8" category="list-text">Cloud Manager と Kubernetes クラスタの間、および Kubernetes クラスタから ONTAP システムへのネットワーク接続が確立されている必要があります。</block>
   <block id="dcb9677328ce110eccce4861e794d6db" category="list-text">Cloud Manager のインストール時に、アウトバウンドのインターネット接続で次のエンドポイントにアクセスできる必要があります。</block>
   <block id="b5bf90cd586056ebba08ac4f2c2b2ca8" category="paragraph">¥ https://packages.cloud.google.com/yum ¥ https://github.com/NetApp/trident/releases/download/</block>
   <block id="ca2f8a989dd9c49097cbd2a29eae79f4" category="paragraph">Cloud Manager は、作業環境をクラスタに接続すると Kubernetes クラスタに Trident をインストールします。</block>
-  <block id="70c2574420ea451459b76abad35d0a96" category="section-title">Kubernetes 構成ファイルを Cloud Manager にアップロード</block>
   <block id="f767696e0231824621dea056761dc5bb" category="paragraph">Kubernetes クラスタごとに、アカウント管理者が YAML 形式の構成ファイル（ kubeconfig ）をアップロードする必要があります。ファイルをアップロードすると、 Cloud Manager はクラスタへの接続を検証し、暗号化された kubeconfig ファイルのコピーを保存します。</block>
   <block id="08cbb53df36a11f3c34ff8bbf0a53284" category="paragraph">[* Kubernetes Clusters] &gt; [Discover] &gt; [Upload File] をクリックし、 kubeconfig ファイルを選択します。</block>
   <block id="2b644a62dc968865bc0f4cf15dfd2358" category="inline-image-macro">[Kubernetes clusters] タブに [Discover] ボタンが表示されたスクリーンショットで、 [Upload File] をクリックして kubeconfig ファイルをアップロードします。</block>
   <block id="a383a41a0fc074e4ef5381e9f57bcb22" category="paragraph"><block ref="a383a41a0fc074e4ef5381e9f57bcb22" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="cb14b279d631c8e74799c921cd2c867a" category="section-title">作業環境を Kubernetes クラスタに接続</block>
   <block id="fefbb8429dd5d0ac68daf5f2db279b8e" category="paragraph">作業環境で Kubernetes アイコンをクリックし、画面の指示に従います。異なるクラスタを異なる ONTAP システムに、複数のクラスタを同じ ONTAP システムに接続できます。</block>
   <block id="788a24cf94f4a26d6316c05faa57cc90" category="paragraph">ネットアップストレージクラスを Kubernetes クラスタのデフォルトのストレージクラスとして設定することもできます。ユーザが永続ボリュームを作成すると、 Kubernetes クラスタは、接続された ONTAP システムをデフォルトでバックエンドストレージとして使用できます。</block>
   <block id="914e5153d477e8c54df1ab2f0368c6d5" category="inline-image-macro">および Cloud Volumes ONTAP 作業環境内の Kubernetes アイコンと後続のページを示すスクリーンショット。 Kubernetes クラスタを選択してから、 Connect をクリックします。</block>
   <block id="72a73eb8e668012880132ace57b572f6" category="paragraph"><block ref="72a73eb8e668012880132ace57b572f6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3131838ab26e8cd5c452aaac1467f3b4" category="section-title">永続ボリュームのプロビジョニングを開始します</block>
   <block id="f22d025e4fbf0c84f0e7b7a1aad5e276" category="paragraph">Kubernetes の標準のインターフェイスと構成要素を使用して、永続ボリュームを要求および管理できます。Cloud Manager では、永続的ボリュームのプロビジョニングに使用できる Kubernetes ストレージクラスが 4 つ作成されます。</block>
   <block id="b37182a7f257a93a2e2e005ddaae75f7" category="list-text">* NetApp-file* ：単一ノードの ONTAP システムにパーシステントボリュームをバインドする場合</block>
   <block id="3b3c5ca3a270163870dc3d01b4117540" category="list-text">* NetApp-file-san* ： iSCSI パーシステントボリュームをシングルノードの ONTAP システムにバインドする場合</block>
@@ -3649,13 +3626,10 @@
   <block id="a0228797162e3598c8f3840abbb347a9" category="summary">ホットデータ用の SSD または HDD のパフォーマンス階層と、アクセス頻度の低いデータ用のオブジェクトストレージの大容量階層を組み合わせることで、ストレージコストを削減できます。</block>
   <block id="2520a3f91dc795ea5b60ffdbde8c3d5c" category="paragraph">ホットデータ用の SSD または HDD のパフォーマンス階層と、アクセス頻度の低いデータ用のオブジェクトストレージの大容量階層を組み合わせることで、ストレージコストを削減できます。概要については、を参照してください <block ref="c724ee9f84bb0e8fa565112910275d83" category="inline-link-macro-rx"></block>。</block>
   <block id="386a88fbab9b8c50cfcb5d0bba67b30f" category="paragraph">データ階層化を設定するには、次の手順を実行するだけです。</block>
-  <block id="86ad5905cc5b5dcbf6a3ff485ec8d229" category="section-title">サポートされている構成を選択します</block>
   <block id="ba918ba698486ee8a89a9f897fe04f16" category="paragraph">ほとんどの構成がサポートされています。最新バージョンを実行している Cloud Volumes ONTAP Standard 、 Premium 、または BYOL システムがある場合は、この方法を推奨します。 <block ref="0b0938edb8c7beded03783521b9fb004" category="inline-link-macro-rx"></block>。</block>
-  <block id="06d3481607558231341deee573470e0b" category="section-title">Cloud Volumes ONTAP とオブジェクトストレージ間の接続を確認します</block>
   <block id="683cc6d6b68e5527f2cef764c4047d5d" category="list-text">AWS では、 S3 への VPC エンドポイントが必要です。 <block ref="242ed49872b33b515a131cb455d30e74" category="inline-xref-macro-rx"></block>。</block>
   <block id="688a9b6bafe8fb9aea6563bb69ca0708" category="list-text">Azure では、 Cloud Manager に必要な権限が付与されていれば何も実行する必要はありません。 <block ref="22ccef81918132fffe8ed7a4cacab047" category="inline-xref-macro-rx"></block>。</block>
   <block id="a555192a4044ed2ac63760ed078c303c" category="list-text">GCP の場合、 Cloud Manager に GCP アカウントを追加し、プライベート Google アクセス用のサブネットを設定する必要があります。 <block ref="7d9a5fe96979bced5f00da3df7d6155d" category="inline-xref-macro-rx"></block>。</block>
-  <block id="1eabdf61d5d5290de86aa1ce83194c03" category="section-title">ボリュームを作成、変更、またはレプリケートするときに階層化ポリシーを選択します</block>
   <block id="1a9e931f53a32cc1b5ceeebef21b8880" category="paragraph">ボリュームを作成、変更、またはレプリケートするときに、 Cloud Manager から階層化ポリシーを選択するよう求められます。</block>
   <block id="aee34f99cc65679272b711e8a3804b3b" category="inline-link-macro">読み取り / 書き込みボリュームでのデータの階層化</block>
   <block id="3161de5db0fdecb5c470d6a56eb5afee" category="list-text"><block ref="3161de5db0fdecb5c470d6a56eb5afee" category="inline-link-macro-rx"></block></block>
@@ -3724,7 +3698,6 @@
   <block id="55622a0174c818a7d2974d9fc5819ae3" category="paragraph">Cloud Manager ではアウトバウンドのインターネットアクセスなしで Cloud Volumes ONTAP を導入できないため、この手順は重要です。アウトバウンド接続を制限する必要がある場合は、のエンドポイントのリストを参照してください <block ref="258d0bfeed07e9f3f800353fd17d365f" category="inline-link-macro-rx"></block> および <block ref="82273ff2b165ec558cf6885df6c1a399" category="inline-link-macro-rx"></block>。</block>
   <block id="c1540e16429791c7515c0322aad07fcf" category="list-text">S3 サービスへの vPC エンドポイントをセットアップします。</block>
   <block id="4274b83eccea8c2453ce00d6c7cde54e" category="paragraph">Cloud Volumes ONTAP から低コストのオブジェクトストレージにコールドデータを階層化する場合は、 VPC エンドポイントが必要です。</block>
-  <block id="fcb13a1250c0b335c18418ea431681f2" category="section-title">必要な AWS 権限を指定します</block>
   <block id="b99486f44ccd43f06815851fcef5a3bc" category="paragraph">NetApp Cloud Central から Cloud Manager を導入する場合は、インスタンスを導入する権限を持つ AWS アカウントを使用する必要があります。</block>
   <block id="f84694bd2204c771ef8e329f1ff15cd4" category="list-text">AWS IAM コンソールに移動し、の内容をコピーして貼り付け、ポリシーを作成します<block ref="467dbce35aa796ce72a03c7f71443016" category="inline-link-rx"></block>。</block>
   <block id="9680d60a8a185f9729b0b9df0caac646" category="list-text">IAM ユーザにポリシーを付加します。</block>
@@ -4141,7 +4114,6 @@
   <block id="b73f462d1b9e7ff90a325153c831927c" category="paragraph">ユーザの関連付けを解除すると、 Cloud Central アカウント内のリソースにアクセスできなくなります。</block>
   <block id="6bd6a4807d0f305654a405a52bb8f189" category="list-text">[ ユーザーの関連付けを解除（ Disassociate User ） ] をクリックし、 [ 関連付けを解除（ Disassociate ） ] をクリックして</block>
   <block id="bc4502cc703c46a62bd856724adfc66e" category="paragraph">ユーザはこの Cloud Central アカウントのリソースにアクセスできなくなります。</block>
-  <block id="c467a2567dd5be7e777708d1616b892d" category="section-title">ワークスペース管理者のワークスペースの管理</block>
   <block id="8ecff25aa4ee2497099b60f83bd4dde7" category="paragraph">ワークスペース管理者は、いつでもワークスペースに関連付けたり、ワークスペースと関連付けを解除したりできます。ユーザーを関連付けると、ワークスペース内の作業環境を作成して表示できます。</block>
   <block id="9c3fb861370470582b50839e482bd5f9" category="list-text">ユーザーに関連付けるワークスペースを選択し、 * 適用 * をクリックします。</block>
   <block id="73974df54012eaea2a5f0b72e278983b" category="section-title">ワークスペースの管理</block>
@@ -4150,7 +4122,6 @@
   <block id="e6b782b96ee9fd72a275037e1f900b6f" category="list-text">新しいワークスペースを作成するには、 * 新しいワークスペースを追加 * をクリックします。</block>
   <block id="9606b9dd050f482ce022efaf9f3754c9" category="list-text">* 名前変更 * をクリックして、ワークスペースの名前を変更します。</block>
   <block id="ca4a2e09f147267af54ea5fd1d962c6a" category="list-text">ワークスペースを削除するには、 * 削除 * をクリックします。</block>
-  <block id="52064fc4d7849f3822cc18abff712330" category="section-title">サービスコネクタのワークスペースを管理する</block>
   <block id="afec10a920cee85db2ed5a2cb352f16f" category="paragraph">サービスコネクタをワークスペースに関連付けて、 Workspace 管理者がこれらのワークスペースに Cloud Manager からアクセスできるようにする必要があります。</block>
   <block id="233da33b8319cbe6db2c648fc047c9d8" category="list-text">サービスコネクタに関連付けるワークスペースを選択し、 * 適用 * をクリックします。</block>
   <block id="0a83752faee4775a43f41a1c3b0e10f6" category="summary">Cloud Manager では、 AWS での Cloud Volumes ONTAP の実行に関連するコストを確認できます。また、ネットアップの機能を使用してストレージコストを削減し、どれだけのコストを節約したかを確認することもできます。</block>
@@ -4368,4 +4339,47 @@
   <block id="f4040f71a7d553f2519487070892b115" category="sidebar">ユーザロール</block>
   <block id="93168a8084b3e838d2932c4734bd234e" category="sidebar">以前のバージョン</block>
   <block id="4392713c4e2c6030b7e219271138f9ee" category="doc">Cloud Manager 3.7 の新機能</block>
+  <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">結果</block>
+  <block id="9b1146da7e8885b360bcba1784bf6d6c" category="inline-image-macro">番号 1</block>
+  <block id="8c84ec36974f014b3b6a2bd07a30a831" category="section-title"><block ref="dfda45ebcbf64ca08d06a80353e9cf6f" category="inline-image-macro-rx" type="image"></block> 構成が要件を満たしていることを確認します</block>
+  <block id="6518735ebbb492ee2f8f5dfee52f3842" category="inline-image-macro">番号2.</block>
+  <block id="fb990f5c87525fa1eb89a44790226746" category="section-title"><block ref="b496ee93dbdd8d3b796a1af3fe777064" category="inline-image-macro-rx" type="image"></block> Cloud Volumes ONTAP でクラウドへのコンプライアンスを有効化</block>
+  <block id="a4c574c9c96d1cf8d9986e0d17dbe38b" category="inline-image-macro">番号3.</block>
+  <block id="673be64cc34cfe0793aff320631eec30" category="section-title"><block ref="f99fa24d03c6ef96c556af7cdf23810f" category="inline-image-macro-rx" type="image"></block> ボリュームへのアクセスを確認</block>
+  <block id="fa8bdf405671f556729a131b30bab6af" category="inline-image-macro">番号4.</block>
+  <block id="b57c4104d61d845c1112aaab208fd96f" category="section-title"><block ref="d0f5cff2b8e0ecc91e360a74276cf2dd" category="inline-image-macro-rx" type="image"></block> Cloud Manager と Cloud Compliance の間の接続を確認</block>
+  <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">次の手順</block>
+  <block id="1323d5a65678d7001c29460122ccc820" category="section-title"><block ref="dfda45ebcbf64ca08d06a80353e9cf6f" category="inline-image-macro-rx" type="image"></block> ネットワーク接続を確認</block>
+  <block id="94ed2c35dc25a4c6a2f0ff7f42fbbee8" category="section-title"><block ref="b496ee93dbdd8d3b796a1af3fe777064" category="inline-image-macro-rx" type="image"></block> Kubernetes 構成ファイルを Cloud Manager にアップロード</block>
+  <block id="5e661dcc3402ab309aa8ed30318888c7" category="section-title"><block ref="f99fa24d03c6ef96c556af7cdf23810f" category="inline-image-macro-rx" type="image"></block> 作業環境を Kubernetes クラスタに接続</block>
+  <block id="a2a98c975ba9db610320c9f064248420" category="section-title"><block ref="d0f5cff2b8e0ecc91e360a74276cf2dd" category="inline-image-macro-rx" type="image"></block> 永続ボリュームのプロビジョニングを開始します</block>
+  <block id="492e5546e60705134bff8d7f80511a8d" category="section-title">最新情報をご確認ください</block>
+  <block id="b8a940dca4bf7b191c03c2f08b52b754" category="section-title">ボリュームのマウントパスを取得しています</block>
+  <block id="be4475d44b787a12f755fdcce268c239" category="section-title"><block ref="dfda45ebcbf64ca08d06a80353e9cf6f" category="inline-image-macro-rx" type="image"></block> 構成がサポートされていることを確認します</block>
+  <block id="c70fb3694cfb7be8cbce89f7129296cc" category="section-title"><block ref="b496ee93dbdd8d3b796a1af3fe777064" category="inline-image-macro-rx" type="image"></block> 新規または既存のシステムで S3 へのバックアップを有効にします</block>
+  <block id="cb61dba1e93e5ecc391eaa6e12e708de" category="section-title"><block ref="f99fa24d03c6ef96c556af7cdf23810f" category="inline-image-macro-rx" type="image"></block> 必要に応じて、バックアップポリシーを変更します</block>
+  <block id="d43bf159b34d85f095d2958297ee20fd" category="section-title"><block ref="d0f5cff2b8e0ecc91e360a74276cf2dd" category="inline-image-macro-rx" type="image"></block> 必要に応じて、データをリストアします</block>
+  <block id="ada4f28c1d7a2b6deafbea15522101b4" category="section-title"><block ref="dfda45ebcbf64ca08d06a80353e9cf6f" category="inline-image-macro-rx" type="image"></block> サポートされている構成を選択します</block>
+  <block id="bf30ec6e5b418236529d5fb8a008f7a1" category="section-title"><block ref="b496ee93dbdd8d3b796a1af3fe777064" category="inline-image-macro-rx" type="image"></block> Cloud Volumes ONTAP とオブジェクトストレージ間の接続を確認します</block>
+  <block id="4f171aaed4814825b1b6cd26e8bca8be" category="section-title"><block ref="f99fa24d03c6ef96c556af7cdf23810f" category="inline-image-macro-rx" type="image"></block> ボリュームを作成、変更、またはレプリケートするときに階層化ポリシーを選択します</block>
+  <block id="f744727b72c0e98e6caa53f045e617cd" category="section-title"><block ref="dfda45ebcbf64ca08d06a80353e9cf6f" category="inline-image-macro-rx" type="image"></block> ネットワークをセットアップします</block>
+  <block id="a54be7273c9d5f0b0e985696ae41550c" category="section-title"><block ref="b496ee93dbdd8d3b796a1af3fe777064" category="inline-image-macro-rx" type="image"></block> 必要な AWS 権限を指定します</block>
+  <block id="df697150ca6823221d73aed2f97405ba" category="section-title"><block ref="f99fa24d03c6ef96c556af7cdf23810f" category="inline-image-macro-rx" type="image"></block> AWS Marketplace でサブスクライブ</block>
+  <block id="d32db7792895fcf20faa24c02cd968ad" category="section-title"><block ref="d0f5cff2b8e0ecc91e360a74276cf2dd" category="inline-image-macro-rx" type="image"></block> NetApp Cloud Central から Cloud Manager を起動します</block>
+  <block id="6a604e45dcab200406f10c70d639255a" category="inline-image-macro">番号5.</block>
+  <block id="67467aa7bd51d7bbe961339db94944ba" category="section-title"><block ref="c8b82927684b7195fa645497b5fcc719" category="inline-image-macro-rx" type="image"></block> Cloud Manager を使用して Cloud Volumes ONTAP を起動します</block>
+  <block id="832eb2addfeb7baf5b285a22aaeb4161" category="section-title"><block ref="b496ee93dbdd8d3b796a1af3fe777064" category="inline-image-macro-rx" type="image"></block> 必要な Azure 権限を指定します</block>
+  <block id="55656479963c4d6faa53aa52af17bb58" category="section-title"><block ref="f99fa24d03c6ef96c556af7cdf23810f" category="inline-image-macro-rx" type="image"></block> NetApp Cloud Central から Cloud Manager を起動します</block>
+  <block id="fc6a1c4bfdea701c7028d4b2604689fb" category="section-title"><block ref="d0f5cff2b8e0ecc91e360a74276cf2dd" category="inline-image-macro-rx" type="image"></block> Cloud Manager を使用して Cloud Volumes ONTAP を起動します</block>
+  <block id="675d38d552c49bbf67606b2c5f1d5bed" category="section-title">Flash Cacheとは</block>
+  <block id="570d39faec30fabdf90898b70ceaa735" category="section-title"><block ref="b496ee93dbdd8d3b796a1af3fe777064" category="inline-image-macro-rx" type="image"></block> GCP の権限とプロジェクトを設定します</block>
+  <block id="a01706da536bf2b2ac8d57c4976994ad" category="section-title"><block ref="f99fa24d03c6ef96c556af7cdf23810f" category="inline-image-macro-rx" type="image"></block> データ階層化用の GCP をセットアップします</block>
+  <block id="4a735f69c7efb3248a39c186b9f8898b" category="section-title"><block ref="d0f5cff2b8e0ecc91e360a74276cf2dd" category="inline-image-macro-rx" type="image"></block> Google Cloud API を有効にします</block>
+  <block id="5bd8d5bcaf86116688b8fecfd649c684" category="section-title"><block ref="c8b82927684b7195fa645497b5fcc719" category="inline-image-macro-rx" type="image"></block> GCP Marketplace から登録します</block>
+  <block id="e8655d81e5341b6de5242894893cfd0f" category="inline-image-macro">番号6.</block>
+  <block id="34797ede91f726eade3fdbf38979c246" category="section-title"><block ref="37140c340d57bff74ec463795f4bc377" category="inline-image-macro-rx" type="image"></block> NetApp Cloud Central から Cloud Manager を起動します</block>
+  <block id="d4fc0d9ce7d0fa9be0409ba4d0973cb7" category="inline-image-macro">番号7.</block>
+  <block id="d82f79a731e59f35df4d972176f21d86" category="section-title"><block ref="ee7780d13d268d291c14f07e87b1b8ae" category="inline-image-macro-rx" type="image"></block> Cloud Manager を使用して Cloud Volumes ONTAP を起動します</block>
+  <block id="5ccc745272c52ce1868d5bcf2b07705a" category="section-title">ワークスペース管理者のワークスペースの管理</block>
+  <block id="d46c994bf0fc996e0688f4f3c54602cd" category="section-title">サービスコネクタのワークスペースを管理する</block>
 </blocks>

@@ -62,6 +62,7 @@ image:screenshot_settings_icon.gif["Cloud Manager コンソールの右上にあ
 . ポリシーの要件が満たされていることを確認し、 * アカウントの作成 * をクリックします。
 
 
+.次の手順
 個々のボリュームを作成、変更、またはレプリケートするときに、それらのボリュームでデータ階層化を有効にできるようになりました。詳細については、を参照してください link:task_tiering.html["使用頻度の低いデータを低コストのオブジェクトストレージに階層化"]。
 
 ただし、事前に、 Cloud Volumes ONTAP が存在するサブネットがプライベート Google アクセス用に構成されていることを確認してください。手順については、を参照してください https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud のドキュメント：「 Configuring Private Google Access"^]。

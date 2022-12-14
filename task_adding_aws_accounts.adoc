@@ -21,8 +21,8 @@ NOTE: Cloud Central から Cloud Manager を導入すると、 Cloud Manager を
 
 * 選択肢 *
 
-*  permissions by providing AWS keys
-*  permissions by assuming IAM roles in other accounts
+* <<AWS キーを指定して権限を付与します>>
+* <<他のアカウントで IAM ロールを想定して権限を付与する>>
 
 
 
@@ -45,7 +45,8 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html["AW
 
 
 
-これで、アカウントに必要な権限が付与されました。  AWS accounts to Cloud Manager,これで、 Cloud Manager に追加できます。
+.結果
+これで、アカウントに必要な権限が付与されました。 <<Cloud Manager に AWS アカウントを追加する,これで、 Cloud Manager に追加できます>>。
 
 
 
@@ -89,7 +90,8 @@ image:screenshot_iam_create_role.gif["AWS IAM コンソールの Create role ペ
 
 
 
-これで、アカウントに必要な権限が付与されました。  AWS accounts to Cloud Manager,これで、 Cloud Manager に追加できます。
+.結果
+これで、アカウントに必要な権限が付与されました。 <<Cloud Manager に AWS アカウントを追加する,これで、 Cloud Manager に追加できます>>。
 
 
 
@@ -107,6 +109,7 @@ image:screenshot_settings_icon.gif["Cloud Manager コンソールの右上にあ
 . ポリシーの要件が満たされていることを確認し、 * アカウントの作成 * をクリックします。
 
 
+.結果
 新しい作業環境を作成するときに、 [ 詳細と資格情報 ] ページから別のアカウントに切り替えることができるようになりました。
 
 image:screenshot_accounts_switch_aws.gif["[ 詳細と資格情報 ] ページで [ アカウントの切り替え ] をクリックした後に、クラウドプロバイダアカウントを選択する方法を示すスクリーンショット。"]

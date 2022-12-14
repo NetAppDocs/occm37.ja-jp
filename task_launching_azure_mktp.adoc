@@ -69,6 +69,7 @@ image:screenshot_set_up_cloud_manager.gif["Cloud Manager のセットアップ�
 
 
 
+.結果
 Cloud Manager のインストールとセットアップが完了しました。Cloud Volumes ONTAP を Azure に導入するには、 Azure の権限を付与する必要があります。
 
 
@@ -125,4 +126,5 @@ NOTE: OnCommand Cloud Manager Operator は、で指定されたデフォルト�
 
 
 
+.結果
 Cloud Manager には、クラウドボリューム ONTAP を Azure に導入して管理するために必要な権限が付与されました。

@@ -54,6 +54,7 @@ image:screenshot_cvs_aws_details.gif["Cloud Volumes Service の詳細ページ�
 
 
 
+.結果
 これで、 Cloud Manager の作業環境のページに Cloud Volumes Service for AWS の設定が表示されます。
 
 image:screenshot_cvs_aws_cloud.gif["Cloud Volumes Service for AWS の作業環境のページ上のスクリーンショット。"]
@@ -79,6 +80,7 @@ image:screenshot_cvs_discover_region.gif["「 Discover Cloud Volumes Service in 
 
 
 
+.結果
 Cloud Manager によって、選択したリージョン内の Cloud Volume に関する情報が検出されます。
 
 

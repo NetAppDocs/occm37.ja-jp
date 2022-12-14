@@ -23,4 +23,5 @@ Azure Marketplace は Azure Germany 地域ではご利用いただけません�
 . link:task_adding_azure_accounts.html["サービスプリンシパルを使用して Cloud Manager に Azure 権限を付与します"]。
 
 
+.完了後
 Cloud Manager は、他の地域と同様に、 Azure Germany 地域に Cloud Volumes ONTAP を導入する準備が整いました。ただし、最初に追加のセットアップを実行することもできます。

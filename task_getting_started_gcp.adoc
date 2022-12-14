@@ -21,7 +21,7 @@ GCP に Cloud Volumes ONTAP を導入するには、 Cloud Manager が Google Cl
 
 
 
-=== ネットワークをセットアップします
+=== image:number1.png["番号 1"] ネットワークをセットアップします
 
 [role="quick-margin-para"]
 Cloud Manager と Cloud Volumes ONTAP が複数のエンドポイントに接続できるように、ターゲット vPC からのアウトバウンドインターネットアクセスを有効にします。
@@ -31,11 +31,12 @@ Cloud Manager ではアウトバウンドのインターネットアクセスな
 
 
 
-=== GCP の権限とプロジェクトを設定します
+=== image:number2.png["番号2."] GCP の権限とプロジェクトを設定します
 
 [role="quick-margin-para"]
 2 組の権限が設定されていることを確認します。
 
+[role="quick-margin-list"]
 . Cloud Manager を導入する GCP ユーザがであることを確認します NetApp Cloud Central には、にアクセス許可が含まれています https://occm-sample-policies.s3.amazonaws.com/Setup_As_Service_3.7.3_GCP.yaml["GCP 向けの Cloud Central ポリシー"^]。
 +
 https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["YAML ファイルを使用してカスタムロールを作成できます"^] ユーザーに添付します。gcloud コマンドラインを使用して、ロールを作成する必要があります。
@@ -57,11 +58,12 @@ https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-
 
 
 
-=== データ階層化用の GCP をセットアップします
+=== image:number3.png["番号3."] データ階層化用の GCP をセットアップします
 
 [role="quick-margin-para"]
 Cloud Volumes ONTAP 9.7 から低コストのオブジェクトストレージ（ Google Cloud Storage バケット）にコールドデータを階層化するには、次の 2 つの要件を満たす必要があります。
 
+[role="quick-margin-list"]
 . https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["サービスアカウントを作成します"^] 事前定義された Storage Admin ロールと Cloud Manager サービスアカウントをユーザとして使用する必要があります。
 +
 このサービスアカウントは、 Cloud Volumes ONTAP 作業環境の作成後に選択する必要があります。このサービスアカウントは、手順 2 で作成したサービスアカウントとは異なります。
@@ -74,11 +76,12 @@ Cloud Volumes ONTAP 9.6 でデータ階層化を使用する場合は、 link:ta
 
 
 
-=== Google Cloud API を有効にします
+=== image:number4.png["番号4."] Google Cloud API を有効にします
 
 [role="quick-margin-para"]
 https://cloud.google.com/apis/docs/getting-started#enabling_apis["プロジェクトで次の Google Cloud API を有効にします"^]。これらの API は、 Cloud Manager と Cloud Volumes ONTAP の導入に必要です。
 
+[role="quick-margin-list"]
 * Cloud Deployment Manager V2 API
 * Cloud Resource Manager API の略
 * Compute Engine API
@@ -87,14 +90,14 @@ https://cloud.google.com/apis/docs/getting-started#enabling_apis["プロジェ�
 
 
 
-=== GCP Marketplace から登録します
+=== image:number5.png["番号5."] GCP Marketplace から登録します
 
 [role="quick-margin-para"]
 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager["GCP Marketplace から Cloud Volumes ONTAP に登録します"^] 無償トライアルの終了後にサービスを中断しないようにするため。作成した Cloud Volumes ONTAP PAYGO システムごとに、このサブスクリプションから課金されます。
 
 
 
-=== NetApp Cloud Central から Cloud Manager を起動します
+=== image:number6.png["番号6."] NetApp Cloud Central から Cloud Manager を起動します
 
 [role="quick-margin-para"]
 Cloud Volumes ONTAP の導入と管理には、 Cloud Manager ソフトウェアが必要です。から GCP で Cloud Manager インスタンスを起動するには数分かかります https://cloud.netapp.com["Cloud Central にアクセスできます"^]。
@@ -104,7 +107,7 @@ Cloud Volumes ONTAP の導入と管理には、 Cloud Manager ソフトウェア
 
 
 
-=== Cloud Manager を使用して Cloud Volumes ONTAP を起動します
+=== image:number7.png["番号7."] Cloud Manager を使用して Cloud Volumes ONTAP を起動します
 
 [role="quick-margin-para"]
 Cloud Manager の準備ができたら、 [ 作成 ] をクリックし、導入するシステムのタイプを選択して、ウィザードの手順を完了します。25 分経過すると、最初の Cloud Volumes ONTAP システムが起動して実行されます。

@@ -20,27 +20,29 @@ summary: ホットデータ用の SSD または HDD のパフォーマンス階�
 
 
 
-==== サポートされている構成を選択します
+==== image:number1.png["番号 1"] サポートされている構成を選択します
 
 [role="quick-margin-para"]
 ほとんどの構成がサポートされています。最新バージョンを実行している Cloud Volumes ONTAP Standard 、 Premium 、または BYOL システムがある場合は、この方法を推奨します。 link:task_tiering.html#configurations-that-support-data-tiering["詳細はこちら。"]。
 
 
 
-==== Cloud Volumes ONTAP とオブジェクトストレージ間の接続を確認します
+==== image:number2.png["番号2."] Cloud Volumes ONTAP とオブジェクトストレージ間の接続を確認します
 
-* AWS では、 S3 への VPC エンドポイントが必要です。  for tiering data in AWS,詳細はこちら。。
-* Azure では、 Cloud Manager に必要な権限が付与されていれば何も実行する必要はありません。  for tiering data in Microsoft Azure,詳細はこちら。。
-* GCP の場合、 Cloud Manager に GCP アカウントを追加し、プライベート Google アクセス用のサブネットを設定する必要があります。  for tiering data in Google Cloud Platform,詳細はこちら。。
+[role="quick-margin-list"]
+* AWS では、 S3 への VPC エンドポイントが必要です。 <<Requirements for tiering data in AWS,詳細はこちら。>>。
+* Azure では、 Cloud Manager に必要な権限が付与されていれば何も実行する必要はありません。 <<Requirements for tiering data in Microsoft Azure,詳細はこちら。>>。
+* GCP の場合、 Cloud Manager に GCP アカウントを追加し、プライベート Google アクセス用のサブネットを設定する必要があります。 <<Requirements for tiering data in Google Cloud Platform,詳細はこちら。>>。
 
 
 
 
-==== ボリュームを作成、変更、またはレプリケートするときに階層化ポリシーを選択します
+==== image:number3.png["番号3."] ボリュームを作成、変更、またはレプリケートするときに階層化ポリシーを選択します
 
 [role="quick-margin-para"]
 ボリュームを作成、変更、またはレプリケートするときに、 Cloud Manager から階層化ポリシーを選択するよう求められます。
 
+[role="quick-margin-list"]
 * link:task_tiering.html#tiering-data-from-read-write-volumes["読み取り / 書き込みボリュームでのデータの階層化"]
 * link:task_tiering.html#tiering-data-from-data-protection-volumes["データ保護ボリューム上のデータの階層化"]
 
@@ -176,6 +178,7 @@ image:screenshot_replication_tiering.gif["ボリュームのレプリケーシ�
 
 NOTE: 現在、 _Regional _storage クラスのみがサポートされているため、 GCP で階層化レベルを変更することはできません。
 
+.このタスクについて
 階層化レベルはシステム全体で使用され、ボリュームごとではありません。
 
 AWS では、非アクティブなデータが 30 日後に次のいずれかのストレージクラスに移動するように階層化レベルを変更できます。
