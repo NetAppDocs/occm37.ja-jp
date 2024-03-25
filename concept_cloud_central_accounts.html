@@ -1,0 +1,2909 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head class="at-element-marker">
+  <title>Cloud Central アカウント</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Cloud Central アカウント" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/occm37/concept_cloud_central_accounts.html" />
+	<meta property="og:description" content="各 Cloud Manager システムは、 NetApp Cloud Central アカウントに関連付けられています。Cloud Central アカウントは、 Cloud Manager システムと、ユーザが Cloud Volumes ONTAP を導入するワークスペースのコンテナです。" />
+  <meta property="og:image" content="https://docs.netapp.com/ja-jp/occm37/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta http-equiv="nss-product" content="OnCommand Cloud Manager"/><meta name="description" content="各 Cloud Manager システムは、 NetApp Cloud Central アカウントに関連付けられています。Cloud Central アカウントは、 Cloud Manager システムと、ユーザが Cloud Volumes ONTAP を導入するワークスペースのコンテナです。">
+  <meta name="keywords" content=" accounts, workspaces, service connector, users, cloud central, admin, Account Admin, Workspace Admin"><!-- Icons -->
+  <link rel="icon" href="/ja-jp/occm37/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/occm37/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/ja-jp/occm37/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/ja-jp/occm37/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/ja-jp/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/occm37/concept_cloud_central_accounts.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/occm37/concept_cloud_central_accounts.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ja-jp/occm37/js/na-search.js'></script><script src='/ja-jp/occm37/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/ja-jp/occm37/js/custom-dropdown.js'></script>
+  <script src='/ja-jp/occm37/js/FileSaver.min.js'></script>
+  <script src='/ja-jp/occm37/js/jszip-utils.min.js'></script>
+  <script src='/ja-jp/occm37/js/jszip.min.js'></script><script src='/ja-jp/occm37/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/ja-jp/occm37/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/ja/">
+                <image id="ie-header-logo" src="/ja-jp/occm37/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/ja/support-and-training/documentation/">ドキュメント</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/ja-jp/occm37/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">日本語</span>
+                    <img src="/ja-jp/occm37/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/ja-jp/occm37/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/ja-jp/occm37/concept_cloud_central_accounts.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/occm37/concept_cloud_central_accounts.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ko-kr/occm37/concept_cloud_central_accounts.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/occm37/concept_cloud_central_accounts.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-tw/occm37/concept_cloud_central_accounts.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/de-de/occm37/concept_cloud_central_accounts.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/occm37/concept_cloud_central_accounts.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/fr-fr/occm37/concept_cloud_central_accounts.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/it-it/occm37/concept_cloud_central_accounts.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/ja-jp/occm37/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">すべてのNetApp</span>
+                    <img src="/ja-jp/occm37/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/ja-jp/occm37/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/ja/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">サポート</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb-ja.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">ナレッジ ベース</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">トレーニング</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/ja-jp/occm37/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/ja-jp/occm37/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">すべてのドキュメント</a>
+    </li>
+    
+    
+
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/ja-jp/occm37/">-->
+      Cloud Manager 3.7
+    <!--</a>-->
+  </div>
+</div>
+
+            
+
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/ja-jp/occm37/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/ja-jp/occm37/search.html" 
+        data-type="widget"
+        data-placeholder="ドキュメントを検索"
+        data-no-results-found="{query}に一致する結果は見つかりませんでした"
+        data-did-you-mean="{suggestion}で検索しています。"
+        data-no-results-found-did-you-mean="{query}に一致する結果は見つかりませんでした。{suggestion}で検索しますか？"
+        data-results-found="{hitCount}件の結果が見つかりました"
+        data-error-message="エラーが発生しました。もう一度お試しください。"
+        data-error-reset="検索をリセット"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Manager 3.7 のドキュメント"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ja-jp/occm37/index.html">
+        Cloud Manager 3.7 のドキュメント
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リリースノート"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> リリースノート</div>-->
+         リリースノート
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="クラウドマネージャ"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> クラウドマネージャ</div>-->
+         クラウドマネージャ
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="新機能"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_new_occm.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/reference_new_occm.html">
+        新機能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="既知の問題"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_issues.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/reference_issues.html">
+        既知の問題
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="既知の制限"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_limitations.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/reference_limitations.html">
+        既知の制限
+      </a></li></ul></li><li 
+      data-pdf-exists="false" 
+      data-pdf-filename="Cloud Volumes ONTAP"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="https://docs.netapp.com/us-en/cloud-volumes-ontap/" 
+    ><a class="ie-sidebar-menuitem-2 " href="https://docs.netapp.com/us-en/cloud-volumes-ontap/">
+        Cloud Volumes ONTAP
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="概念"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 概念</div>-->
+         概念
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="製品の概要"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/concept_overview.html">
+        製品の概要
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp Cloud Central"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_cloud_central.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/concept_cloud_central.html">
+        NetApp Cloud Central
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Central アカウント"
+      data-li-level="2#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_cloud_central_accounts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/concept_cloud_central_accounts.html">
+        Cloud Central アカウント
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="クラウドプロバイダアカウント"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> クラウドプロバイダアカウント</div>-->
+         クラウドプロバイダアカウント
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS アカウント"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_accounts_aws.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/concept_accounts_aws.html">
+        AWS アカウント
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure アカウント"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_accounts_azure.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/concept_accounts_azure.html">
+        Azure アカウント
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="GCP アカウント"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_accounts_gcp.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/concept_accounts_gcp.html">
+        GCP アカウント
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージ"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ストレージ</div>-->
+         ストレージ
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ディスクとアグリゲート"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_storage.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/concept_storage.html">
+        ディスクとアグリゲート
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データの階層化"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_data_tiering.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/concept_data_tiering.html">
+        データの階層化
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージ管理"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_storage_management.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/concept_storage_management.html">
+        ストレージ管理
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="WORM ストレージ"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_worm.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/concept_worm.html">
+        WORM ストレージ
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ハイアベイラビリティペア"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ハイアベイラビリティペア</div>-->
+         ハイアベイラビリティペア
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS の HA ペア"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_ha.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/concept_ha.html">
+        AWS の HA ペア
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure の HA ペア"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_ha_azure.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/concept_ha_azure.html">
+        Azure の HA ペア
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="評価中"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_evaluating.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/concept_evaluating.html">
+        評価中
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ライセンス"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_licensing.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/concept_licensing.html">
+        ライセンス
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="セキュリティ"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_security.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/concept_security.html">
+        セキュリティ
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="パフォーマンス"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_performance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/concept_performance.html">
+        パフォーマンス
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="はじめに"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> はじめに</div>-->
+         はじめに
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="導入の概要"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_deployment_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_deployment_overview.html">
+        導入の概要
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS を始めましょう"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_getting_started_aws.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_getting_started_aws.html">
+        AWS を始めましょう
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure で始めましょう"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_getting_started_azure.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_getting_started_azure.html">
+        Azure で始めましょう
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="GCP を始めましょう"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_getting_started_gcp.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_getting_started_gcp.html">
+        GCP を始めましょう
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Manager をセットアップする"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Cloud Manager をセットアップする</div>-->
+         Cloud Manager をセットアップする
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Central アカウントをセットアップします"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_setting_up_cloud_central_accounts.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_setting_up_cloud_central_accounts.html">
+        Cloud Central アカウントをセットアップします
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS アカウントを追加"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_adding_aws_accounts.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_adding_aws_accounts.html">
+        AWS アカウントを追加
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure アカウントを追加"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_adding_azure_accounts.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_adding_azure_accounts.html">
+        Azure アカウントを追加
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="GCP アカウントを追加します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_adding_gcp_accounts.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_adding_gcp_accounts.html">
+        GCP アカウントを追加します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ネットアップサポートサイトのアカウントを追加してください"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_adding_nss_accounts.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_adding_nss_accounts.html">
+        ネットアップサポートサイトのアカウントを追加してください
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="HTTPS 証明書をインストールします"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_installing_https_cert.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_installing_https_cert.html">
+        HTTPS 証明書をインストールします
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS KMS を設定します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_setting_up_kms.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_setting_up_kms.html">
+        AWS KMS を設定します
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ネットワーク要件"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ネットワーク要件</div>-->
+         ネットワーク要件
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="クラウドマネージャ"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_networking_cloud_manager.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/reference_networking_cloud_manager.html">
+        クラウドマネージャ
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP for AWS"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_networking_aws.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/reference_networking_aws.html">
+        Cloud Volumes ONTAP for AWS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS 転送ゲートウェイを設定します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_setting_up_transit_gateway.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_setting_up_transit_gateway.html">
+        AWS 転送ゲートウェイを設定します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP for Azure"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_networking_azure.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/reference_networking_azure.html">
+        Cloud Volumes ONTAP for Azure
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP for GCP の略"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_networking_gcp.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/reference_networking_gcp.html">
+        Cloud Volumes ONTAP for GCP の略
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="追加の導入オプション"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 追加の導入オプション</div>-->
+         追加の導入オプション
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Manager ホストの要件"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_cloud_mgr_reqs.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/reference_cloud_mgr_reqs.html">
+        Cloud Manager ホストの要件
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Linux に Cloud Manager をインストール"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_installing_linux.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_installing_linux.html">
+        Linux に Cloud Manager をインストール
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS Marketplace から Cloud Manager を導入"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_launching_aws_mktp.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_launching_aws_mktp.html">
+        AWS Marketplace から Cloud Manager を導入
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure Marketplace から Cloud Manager を導入"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_launching_azure_mktp.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_launching_azure_mktp.html">
+        Azure Marketplace から Cloud Manager を導入
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure リージョンに Cloud Manager を導入"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_installing_azure_gov.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_installing_azure_gov.html">
+        Azure リージョンに Cloud Manager を導入
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure ドイツリージョンに Cloud Manager を導入"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_installing_azure_germany.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/occm37/task_installing_azure_germany.html">
+        Azure ドイツリージョンに Cloud Manager を導入
+      </a></li><li 
+      data-pdf-exists="false" 
+      data-pdf-filename="AWS C2S で作業を開始する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="https://docs.netapp.com/us-en/occm/media/c2s.pdf" 
+    ><a class="ie-sidebar-menuitem-3 " href="https://docs.netapp.com/us-en/occm/media/c2s.pdf">
+        AWS C2S で作業を開始する
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Manager を常時実行"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_keep_up.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/concept_keep_up.html">
+        Cloud Manager を常時実行
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP を導入します"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Cloud Volumes ONTAP を導入します</div>-->
+         Cloud Volumes ONTAP を導入します
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="作業を開始する前に"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_before.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_before.html">
+        作業を開始する前に
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Manager にログインします"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_logging_in.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_logging_in.html">
+        Cloud Manager にログインします
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="構成を計画"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_planning_your_config.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_planning_your_config.html">
+        構成を計画
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="システム ID を確認します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_finding_system_id.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_finding_system_id.html">
+        システム ID を確認します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Flash Cache を有効にします"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_enabling_flash_cache.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_enabling_flash_cache.html">
+        Flash Cache を有効にします
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS で Cloud Volumes ONTAP を起動します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_deploying_otc_aws.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_deploying_otc_aws.html">
+        AWS で Cloud Volumes ONTAP を起動します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure で Cloud Volumes ONTAP を起動します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_deploying_otc_azure.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_deploying_otc_azure.html">
+        Azure で Cloud Volumes ONTAP を起動します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="GCP で Cloud Volumes ONTAP を起動します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_deploying_gcp.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_deploying_gcp.html">
+        GCP で Cloud Volumes ONTAP を起動します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="従量課金制システムを登録"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_registering.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_registering.html">
+        従量課金制システムを登録
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP をセットアップする"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_setting_up_ontap_cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_setting_up_ontap_cloud.html">
+        Cloud Volumes ONTAP をセットアップする
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージのプロビジョニング"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ストレージのプロビジョニング</div>-->
+         ストレージのプロビジョニング
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ボリューム、アグリゲート、および LUN を作成する"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_provisioning_storage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_provisioning_storage.html">
+        ボリューム、アグリゲート、および LUN を作成する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="アクセス頻度の低いデータをオブジェクトストレージに階層化します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_tiering.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_tiering.html">
+        アクセス頻度の低いデータをオブジェクトストレージに階層化します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ONTAP を永続的ストレージとして使用する"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_connecting_kubernetes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_connecting_kubernetes.html">
+        ONTAP を永続的ストレージとして使用する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp Volume Encryption を使用してボリュームを暗号化"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_encrypting_volumes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_encrypting_volumes.html">
+        NetApp Volume Encryption を使用してボリュームを暗号化
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="既存のストレージを管理"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_managing_storage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_managing_storage.html">
+        既存のストレージを管理
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データのレプリケートと保護"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> データのレプリケートと保護</div>-->
+         データのレプリケートと保護
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ONTAP クラスタを検出および管理する"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_discovering_ontap.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_discovering_ontap.html">
+        ONTAP クラスタを検出および管理する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="システム間でデータをレプリケート"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_replicating_data.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_replicating_data.html">
+        システム間でデータをレプリケート
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Amazon S3 にバックアップします"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_backup_to_s3.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_backup_to_s3.html">
+        Amazon S3 にバックアップします
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データを Amazon S3 に同期"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_syncing_s3.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_syncing_s3.html">
+        データを Amazon S3 に同期
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データプライバシーに関する分析情報を入手できます"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> データプライバシーに関する分析情報を入手できます</div>-->
+         データプライバシーに関する分析情報を入手できます
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Compliance の詳細をご確認ください"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/concept_cloud_compliance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/concept_cloud_compliance.html">
+        Cloud Compliance の詳細をご確認ください
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="はじめに"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_getting_started_compliance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_getting_started_compliance.html">
+        はじめに
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データの可視化と管理を実現"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_controlling_private_data.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_controlling_private_data.html">
+        データの可視化と管理を実現
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="レポートを生成します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_generating_compliance_reports.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_generating_compliance_reports.html">
+        レポートを生成します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="dsar に応答します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_responding_to_dsar.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_responding_to_dsar.html">
+        dsar に応答します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="クラウドコンプライアンスを無効化"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_managing_compliance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_managing_compliance.html">
+        クラウドコンプライアンスを無効化
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="よく寄せられる質問"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/faq_cloud_compliance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/faq_cloud_compliance.html">
+        よく寄せられる質問
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP の管理"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Cloud Volumes ONTAP の管理</div>-->
+         Cloud Volumes ONTAP の管理
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP に接続します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_connecting_to_otc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_connecting_to_otc.html">
+        Cloud Volumes ONTAP に接続します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ソフトウェアを更新します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_updating_ontap_cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_updating_ontap_cloud.html">
+        ソフトウェアを更新します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="システム設定を変更する"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_modifying_ontap_cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_modifying_ontap_cloud.html">
+        システム設定を変更する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="システムを停止して起動します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_managing_state.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_managing_state.html">
+        システムを停止して起動します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS のコストを監視"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_monitoring_costs.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_monitoring_costs.html">
+        AWS のコストを監視
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ランサムウェアからの保護を強化"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_protecting_ransomware.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_protecting_ransomware.html">
+        ランサムウェアからの保護を強化
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="既存のシステムを追加"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_adding_ontap_cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_adding_ontap_cloud.html">
+        既存のシステムを追加
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="システムを削除します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_deleting_working_env.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_deleting_working_env.html">
+        システムを削除します
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Manager の管理"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Cloud Manager の管理</div>-->
+         Cloud Manager の管理
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Manager を更新します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_updating_cloud_manager.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_updating_cloud_manager.html">
+        Cloud Manager を更新します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Central アカウントを管理します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_managing_cloud_central_accounts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_managing_cloud_central_accounts.html">
+        Cloud Central アカウントを管理します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="作業環境を削除します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_removing.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_removing.html">
+        作業環境を削除します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="プロキシを設定します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_configuring_proxy.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_configuring_proxy.html">
+        プロキシを設定します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="HTTPS 証明書を更新します"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_renewing_cert.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_renewing_cert.html">
+        HTTPS 証明書を更新します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Manager をリストア"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_restoring.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_restoring.html">
+        Cloud Manager をリストア
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Manager をアンインストールします"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_uninstalling.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_uninstalling.html">
+        Cloud Manager をアンインストールします
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ファイルサービス用のボリュームをプロビジョニングしてください"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ファイルサービス用のボリュームをプロビジョニングしてください</div>-->
+         ファイルサービス用のボリュームをプロビジョニングしてください
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure NetApp Files の特長"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_manage_anf.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_manage_anf.html">
+        Azure NetApp Files の特長
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes Service for AWS"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/task_manage_cvs_aws.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/task_manage_cvs_aws.html">
+        Cloud Volumes Service for AWS
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="API と自動化"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> API と自動化</div>-->
+         API と自動化
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="false" 
+      data-pdf-filename="API 開発者ガイド"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="https://docs.netapp.com/us-en/occm/api.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="https://docs.netapp.com/us-en/occm/api.html">
+        API 開発者ガイド
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="自動化のサンプル"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_infrastructure_as_code.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_infrastructure_as_code.html">
+        自動化のサンプル
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="参照"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/occm37/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/occm37/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 参照</div>-->
+         参照
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Central の統合に関する FAQ"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_integration_faq.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_integration_faq.html">
+        Cloud Central の統合に関する FAQ
+      </a></li><li 
+      data-pdf-exists="false" 
+      data-pdf-filename="Cloud Volumes ONTAP でサポートされる構成"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html">
+        Cloud Volumes ONTAP でサポートされる構成
+      </a></li><li 
+      data-pdf-exists="false" 
+      data-pdf-filename="サポートされている地域"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="https://cloud.netapp.com/cloud-volumes-global-regions" 
+    ><a class="ie-sidebar-menuitem-2 " href="https://cloud.netapp.com/cloud-volumes-global-regions">
+        サポートされている地域
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS のセキュリティグループルール"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_security_groups.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_security_groups.html">
+        AWS のセキュリティグループルール
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure のセキュリティグループルール"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_security_groups_azure.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_security_groups_azure.html">
+        Azure のセキュリティグループルール
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="GCP のファイアウォールルール"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_firewall_rules_gcp.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_firewall_rules_gcp.html">
+        GCP のファイアウォールルール
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="AWS Marketplace ページ"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_aws_marketplace.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_aws_marketplace.html">
+        AWS Marketplace ページ
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="権限"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_permissions.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_permissions.html">
+        権限
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="デフォルト設定"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_default_configs.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_default_configs.html">
+        デフォルト設定
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ユーザロール"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_user_roles.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_user_roles.html">
+        ユーザロール
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="関連リンク"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_additional_info.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/occm37/reference_additional_info.html">
+        関連リンク
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="以前のバージョン"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_earlier_versions.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ja-jp/occm37/reference_earlier_versions.html">
+        以前のバージョン
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="法的通知"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/concept_cloud_central_accounts.html" 
+      dale-entry-url="/reference_legal_notices.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ja-jp/occm37/reference_legal_notices.html">
+        法的通知
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/ja-jp/occm37"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/ja-jp/occm37"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      
+  <div class="ie-info-disclaimer" id="downlevel-banner">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/ja-jp/occm37/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span>本製品の最新リリースがご利用いただけます。</span><br>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div>
+<div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/ja-jp/occm37/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> 日本語は機械翻訳による参考訳です。内容に矛盾や不一致があった場合には、英語の内容が優先されます。 </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">Cloud Central アカウント</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2022-05-03 05:58:54 +0000">05/03/2022</time>
+        
+    
+    
+        <span>共同作成者
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/ja-jp/occm37/images/discuss-sm.svg" alt="" class="github-icon" />変更を提案</span>
+        <img src="/ja-jp/occm37/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/ja-jp/occm37/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/occm37.ja-jp/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/ja-jp/occm37/concept_cloud_central_accounts.html&page-title=Cloud Central アカウント" class="page-nav-contribute-link" role="button">ドキュメントの変更をリクエスト</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/occm37/blob/main/concept_cloud_central_accounts.adoc" class="page-nav-contribute-link" role="button">このページを編集</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >フィードバックを送るには</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>PDF<img src="/ja-jp/occm37/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/ja-jp/occm37/pdfs/fullsite-sidebar/Cloud_Manager_および_Cloud_Volumes_ONTAP_のドキュメント.pdf" >
+                    <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>このドキュメント ページのPDF</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/リリースノート.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            リリースノート
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/クラウドマネージャ.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            クラウドマネージャ
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/概念.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            概念
+          </a>
+          
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/クラウドプロバイダアカウント.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            クラウドプロバイダアカウント
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/ストレージ.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ストレージ
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/ハイアベイラビリティペア.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ハイアベイラビリティペア
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/はじめに.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            はじめに
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/Cloud_Manager_をセットアップする.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Cloud Manager をセットアップする
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/ネットワーク要件.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ネットワーク要件
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/追加の導入オプション.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            追加の導入オプション
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/Cloud_Volumes_ONTAP_を導入します.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Cloud Volumes ONTAP を導入します
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/ストレージのプロビジョニング.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ストレージのプロビジョニング
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/データのレプリケートと保護.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            データのレプリケートと保護
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/データプライバシーに関する分析情報を入手できます.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            データプライバシーに関する分析情報を入手できます
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/Cloud_Volumes_ONTAP_の管理.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Cloud Volumes ONTAP の管理
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/Cloud_Manager_の管理.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Cloud Manager の管理
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/ファイルサービス用のボリュームをプロビジョニングしてください.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ファイルサービス用のボリュームをプロビジョニングしてください
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/API_と自動化.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            API と自動化
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/occm37/pdfs/sidebar/参照.pdf" 
+            
+          >
+            <img src="/ja-jp/occm37/images/pdf-icon.png" alt="" width="16" height="16"/>
+            参照
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/ja-jp/occm37/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>PDF版ドキュメントのセット<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>各 Cloud Manager システムには、 _NetApp Cloud Central アカウント _ が関連付けられています。Cloud Central アカウントはマルチテナンシーを提供し、分離されたワークスペースでユーザやリソースを整理することができます。</p>
+</div>
+<div class="paragraph">
+<p>Cloud Central アカウントでは、マルチテナンシーが可能です。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>単一のクラウドセントラルアカウントには、さまざまなビジネスニーズに対応する複数のクラウドマネージャシステムを含めることができます。</p>
+<div class="paragraph">
+<p>ユーザは Cloud Central アカウントに関連付けられるため、 Cloud Manager システムごとにユーザを設定する必要はありません。</p>
+</div>
+</li>
+<li>
+<p>各 Cloud Manager システム内では、複数のユーザが、ワークスペースと呼ばれる分離された環境に Cloud Volumes ONTAP システムを導入して管理できます。</p>
+<div class="paragraph">
+<p>これらのワークスペースは、共有されていない限り、他のユーザーには表示されません。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cloud Manager を導入する場合は、システムに関連付ける Cloud Central アカウントを選択します。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_account_selection.gif" alt="Cloud Manager のセットアップウィザードのスクリーンショット。 Cloud Manager を作成する Cloud Central アカウントの入力を求められます。"></span></p>
+</div>
+<div class="paragraph">
+<p>アカウント管理者は、ユーザー、ワークスペース、サービスコネクタを管理することで、このアカウントの設定を変更できます。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_account_settings.gif" alt="ユーザー、ワークスペース、サービスコネクタを管理できるアカウント設定ウィジェットを示すスクリーンショット。"></span></p>
+</div>
+<div class="paragraph">
+<p>手順については、を参照してください <a href="task_setting_up_cloud_central_accounts.html">"Cloud Central アカウントをセットアップします"</a>。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/occm37/images/note.svg" alt="メモ">
+</td>
+<td class="content">
+Cloud Central アカウントサービスに接続するためには、 Cloud Manager から <a href="https://cloudmanager.cloud.netapp.com_" class="bare">https://cloudmanager.cloud.netapp.com_</a> にアクセスする必要があります。ファイアウォールでこの URL を開いて、 Cloud Manager がサービスに接続できることを確認します。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ユーザワークスペースおよびサービスコネクタ">ユーザ、ワークスペース、およびサービスコネクタ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Manager の ［ アカウント設定 ］ ウィジェットを使用すると、アカウント管理者は Cloud Central アカウントを管理できます。アカウントを作成したばかりの場合は、最初から作成します。アカウントをすでに設定している場合は、アカウントに関連付けられているユーザ、ワークスペース、サービスコネクタが <em>ALL</em> と表示されます。</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">ユーザ</dt>
+<dd>
+<p>これらは、 Cloud Central アカウントに関連付けられている NetApp Cloud Central ユーザです。ユーザーをアカウントに関連付け、そのアカウント内の 1 つ以上のワークスペースを使用すると、ユーザーは Cloud Manager で作業環境を作成して管理できます。</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>ユーザを関連付けると、ユーザにロールが割り当てられます。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Account Admin</em> ： Cloud Manager で任意の操作を実行できます。</p>
+</li>
+<li>
+<p>_ ワークスペース管理者 _ ：割り当てられたワークスペースでリソースを作成および管理できます。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">ワークスペース</dt>
+<dd>
+<p>Cloud Manager では、ワークスペースによって、いくつかの _ 作業環境 _ が他の作業環境から分離されます。アカウント管理者がそのワークスペースに管理者を関連付けないと、ワークスペース管理者はワークスペース内の作業環境にアクセスできません。</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>稼働環境はストレージシステムを表します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>シングルノードクラウドボリューム ONTAP システムまたは HA ペア</p>
+</li>
+<li>
+<p>ネットワーク内のオンプレミス ONTAP クラスタ</p>
+</li>
+<li>
+<p>NetApp プライベートストレージ構成の ONTAP クラスタ</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">サービスコネクタ</dt>
+<dd>
+<p>Service Connector は Cloud Manager の一部です。クラウドマネージャソフトウェアの多く（ユーザインターフェイスなど）が実行されますが、接続先のクラウドセントラルサービス（ Auth0 アカウントと Cloud Central アカウント）がいくつかあります。Service Connector は、クラウドプロバイダに導入された仮想マシンインスタンス、または設定したオンプレミスホストで実行されます。</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Service Connector は、複数の NetApp クラウドデータサービスで使用できます。たとえば、 Cloud Manager 用の Service Connector がすでにある場合は、 Cloud Tiering Service のセットアップ時にそのコネクタを選択できます。</p>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="例">例</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>次の例は、 2 つのワークスペースを使用して、 Cloud Volumes ONTAP システムの分離環境を作成するアカウントを示しています。たとえば、 1 つのワークスペースがステージング環境用で、もう 1 つのワークスペースが本番環境用であるとします。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/occm37/images/note.svg" alt="メモ">
+</td>
+<td class="content">
+Cloud Manager と Cloud Volumes ONTAP システムは、実際には NetApp Cloud Central アカウントには存在しません。クラウドプロバイダで実行されています。これは、各コンポーネント間の関係の概念図です。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_central_accounts_one.png" alt="2 つのワークスペースを含む単一の Cloud Central アカウントを示す図。各ワークスペースは同じサービスコネクタに関連付けられ、それぞれに独自のワークスペース管理者が割り当てられます"></span></p>
+</div>
+<div class="paragraph">
+<p>次に、 2 つの異なる Cloud Central アカウントを使用した、最高レベルのマルチテナンシーの例を示します。たとえば、あるサービスプロバイダーがクラウドセントラルアカウントの Cloud Manager を使用して顧客にサービスを提供し、別のアカウントを使用していずれかのビジネスユニットに災害復旧を提供する場合などです。</p>
+</div>
+<div class="paragraph">
+<p>Account 2 には、 2 つの個別のサービスコネクタが含まれています。これは、システムが別々の地域にある場合や、別々のクラウドプロバイダにある場合に発生することがあります。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/occm37/images/note.svg" alt="メモ">
+</td>
+<td class="content">
+繰り返しになりますが、 Cloud Manager と Cloud Volumes ONTAP システムは、実際には NetApp Cloud Central アカウントではなく、クラウドプロバイダで実行されています。これは、各コンポーネント間の関係の概念図です。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_central_accounts_two.png" alt="「 2 つの Cloud Central アカウントを示す図。それぞれに複数のワークスペースと、それに関連付けられた Workspace Admins 。」"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cloud-central-アカウントとの統合に関する-faq">Cloud Central アカウントとの統合に関する FAQ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>クラウドマネージャ 3.7 にアップグレードした後、クラウドセントラルアカウントと統合するために、特定のクラウドマネージャシステムを選択する予定です。この FAQ では、このプロセスに関する質問にお答えします。</p>
+</div>
+<div class="sect2">
+<h3 id="プロセスにはどのくらいの時間がかかりますか">プロセスにはどのくらいの時間がかかりますか？</h3>
+<div class="paragraph">
+<p>わずか数分。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-manager-は使用できませんか">Cloud Manager は使用できませんか。</h3>
+<div class="paragraph">
+<p>いいえ。 Cloud Manager システムには引き続きアクセスできます。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-volumes-ontap-について教えてください">Cloud Volumes ONTAP について教えてください。</h3>
+<div class="paragraph">
+<p>Cloud Volumes ONTAP システムが停止することはありません。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="このプロセスでは何が起こりますか">このプロセスでは何が起こりますか？</h3>
+<div class="paragraph">
+<p>ネットアップは、統合プロセスで次のことを行います。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>新しい Cloud Central アカウントを作成し、 Cloud Manager システムに関連付けます。</p>
+</li>
+<li>
+<p>既存の各ユーザに新しいロールを割り当てます。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Manager 管理者はアカウント管理者になります</p>
+</li>
+<li>
+<p>テナント管理者と作業環境管理者は、ワークスペース管理者になります</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>既存のテナントを置き換えるワークスペースを作成します。</p>
+</li>
+<li>
+<p>作業環境をこれらのワークスペースに配置します。</p>
+</li>
+<li>
+<p>Service Connector をすべてのワークスペースに関連付けます。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-manager-システムのインストール先はどこにいても問題ありませんか">Cloud Manager システムのインストール先はどこにいても問題ありませんか。</h3>
+<div class="paragraph">
+<p>いいえネットアップは、 AWS 、 Azure 、オンプレミスのいずれの環境にあっても、 Cloud Central アカウントとシステムを統合します。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/ja-jp/occm37/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/ja-jp/occm37/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">このページ</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2024 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">ご利用規約</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">プライバシー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">クッキー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">クッキーの設定</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">このページに関するフィードバックをお寄せください</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/ja-jp/occm37/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/ja-jp/occm37/js/prism.js'></script>
+      <script type="text/javascript" src='/ja-jp/occm37/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/ja-jp/occm37/js/ie-tabbed-blocks.js'></script>
+    <script src='/ja-jp/occm37/js/ie-sidebar.js'></script>
+  </body>
+
+</html>
