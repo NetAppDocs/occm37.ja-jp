@@ -16,6 +16,14 @@ Cloud Manager を使用すると、 NetApp Cloud Volumes ONTAP を導入して�
 
 
 
+== BlueXP
+
+NetApp BlueXPは、Cloud Managerを通じて提供される機能を拡張、強化します。
+
+https://docs.netapp.com/us-en/bluexp-family/["BlueXPのドキュメントにアクセス"^]
+
+
+
 == 最新情報をご確認ください
 
 * link:reference_new_occm.html["Cloud Manager の新機能"]
